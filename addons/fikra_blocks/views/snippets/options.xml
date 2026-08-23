@@ -2,9 +2,7 @@
 <odoo>
 
     <!-- ====================================================================
-         Options affichées dans le panneau de droite quand le bloc est
-         sélectionné. Tout passe par des classes CSS (data-select-class),
-         donc aucun JavaScript n'est nécessaire.
+         Bandeau défilant — options
          ==================================================================== -->
     <template id="s_fikra_marquee_options" inherit_id="website.snippet_options"
               name="Bandeau défilant — options">
@@ -32,6 +30,41 @@
 
                 <we-checkbox string="Pause au survol"
                              data-select-class="s_fikra_marquee_pause"/>
+
+            </div>
+        </xpath>
+
+    </template>
+
+    <!-- ====================================================================
+         Cartes animées — options
+         Chaque réglage se traduit par une classe CSS : aucun JavaScript.
+         ==================================================================== -->
+    <template id="s_fikra_cards_options" inherit_id="website.snippet_options"
+              name="Cartes animées — options">
+
+        <xpath expr="." position="inside">
+            <div data-js="FikraCards"
+                 data-selector=".s_fikra_cards"
+                 string="Cartes animées">
+
+                <we-select string="Effet de survol">
+                    <we-button data-select-class="">Élévation</we-button>
+                    <we-button data-select-class="s_fikra_cards_glow">Bordure lumineuse</we-button>
+                    <we-button data-select-class="s_fikra_cards_zoom">Zoom de l'icône</we-button>
+                    <we-button data-select-class="s_fikra_cards_static">Aucun</we-button>
+                </we-select>
+
+                <we-select string="Style de carte">
+                    <we-button data-select-class="">Fond léger</we-button>
+                    <we-button data-select-class="s_fikra_cards_bordered">Contour</we-button>
+                    <we-button data-select-class="s_fikra_cards_flat">Sans bordure</we-button>
+                </we-select>
+
+                <we-select string="Angles">
+                    <we-button data-select-class="">Arrondis</we-button>
+                    <we-button data-select-class="s_fikra_cards_sharp">Droits</we-button>
+                </we-select>
 
             </div>
         </xpath>

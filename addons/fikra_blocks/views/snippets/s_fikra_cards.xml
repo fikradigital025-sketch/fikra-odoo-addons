@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ====================================================================
+         Cartes avec effet de survol
+         Grille Bootstrap 5 standard : l'éditeur Odoo sait donc dupliquer,
+         supprimer et redimensionner les colonnes nativement. Tous les
+         textes et icônes sont éditables sans configuration particulière.
+         ==================================================================== -->
+    <template id="s_fikra_cards" name="Cartes animées">
+        <section class="s_fikra_cards o_colored_level pt56 pb56"
+                 data-name="Cartes animées">
+            <div class="container">
+
+                <div class="row g-4">
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="s_fikra_card">
+                            <div class="s_fikra_card_icon">
+                                <i class="fa fa-rocket"/>
+                            </div>
+                            <h4 class="s_fikra_card_title">Lancement rapide</h4>
+                            <p class="s_fikra_card_text">
+                                Décrivez ici le premier bénéfice pour votre client.
+                                Restez concret et court.
+                            </p>
+                            <a href="#" class="s_fikra_card_link">
+                                En savoir plus <i class="fa fa-arrow-right"/>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="s_fikra_card">
+                            <div class="s_fikra_card_icon">
+                                <i class="fa fa-shield"/>
+                            </div>
+                            <h4 class="s_fikra_card_title">Sécurité</h4>
+                            <p class="s_fikra_card_text">
+                                Deuxième argument. Une ou deux phrases suffisent
+                                pour garder la carte lisible.
+                            </p>
+                            <a href="#" class="s_fikra_card_link">
+                                En savoir plus <i class="fa fa-arrow-right"/>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="s_fikra_card">
+                            <div class="s_fikra_card_icon">
+                                <i class="fa fa-life-ring"/>
+                            </div>
+                            <h4 class="s_fikra_card_title">Accompagnement</h4>
+                            <p class="s_fikra_card_text">
+                                Troisième argument. Terminez par ce qui rassure
+                                le plus vos prospects.
+                            </p>
+                            <a href="#" class="s_fikra_card_link">
+                                En savoir plus <i class="fa fa-arrow-right"/>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </template>
+
+</odoo>

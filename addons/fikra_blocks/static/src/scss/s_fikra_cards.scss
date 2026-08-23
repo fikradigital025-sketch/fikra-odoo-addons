@@ -1,0 +1,123 @@
+// =============================================================================
+// Cartes animées — Fikra Blocks
+//
+// Quatre effets de survol au choix, pilotés par une classe posée sur la
+// section. Les transitions portent uniquement sur transform, box-shadow et
+// opacity : ce sont les propriétés que le navigateur peut animer sur le GPU,
+// donc sans à-coups, y compris sur les téléphones d'entrée de gamme.
+// =============================================================================
+
+.s_fikra_cards {
+
+    .s_fikra_card {
+        height: 100%;
+        padding: 2rem;
+        border-radius: .75rem;
+        background-color: var(--fikra-card-bg, rgba(127, 127, 127, .06));
+        border: 1px solid rgba(127, 127, 127, .15);
+        transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+        will-change: transform;
+    }
+
+    .s_fikra_card_icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.5rem;
+        height: 3.5rem;
+        margin-bottom: 1.25rem;
+        border-radius: .625rem;
+        font-size: 1.5rem;
+        color: var(--fikra-accent, currentColor);
+        background-color: rgba(127, 127, 127, .1);
+        transition: transform .3s ease, background-color .3s ease;
+    }
+
+    .s_fikra_card_title {
+        margin-bottom: .75rem;
+    }
+
+    .s_fikra_card_text {
+        margin-bottom: 1.25rem;
+        opacity: .8;
+    }
+
+    .s_fikra_card_link {
+        display: inline-flex;
+        align-items: center;
+        gap: .4rem;
+        text-decoration: none;
+        font-weight: 600;
+
+        i {
+            transition: transform .3s ease;
+        }
+    }
+
+    .s_fikra_card:hover .s_fikra_card_link i {
+        transform: translateX(.35rem);
+    }
+
+    // --- Effet 1 : élévation (défaut) ----------------------------------------
+
+    .s_fikra_card:hover {
+        transform: translateY(-.5rem);
+        box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, .12);
+    }
+
+    // --- Effet 2 : bordure lumineuse -----------------------------------------
+
+    &.s_fikra_cards_glow .s_fikra_card:hover {
+        transform: none;
+        border-color: var(--fikra-accent, currentColor);
+        box-shadow: 0 0 0 1px var(--fikra-accent, currentColor),
+                    0 .5rem 1.5rem rgba(0, 0, 0, .08);
+    }
+
+    // --- Effet 3 : zoom de l'icône -------------------------------------------
+
+    &.s_fikra_cards_zoom .s_fikra_card:hover {
+        transform: none;
+        box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+    }
+
+    &.s_fikra_cards_zoom .s_fikra_card:hover .s_fikra_card_icon {
+        transform: scale(1.15) rotate(-6deg);
+    }
+
+    // --- Effet 4 : aucun (accessibilité, sites sobres) -----------------------
+
+    &.s_fikra_cards_static .s_fikra_card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    // --- Variantes de style --------------------------------------------------
+
+    &.s_fikra_cards_bordered .s_fikra_card {
+        background-color: transparent;
+        border-width: 2px;
+    }
+
+    &.s_fikra_cards_flat .s_fikra_card {
+        border-color: transparent;
+    }
+
+    &.s_fikra_cards_sharp .s_fikra_card,
+    &.s_fikra_cards_sharp .s_fikra_card_icon {
+        border-radius: 0;
+    }
+
+    // --- Accessibilité -------------------------------------------------------
+
+    @media (prefers-reduced-motion: reduce) {
+        .s_fikra_card,
+        .s_fikra_card_icon,
+        .s_fikra_card_link i {
+            transition: none;
+        }
+        .s_fikra_card:hover {
+            transform: none;
+        }
+    }
+}

@@ -1,16 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <!-- ====================================================================
+         Enregistrement des blocs Fikra dans le panneau de l'éditeur.
+
+         Odoo 18 exige deux attributs pour qu'un snippet soit visible :
+           - string : le libellé affiché
+           - group  : la catégorie (intro, columns, content, images,
+                      people, text, custom)
+         Sans `group`, le bloc est chargé mais n'apparaît nulle part.
+         ==================================================================== -->
     <template id="fikra_snippets" inherit_id="website.snippets"
-        name="Fikra Blocks — enregistrement">
+              name="Fikra Blocks — enregistrement">
 
         <xpath expr="//snippets[@id='snippet_structure']/t[@t-snippet][last()]"
-            position="after">
+               position="after">
+
             <t t-snippet="fikra_blocks.s_fikra_marquee"
-                string="Bandeau défilant"
-                group="content">
+               string="Bandeau défilant"
+               group="content">
                 <keywords>bandeau, marquee, defilant, texte, ticker, logos</keywords>
             </t>
+
+            <t t-snippet="fikra_blocks.s_fikra_cards"
+               string="Cartes animées"
+               group="columns">
+                <keywords>cartes, cards, services, avantages, survol, hover, colonnes</keywords>
+            </t>
+
         </xpath>
 
     </template>
