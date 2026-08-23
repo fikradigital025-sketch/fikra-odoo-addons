@@ -1,0 +1,157 @@
+// =============================================================================
+// Grille tarifaire — Fikra Blocks
+//
+// La carte mise en avant est agrandie par transform: scale() plutôt que par
+// une hauteur ou un padding différent : le reste de la grille garde son
+// alignement, et l'effet reste animable sans recalcul de mise en page.
+// Sur mobile, le scale est neutralisé (une carte plus large déborderait).
+// =============================================================================
+
+.s_fikra_pricing {
+
+    .s_fikra_pricing_card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 2.5rem 2rem;
+        border-radius: 1rem;
+        background-color: rgba(127, 127, 127, .05);
+        border: 1px solid rgba(127, 127, 127, .18);
+        transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    // --- Carte mise en avant -------------------------------------------------
+
+    .s_fikra_pricing_featured {
+        border-color: var(--fikra-accent, currentColor);
+        border-width: 2px;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, .12);
+        z-index: 1;
+
+        @include media-breakpoint-up(lg) {
+            transform: scale(1.05);
+        }
+    }
+
+    .s_fikra_pricing_badge {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: .3rem 1rem;
+        border-radius: 2rem;
+        font-size: .75rem;
+        font-weight: 700;
+        letter-spacing: .04em;
+        text-transform: uppercase;
+        white-space: nowrap;
+        color: #fff;
+        background-color: var(--fikra-accent, #333);
+    }
+
+    // --- En-tête -------------------------------------------------------------
+
+    .s_fikra_pricing_head {
+        margin-bottom: 1.5rem;
+    }
+
+    .s_fikra_pricing_name {
+        margin-bottom: .25rem;
+        font-weight: 700;
+    }
+
+    .s_fikra_pricing_pitch {
+        margin-bottom: 0;
+        font-size: .9rem;
+        opacity: .7;
+    }
+
+    // --- Montant -------------------------------------------------------------
+
+    .s_fikra_pricing_amount {
+        display: flex;
+        align-items: baseline;
+        gap: .4rem;
+        flex-wrap: wrap;
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid rgba(127, 127, 127, .18);
+    }
+
+    .s_fikra_pricing_value {
+        font-size: clamp(1.75rem, 3vw, 2.5rem);
+        font-weight: 800;
+        line-height: 1;
+    }
+
+    .s_fikra_pricing_currency {
+        font-size: 1rem;
+        font-weight: 600;
+        opacity: .7;
+    }
+
+    // --- Liste des prestations -----------------------------------------------
+
+    .s_fikra_pricing_features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 2rem;
+        flex-grow: 1;   // pousse le bouton en bas, cartes alignées
+
+        li {
+            display: flex;
+            align-items: flex-start;
+            gap: .6rem;
+            padding: .45rem 0;
+            font-size: .95rem;
+        }
+
+        .fa-check {
+            margin-top: .25rem;
+            color: #16a34a;
+        }
+
+        .fa-times {
+            margin-top: .25rem;
+        }
+    }
+
+    .s_fikra_pricing_off {
+        opacity: .45;
+        text-decoration: line-through;
+    }
+
+    // --- Variantes -----------------------------------------------------------
+
+    &.s_fikra_pricing_flat .s_fikra_pricing_card {
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    &.s_fikra_pricing_sharp .s_fikra_pricing_card {
+        border-radius: 0;
+    }
+
+    &.s_fikra_pricing_nolift .s_fikra_pricing_featured {
+        transform: none;
+    }
+
+    &.s_fikra_pricing_hover .s_fikra_pricing_card:hover {
+        box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, .14);
+    }
+
+    @include media-breakpoint-up(lg) {
+        &.s_fikra_pricing_hover .s_fikra_pricing_featured:hover {
+            transform: scale(1.07);
+        }
+    }
+
+    // --- Accessibilité -------------------------------------------------------
+
+    @media (prefers-reduced-motion: reduce) {
+        .s_fikra_pricing_card {
+            transition: none;
+        }
+    }
+}

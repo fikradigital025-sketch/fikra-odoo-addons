@@ -71,4 +71,38 @@
 
     </template>
 
+    <!-- ====================================================================
+         Grille tarifaire — options
+         ==================================================================== -->
+    <template id="s_fikra_pricing_options" inherit_id="website.snippet_options"
+              name="Grille tarifaire — options">
+
+        <xpath expr="." position="inside">
+            <div data-js="FikraPricing"
+                 data-selector=".s_fikra_pricing"
+                 string="Grille tarifaire">
+
+                <we-select string="Fond des cartes">
+                    <we-button data-select-class="">Léger</we-button>
+                    <we-button data-select-class="s_fikra_pricing_flat">Transparent</we-button>
+                </we-select>
+
+                <we-select string="Angles">
+                    <we-button data-select-class="">Arrondis</we-button>
+                    <we-button data-select-class="s_fikra_pricing_sharp">Droits</we-button>
+                </we-select>
+
+                <we-select string="Offre recommandée">
+                    <we-button data-select-class="">Agrandie</we-button>
+                    <we-button data-select-class="s_fikra_pricing_nolift">Même taille</we-button>
+                </we-select>
+
+                <we-checkbox string="Effet au survol"
+                             data-select-class="s_fikra_pricing_hover"/>
+
+            </div>
+        </xpath>
+
+    </template>
+
 </odoo>

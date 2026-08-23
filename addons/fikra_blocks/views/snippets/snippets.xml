@@ -28,6 +28,13 @@
                 <keywords>cartes, cards, services, avantages, survol, hover, colonnes</keywords>
             </t>
 
+
+            <t t-snippet="fikra_blocks.s_fikra_pricing"
+               string="Grille tarifaire"
+               group="columns">
+                <keywords>tarifs, prix, pricing, offres, forfaits, abonnement, plans</keywords>
+            </t>
+
         </xpath>
 
     </template>

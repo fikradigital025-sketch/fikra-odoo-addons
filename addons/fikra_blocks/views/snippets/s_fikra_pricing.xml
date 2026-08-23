@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ====================================================================
+         Grille tarifaire
+         Trois offres en grille Bootstrap : l'éditeur sait dupliquer ou
+         supprimer une colonne nativement. La carte du milieu porte la
+         classe s_fikra_pricing_featured, qui la met en avant.
+         Pour changer l'offre mise en avant : déplacer cette classe.
+         ==================================================================== -->
+    <template id="s_fikra_pricing" name="Grille tarifaire">
+        <section class="s_fikra_pricing o_colored_level pt56 pb56"
+                 data-name="Grille tarifaire">
+            <div class="container">
+
+                <div class="row g-4 align-items-center">
+
+                    <!-- Offre 1 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="s_fikra_pricing_card">
+                            <div class="s_fikra_pricing_head">
+                                <h5 class="s_fikra_pricing_name">Essentiel</h5>
+                                <p class="s_fikra_pricing_pitch">Pour démarrer sereinement</p>
+                            </div>
+                            <div class="s_fikra_pricing_amount">
+                                <span class="s_fikra_pricing_value">250 000</span>
+                                <span class="s_fikra_pricing_currency">FCFA</span>
+                            </div>
+                            <ul class="s_fikra_pricing_features">
+                                <li><i class="fa fa-check"/> Site vitrine 5 pages</li>
+                                <li><i class="fa fa-check"/> Nom de domaine 1 an</li>
+                                <li><i class="fa fa-check"/> Formulaire de contact</li>
+                                <li class="s_fikra_pricing_off"><i class="fa fa-times"/> Boutique en ligne</li>
+                                <li class="s_fikra_pricing_off"><i class="fa fa-times"/> Suivi mensuel</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline-primary w-100">Choisir</a>
+                        </div>
+                    </div>
+
+                    <!-- Offre 2 — mise en avant -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="s_fikra_pricing_card s_fikra_pricing_featured">
+                            <span class="s_fikra_pricing_badge">Recommandé</span>
+                            <div class="s_fikra_pricing_head">
+                                <h5 class="s_fikra_pricing_name">Professionnel</h5>
+                                <p class="s_fikra_pricing_pitch">Le meilleur rapport valeur-prix</p>
+                            </div>
+                            <div class="s_fikra_pricing_amount">
+                                <span class="s_fikra_pricing_value">650 000</span>
+                                <span class="s_fikra_pricing_currency">FCFA</span>
+                            </div>
+                            <ul class="s_fikra_pricing_features">
+                                <li><i class="fa fa-check"/> Site vitrine illimité</li>
+                                <li><i class="fa fa-check"/> Nom de domaine 1 an</li>
+                                <li><i class="fa fa-check"/> Formulaire de contact</li>
+                                <li><i class="fa fa-check"/> Boutique en ligne</li>
+                                <li class="s_fikra_pricing_off"><i class="fa fa-times"/> Suivi mensuel</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary w-100">Choisir</a>
+                        </div>
+                    </div>
+
+                    <!-- Offre 3 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="s_fikra_pricing_card">
+                            <div class="s_fikra_pricing_head">
+                                <h5 class="s_fikra_pricing_name">Sur mesure</h5>
+                                <p class="s_fikra_pricing_pitch">Pour les projets ambitieux</p>
+                            </div>
+                            <div class="s_fikra_pricing_amount">
+                                <span class="s_fikra_pricing_value">Sur devis</span>
+                            </div>
+                            <ul class="s_fikra_pricing_features">
+                                <li><i class="fa fa-check"/> Tout le forfait Professionnel</li>
+                                <li><i class="fa fa-check"/> Application web ou mobile</li>
+                                <li><i class="fa fa-check"/> Intégrations métier</li>
+                                <li><i class="fa fa-check"/> Vidéo motion</li>
+                                <li><i class="fa fa-check"/> Suivi mensuel</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline-primary w-100">Nous contacter</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </template>
+
+</odoo>
