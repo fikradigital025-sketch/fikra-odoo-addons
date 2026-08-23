@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ====================================================================
+         Défilement continu d'images
+         Même principe que le bandeau de texte : deux groupes identiques,
+         la piste se translate de -50%, la boucle est invisible.
+
+         Les images utilisent la bibliothèque d'Odoo comme point de départ.
+         Double-clic dans l'éditeur pour les remplacer.
+         Pour ajouter ou retirer une image : la dupliquer DANS LES DEUX
+         groupes, sinon la boucle saute.
+         ==================================================================== -->
+    <template id="s_fikra_logos" name="Défilement d'images">
+        <section class="s_fikra_logos o_colored_level pt40 pb40"
+                 data-name="Défilement d'images">
+            <div class="s_fikra_logos_viewport">
+                <div class="s_fikra_logos_track">
+
+                    <div class="s_fikra_logos_group">
+                        <div class="s_fikra_logos_item">
+                            <img src="/web/image/website.library_image_08" alt="Référence"
+                                 class="img img-fluid" loading="lazy"/>
+                        </div>
+                        <div class="s_fikra_logos_item">
+                            <img src="/web/image/website.library_image_10" alt="Référence"
+                                 class="img img-fluid" loading="lazy"/>
+                        </div>
+                        <div class="s_fikra_logos_item">
+                            <img src="/web/image/website.library_image_13" alt="Référence"
+                                 class="img img-fluid" loading="lazy"/>
+                        </div>
+                        <div class="s_fikra_logos_item">
+                            <img src="/web/image/website.library_image_14" alt="Référence"
+                                 class="img img-fluid" loading="lazy"/>
+                        </div>
+                        <div class="s_fikra_logos_item">
+                            <img src="/web/image/website.library_image_16" alt="Référence"
+                                 class="img img-fluid" loading="lazy"/>
+                        </div>
+                    </div>
+
+                    <!-- Copie exacte, masquée aux lecteurs d'écran -->
+                    <div class="s_fikra_logos_group" aria-hidden="true">
+                        <div class="s_fikra_logos_item">
+                            <img src="/web/image/website.library_image_08" alt=""
+                                 class="img img-fluid" loading="lazy"/>
+                        </div>
+                        <div class="s_fikra_logos_item">
+                            <img src="/web/image/website.library_image_10" alt=""
+                                 class="img img-fluid" loading="lazy"/>
+                        </div>
+                        <div class="s_fikra_logos_item">
+                            <img src="/web/image/website.library_image_13" alt=""
+                                 class="img img-fluid" loading="lazy"/>
+                        </div>
+                        <div class="s_fikra_logos_item">
+                            <img src="/web/image/website.library_image_14" alt=""
+                                 class="img img-fluid" loading="lazy"/>
+                        </div>
+                        <div class="s_fikra_logos_item">
+                            <img src="/web/image/website.library_image_16" alt=""
+                                 class="img img-fluid" loading="lazy"/>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>

@@ -105,4 +105,46 @@
 
     </template>
 
+    <!-- ====================================================================
+         Défilement d'images — options
+         ==================================================================== -->
+    <template id="s_fikra_logos_options" inherit_id="website.snippet_options"
+              name="Défilement d'images — options">
+
+        <xpath expr="." position="inside">
+            <div data-js="FikraLogos"
+                 data-selector=".s_fikra_logos"
+                 string="Défilement d'images">
+
+                <we-select string="Vitesse">
+                    <we-button data-select-class="s_fikra_logos_slow">Lente</we-button>
+                    <we-button data-select-class="">Normale</we-button>
+                    <we-button data-select-class="s_fikra_logos_fast">Rapide</we-button>
+                </we-select>
+
+                <we-select string="Sens">
+                    <we-button data-select-class="">Vers la gauche</we-button>
+                    <we-button data-select-class="s_fikra_logos_reverse">Vers la droite</we-button>
+                </we-select>
+
+                <we-select string="Taille des images">
+                    <we-button data-select-class="s_fikra_logos_sm">Petite</we-button>
+                    <we-button data-select-class="">Moyenne</we-button>
+                    <we-button data-select-class="s_fikra_logos_lg">Grande</we-button>
+                </we-select>
+
+                <we-select string="Rendu">
+                    <we-button data-select-class="">Couleur d'origine</we-button>
+                    <we-button data-select-class="s_fikra_logos_gray">Gris, couleur au survol</we-button>
+                    <we-button data-select-class="s_fikra_logos_rounded">Vignettes arrondies</we-button>
+                </we-select>
+
+                <we-checkbox string="Pause au survol"
+                             data-select-class="s_fikra_logos_pause"/>
+
+            </div>
+        </xpath>
+
+    </template>
+
 </odoo>

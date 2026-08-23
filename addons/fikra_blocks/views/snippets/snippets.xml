@@ -35,6 +35,13 @@
                 <keywords>tarifs, prix, pricing, offres, forfaits, abonnement, plans</keywords>
             </t>
 
+
+            <t t-snippet="fikra_blocks.s_fikra_logos"
+               string="Défilement d'images"
+               group="images">
+                <keywords>logos, partenaires, references, defilement, carrousel, bande, images</keywords>
+            </t>
+
         </xpath>
 
     </template>

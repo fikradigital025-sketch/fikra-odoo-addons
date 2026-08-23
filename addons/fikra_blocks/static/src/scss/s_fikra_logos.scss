@@ -1,0 +1,128 @@
+// =============================================================================
+// Défilement continu d'images — Fikra Blocks
+//
+// Deux différences avec le bandeau de texte :
+//   - une hauteur fixe par image, sinon des visuels de formats différents
+//     font sauter la piste
+//   - un masque en dégradé sur les bords, pour que les images entrent et
+//     sortent en fondu plutôt que d'être coupées net
+// =============================================================================
+
+.s_fikra_logos {
+    --fikra-logos-duration: 35s;
+    --fikra-logos-gap: 3.5rem;
+    --fikra-logos-height: 5rem;
+
+    overflow: hidden;
+
+    .s_fikra_logos_viewport {
+        width: 100%;
+        overflow: hidden;
+
+        // Fondu sur les bords gauche et droit
+        mask-image: linear-gradient(
+            to right,
+            transparent 0,
+            #000 6%,
+            #000 94%,
+            transparent 100%
+        );
+        -webkit-mask-image: linear-gradient(
+            to right,
+            transparent 0,
+            #000 6%,
+            #000 94%,
+            transparent 100%
+        );
+    }
+
+    .s_fikra_logos_track {
+        display: flex;
+        width: max-content;
+        animation: fikra-logos-scroll var(--fikra-logos-duration) linear infinite;
+    }
+
+    .s_fikra_logos_group {
+        display: flex;
+        align-items: center;
+        gap: var(--fikra-logos-gap);
+        padding-right: var(--fikra-logos-gap);
+        flex-shrink: 0;
+    }
+
+    .s_fikra_logos_item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+
+        img {
+            height: var(--fikra-logos-height);
+            width: auto;
+            max-width: none;        // annule le max-width:100% de Bootstrap
+            object-fit: contain;
+            transition: filter .3s ease, opacity .3s ease;
+        }
+    }
+
+    // --- Vitesse -------------------------------------------------------------
+
+    &.s_fikra_logos_slow { --fikra-logos-duration: 60s; }
+    &.s_fikra_logos_fast { --fikra-logos-duration: 18s; }
+
+    // --- Sens ----------------------------------------------------------------
+
+    &.s_fikra_logos_reverse .s_fikra_logos_track {
+        animation-direction: reverse;
+    }
+
+    // --- Taille --------------------------------------------------------------
+
+    &.s_fikra_logos_sm { --fikra-logos-height: 3.5rem; }
+    &.s_fikra_logos_lg { --fikra-logos-height: 8rem; }
+
+    // --- Traitement des images -----------------------------------------------
+    // Le niveau de gris uniformise des logos clients aux couleurs disparates,
+    // et la couleur revient au survol.
+
+    &.s_fikra_logos_gray .s_fikra_logos_item img {
+        filter: grayscale(100%);
+        opacity: .65;
+    }
+
+    &.s_fikra_logos_gray .s_fikra_logos_item:hover img {
+        filter: grayscale(0);
+        opacity: 1;
+    }
+
+    &.s_fikra_logos_rounded .s_fikra_logos_item img {
+        border-radius: .75rem;
+        object-fit: cover;
+        aspect-ratio: 4 / 3;
+    }
+
+    // --- Pause au survol -----------------------------------------------------
+
+    &.s_fikra_logos_pause:hover .s_fikra_logos_track {
+        animation-play-state: paused;
+    }
+
+    // --- Accessibilité -------------------------------------------------------
+
+    @media (prefers-reduced-motion: reduce) {
+        .s_fikra_logos_viewport {
+            overflow-x: auto;       // le défilement devient manuel
+        }
+        .s_fikra_logos_track {
+            animation: none;
+        }
+        .s_fikra_logos_group[aria-hidden="true"] {
+            display: none;
+        }
+    }
+}
+
+@keyframes fikra-logos-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}

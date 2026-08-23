@@ -11,11 +11,12 @@ Blocs disponibles :
   - Bandeau défilant (marquee)
   - Cartes animées
   - Grille tarifaire
+  - Défilement d'images
     """,
     'author': "Fikra Digital",
     'website': "https://fikra-digit.com",
     'category': 'Website/Website',
-    'version': '18.0.1.2.0',
+    'version': '18.0.1.3.0',
     'license': 'LGPL-3',
 
     'depends': ['website'],
@@ -24,6 +25,7 @@ Blocs disponibles :
         'views/snippets/s_fikra_marquee.xml',
         'views/snippets/s_fikra_cards.xml',
         'views/snippets/s_fikra_pricing.xml',
+        'views/snippets/s_fikra_logos.xml',
         'views/snippets/snippets.xml',
         'views/snippets/options.xml',
     ],
@@ -33,6 +35,7 @@ Blocs disponibles :
             'fikra_blocks/static/src/scss/s_fikra_marquee.scss',
             'fikra_blocks/static/src/scss/s_fikra_cards.scss',
             'fikra_blocks/static/src/scss/s_fikra_pricing.scss',
+            'fikra_blocks/static/src/scss/s_fikra_logos.scss',
         ],
     },
 
