@@ -1,0 +1,87 @@
+// =============================================================================
+// Bandeau défilant — Fikra Blocks
+//
+// Principe : une piste (track) contient deux groupes identiques placés côte à
+// côte. On translate la piste de -50% de sa largeur, c'est-à-dire exactement
+// la largeur d'un groupe. À la fin de l'animation, le second groupe occupe la
+// position de départ du premier : la boucle est invisible.
+// =============================================================================
+
+.s_fikra_marquee {
+    --fikra-marquee-duration: 28s;
+    --fikra-marquee-gap: 3rem;
+
+    overflow: hidden;
+
+    .s_fikra_marquee_viewport {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .s_fikra_marquee_track {
+        display: flex;
+        width: max-content;
+        animation: fikra-marquee var(--fikra-marquee-duration) linear infinite;
+    }
+
+    .s_fikra_marquee_group {
+        display: flex;
+        align-items: center;
+        gap: var(--fikra-marquee-gap);
+        padding-right: var(--fikra-marquee-gap);
+        flex-shrink: 0;
+    }
+
+    .s_fikra_marquee_item {
+        font-size: clamp(1.5rem, 4vw, 3rem);
+        font-weight: 700;
+        line-height: 1.1;
+        white-space: nowrap;
+    }
+
+    .s_fikra_marquee_sep {
+        font-size: clamp(1rem, 2.5vw, 1.75rem);
+        opacity: .45;
+    }
+
+    // --- Variantes pilotées par les options de l'éditeur ---------------------
+
+    &.s_fikra_marquee_slow  { --fikra-marquee-duration: 50s; }
+    &.s_fikra_marquee_fast  { --fikra-marquee-duration: 14s; }
+
+    &.s_fikra_marquee_reverse .s_fikra_marquee_track {
+        animation-direction: reverse;
+    }
+
+    &.s_fikra_marquee_outline .s_fikra_marquee_item {
+        color: transparent;
+        -webkit-text-stroke: 1.5px currentColor;
+        // Repli pour les navigateurs sans text-stroke
+        @supports not (-webkit-text-stroke: 1px black) {
+            color: inherit;
+        }
+    }
+
+    &.s_fikra_marquee_pause:hover .s_fikra_marquee_track {
+        animation-play-state: paused;
+    }
+
+    // --- Accessibilité -------------------------------------------------------
+    // Respecte le réglage système « réduire les animations ». Obligatoire :
+    // un mouvement continu peut déclencher des troubles vestibulaires.
+
+    @media (prefers-reduced-motion: reduce) {
+        .s_fikra_marquee_track {
+            animation: none;
+            transform: none;
+        }
+        .s_fikra_marquee_group[aria-hidden="true"] {
+            display: none;
+        }
+    }
+}
+
+@keyframes fikra-marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}

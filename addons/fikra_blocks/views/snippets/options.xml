@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ====================================================================
+         Options affichées dans le panneau de droite quand le bloc est
+         sélectionné. Tout passe par des classes CSS (data-select-class),
+         donc aucun JavaScript n'est nécessaire.
+         ==================================================================== -->
+    <template id="s_fikra_marquee_options" inherit_id="website.snippet_options"
+              name="Bandeau défilant — options">
+
+        <xpath expr="." position="inside">
+            <div data-js="FikraMarquee"
+                 data-selector=".s_fikra_marquee"
+                 string="Bandeau défilant">
+
+                <we-select string="Vitesse">
+                    <we-button data-select-class="s_fikra_marquee_slow">Lente</we-button>
+                    <we-button data-select-class="">Normale</we-button>
+                    <we-button data-select-class="s_fikra_marquee_fast">Rapide</we-button>
+                </we-select>
+
+                <we-select string="Sens">
+                    <we-button data-select-class="">Vers la gauche</we-button>
+                    <we-button data-select-class="s_fikra_marquee_reverse">Vers la droite</we-button>
+                </we-select>
+
+                <we-select string="Style">
+                    <we-button data-select-class="">Plein</we-button>
+                    <we-button data-select-class="s_fikra_marquee_outline">Contour</we-button>
+                </we-select>
+
+                <we-checkbox string="Pause au survol"
+                             data-select-class="s_fikra_marquee_pause"/>
+
+            </div>
+        </xpath>
+
+    </template>
+
+</odoo>

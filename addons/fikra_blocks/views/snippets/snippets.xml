@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="fikra_snippets" inherit_id="website.snippets"
+        name="Fikra Blocks — enregistrement">
+
+        <xpath expr="//snippets[@id='snippet_structure']/t[@t-snippet][last()]"
+            position="after">
+            <t t-snippet="fikra_blocks.s_fikra_marquee"
+                string="Bandeau défilant"
+                group="content">
+                <keywords>bandeau, marquee, defilant, texte, ticker, logos</keywords>
+            </t>
+        </xpath>
+
+    </template>
+
+</odoo>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ====================================================================
+         Bandeau défilant (marquee)
+         Le contenu est dupliqué une fois : quand le premier groupe sort de
+         l'écran, le second a pris sa place, ce qui donne une boucle sans
+         rupture visible. L'animation est en CSS pur, aucun JavaScript.
+         ==================================================================== -->
+    <template id="s_fikra_marquee" name="Bandeau défilant">
+        <section class="s_fikra_marquee o_colored_level pt24 pb24"
+                 data-name="Bandeau défilant">
+            <div class="s_fikra_marquee_viewport">
+                <div class="s_fikra_marquee_track">
+
+                    <div class="s_fikra_marquee_group">
+                        <span class="s_fikra_marquee_item">Sites web</span>
+                        <span class="s_fikra_marquee_sep">•</span>
+                        <span class="s_fikra_marquee_item">E-commerce</span>
+                        <span class="s_fikra_marquee_sep">•</span>
+                        <span class="s_fikra_marquee_item">Applications</span>
+                        <span class="s_fikra_marquee_sep">•</span>
+                        <span class="s_fikra_marquee_item">Vidéo motion</span>
+                        <span class="s_fikra_marquee_sep">•</span>
+                    </div>
+
+                    <!-- Copie exacte, masquée aux lecteurs d'écran -->
+                    <div class="s_fikra_marquee_group" aria-hidden="true">
+                        <span class="s_fikra_marquee_item">Sites web</span>
+                        <span class="s_fikra_marquee_sep">•</span>
+                        <span class="s_fikra_marquee_item">E-commerce</span>
+                        <span class="s_fikra_marquee_sep">•</span>
+                        <span class="s_fikra_marquee_item">Applications</span>
+                        <span class="s_fikra_marquee_sep">•</span>
+                        <span class="s_fikra_marquee_item">Vidéo motion</span>
+                        <span class="s_fikra_marquee_sep">•</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>
