@@ -42,6 +42,13 @@
                 <keywords>logos, partenaires, references, defilement, carrousel, bande, images</keywords>
             </t>
 
+
+            <t t-snippet="fikra_blocks.s_fikra_counter"
+               string="Compteurs animés"
+               group="content">
+                <keywords>compteur, chiffres, statistiques, nombres, counter, kpi, animation</keywords>
+            </t>
+
         </xpath>
 
     </template>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ====================================================================
+         Compteurs animés
+         Les chiffres montent quand le bloc entre dans l'écran.
+
+         Le nombre affiché est écrit en dur dans le HTML : si le JavaScript
+         ne s'exécute pas (erreur, navigateur ancien, robot d'indexation),
+         le visiteur voit quand même la bonne valeur. L'animation est un
+         bonus, jamais une condition d'affichage.
+
+         data-target  : la valeur finale, en chiffres, sans espace ni symbole
+         data-suffix  : ce qui s'affiche après (%, +, k...)
+         data-prefix  : ce qui s'affiche avant
+         ==================================================================== -->
+    <template id="s_fikra_counter" name="Compteurs animés">
+        <section class="s_fikra_counter o_colored_level pt56 pb56"
+                 data-name="Compteurs animés">
+            <div class="container">
+
+                <div class="row g-4 text-center">
+
+                    <div class="col-lg-3 col-6">
+                        <div class="s_fikra_counter_item">
+                            <div class="s_fikra_counter_icon"><i class="fa fa-calendar"/></div>
+                            <div class="s_fikra_counter_value"
+                                 data-target="5" data-suffix="">5</div>
+                            <div class="s_fikra_counter_label">Années d'expérience</div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-6">
+                        <div class="s_fikra_counter_item">
+                            <div class="s_fikra_counter_icon"><i class="fa fa-check-circle"/></div>
+                            <div class="s_fikra_counter_value"
+                                 data-target="40" data-suffix="+">40+</div>
+                            <div class="s_fikra_counter_label">Projets livrés</div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-6">
+                        <div class="s_fikra_counter_item">
+                            <div class="s_fikra_counter_icon"><i class="fa fa-users"/></div>
+                            <div class="s_fikra_counter_value"
+                                 data-target="25" data-suffix="">25</div>
+                            <div class="s_fikra_counter_label">Clients accompagnés</div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-6">
+                        <div class="s_fikra_counter_item">
+                            <div class="s_fikra_counter_icon"><i class="fa fa-smile-o"/></div>
+                            <div class="s_fikra_counter_value"
+                                 data-target="98" data-suffix="%">98%</div>
+                            <div class="s_fikra_counter_label">Clients satisfaits</div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </template>
+
+</odoo>

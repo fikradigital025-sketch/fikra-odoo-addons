@@ -147,4 +147,29 @@
 
     </template>
 
+    <!-- ====================================================================
+         Compteurs animés — options
+         ==================================================================== -->
+    <template id="s_fikra_counter_options" inherit_id="website.snippet_options"
+              name="Compteurs animés — options">
+
+        <xpath expr="." position="inside">
+            <div data-js="FikraCounterOptions"
+                 data-selector=".s_fikra_counter"
+                 string="Compteurs animés">
+
+                <we-select string="Présentation">
+                    <we-button data-select-class="">Simple</we-button>
+                    <we-button data-select-class="s_fikra_counter_boxed">Encadrée</we-button>
+                    <we-button data-select-class="s_fikra_counter_divided">Séparateurs</we-button>
+                </we-select>
+
+                <we-checkbox string="Masquer les icônes"
+                             data-select-class="s_fikra_counter_noicon"/>
+
+            </div>
+        </xpath>
+
+    </template>
+
 </odoo>

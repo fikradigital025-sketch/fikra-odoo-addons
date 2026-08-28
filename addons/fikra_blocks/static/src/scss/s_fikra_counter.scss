@@ -1,0 +1,63 @@
+// =============================================================================
+// Compteurs animés — Fikra Blocks
+//
+// Point d'attention : le chiffre change de largeur pendant le comptage
+// (1 → 12 → 40). Sans précaution, les colonnes voisines bougeraient à chaque
+// image. `font-variant-numeric: tabular-nums` force tous les chiffres à la
+// même largeur, ce qui stabilise la mise en page pendant l'animation.
+// =============================================================================
+
+.s_fikra_counter {
+
+    .s_fikra_counter_item {
+        padding: 1.5rem .5rem;
+    }
+
+    .s_fikra_counter_icon {
+        margin-bottom: .75rem;
+        font-size: 1.75rem;
+        opacity: .55;
+    }
+
+    .s_fikra_counter_value {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 800;
+        line-height: 1.1;
+        font-variant-numeric: tabular-nums;   // chiffres de largeur fixe
+        color: var(--fikra-accent, inherit);
+    }
+
+    .s_fikra_counter_label {
+        margin-top: .5rem;
+        font-size: .95rem;
+        opacity: .75;
+    }
+
+    // --- Variantes -----------------------------------------------------------
+
+    &.s_fikra_counter_boxed .s_fikra_counter_item {
+        border-radius: .75rem;
+        background-color: rgba(127, 127, 127, .06);
+        border: 1px solid rgba(127, 127, 127, .15);
+    }
+
+    &.s_fikra_counter_divided .s_fikra_counter_item {
+        border-right: 1px solid rgba(127, 127, 127, .2);
+    }
+
+    &.s_fikra_counter_divided [class*="col-"]:last-child .s_fikra_counter_item {
+        border-right: 0;
+    }
+
+    &.s_fikra_counter_noicon .s_fikra_counter_icon {
+        display: none;
+    }
+
+    // Sur mobile, les séparateurs verticaux n'ont plus de sens : la grille
+    // passe sur deux colonnes et les bordures tombent au mauvais endroit.
+    @include media-breakpoint-down(md) {
+        &.s_fikra_counter_divided .s_fikra_counter_item {
+            border-right: 0;
+        }
+    }
+}
