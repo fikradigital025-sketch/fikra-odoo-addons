@@ -16,6 +16,24 @@
         <xpath expr="//snippets[@id='snippet_structure']/t[@t-snippet][last()]"
                position="after">
 
+            <t t-snippet="fikra_blocks.s_fikra_counter"
+               string="Compteurs animés"
+               group="content">
+                <keywords>compteur, chiffres, statistiques, nombres, counter, kpi, animation</keywords>
+            </t>
+
+            <t t-snippet="fikra_blocks.s_fikra_linkcards"
+               string="Cartes-liens"
+               group="columns">
+                <keywords>cartes, liens, services, grille, survol, hover, portfolio, rubriques</keywords>
+            </t>
+
+            <t t-snippet="fikra_blocks.s_fikra_logos"
+               string="Défilement d'images"
+               group="images">
+                <keywords>logos, partenaires, references, defilement, carrousel, bande, images</keywords>
+            </t>
+
             <t t-snippet="fikra_blocks.s_fikra_marquee"
                string="Bandeau défilant"
                group="content">
@@ -28,25 +46,10 @@
                 <keywords>cartes, cards, services, avantages, survol, hover, colonnes</keywords>
             </t>
 
-
             <t t-snippet="fikra_blocks.s_fikra_pricing"
                string="Grille tarifaire"
                group="columns">
                 <keywords>tarifs, prix, pricing, offres, forfaits, abonnement, plans</keywords>
-            </t>
-
-
-            <t t-snippet="fikra_blocks.s_fikra_logos"
-               string="Défilement d'images"
-               group="images">
-                <keywords>logos, partenaires, references, defilement, carrousel, bande, images</keywords>
-            </t>
-
-
-            <t t-snippet="fikra_blocks.s_fikra_counter"
-               string="Compteurs animés"
-               group="content">
-                <keywords>compteur, chiffres, statistiques, nombres, counter, kpi, animation</keywords>
             </t>
 
         </xpath>

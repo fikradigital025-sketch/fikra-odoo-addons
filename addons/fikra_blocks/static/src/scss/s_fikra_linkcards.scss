@@ -1,0 +1,178 @@
+// =============================================================================
+// Cartes-liens — Fikra Blocks
+//
+// Le survol n'existe pas au doigt. Sur tablette et mobile, le texte est donc
+// affiché en permanence plutôt que caché derrière une interaction que le
+// visiteur ne peut pas déclencher. Le comportement « révélation au survol »
+// ne s'active qu'à partir de l'écran large ET uniquement si le périphérique
+// de pointage sait survoler (@media hover: hover).
+// =============================================================================
+
+.s_fikra_linkcards {
+
+    .s_fikra_linkcard {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        border-radius: .75rem;
+        aspect-ratio: 4 / 3;
+        text-decoration: none;
+        color: #fff;
+        isolation: isolate;     // contient les empilements internes
+    }
+
+    // --- Image ---------------------------------------------------------------
+
+    .s_fikra_linkcard_img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform .6s ease;
+    }
+
+    // --- Voile assombrissant : garantit la lisibilité du texte quelle que
+    //     soit l'image placée derrière. Plus dense en bas, là où le texte est.
+
+    .s_fikra_linkcard_veil {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, .85) 0%,
+            rgba(0, 0, 0, .45) 45%,
+            rgba(0, 0, 0, .15) 100%
+        );
+        transition: opacity .4s ease;
+    }
+
+    // --- Contenu -------------------------------------------------------------
+
+    .s_fikra_linkcard_body {
+        position: absolute;
+        inset: auto 0 0 0;
+        display: block;
+        padding: 1.5rem;
+    }
+
+    .s_fikra_linkcard_title {
+        display: block;
+        font-size: 1.35rem;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    .s_fikra_linkcard_text {
+        display: block;
+        margin-top: .5rem;
+        font-size: .92rem;
+        line-height: 1.45;
+        opacity: .9;
+    }
+
+    .s_fikra_linkcard_more {
+        display: inline-flex;
+        align-items: center;
+        gap: .4rem;
+        margin-top: .75rem;
+        font-size: .85rem;
+        font-weight: 600;
+        letter-spacing: .02em;
+
+        i {
+            transition: transform .3s ease;
+        }
+    }
+
+    // --- Comportement au survol : écrans larges avec vrai pointeur seulement -
+
+    @include media-breakpoint-up(lg) {
+        @media (hover: hover) {
+
+            .s_fikra_linkcard_text,
+            .s_fikra_linkcard_more {
+                // translate + opacity : animables sur GPU, contrairement à
+                // height ou margin qui recalculeraient la mise en page.
+                opacity: 0;
+                transform: translateY(1.25rem);
+                transition: opacity .4s ease, transform .4s ease;
+            }
+
+            .s_fikra_linkcard:hover .s_fikra_linkcard_text,
+            .s_fikra_linkcard:focus-visible .s_fikra_linkcard_text {
+                opacity: .9;
+                transform: translateY(0);
+            }
+
+            .s_fikra_linkcard:hover .s_fikra_linkcard_more,
+            .s_fikra_linkcard:focus-visible .s_fikra_linkcard_more {
+                opacity: 1;
+                transform: translateY(0);
+                transition-delay: .08s;   // arrive juste après le texte
+            }
+
+            .s_fikra_linkcard:hover .s_fikra_linkcard_img {
+                transform: scale(1.06);
+            }
+
+            .s_fikra_linkcard:hover .s_fikra_linkcard_more i {
+                transform: translateX(.3rem);
+            }
+        }
+    }
+
+    // --- Accessibilité au clavier --------------------------------------------
+    // Sans ceci, un visiteur naviguant au clavier ne saurait pas quelle carte
+    // est sélectionnée.
+
+    .s_fikra_linkcard:focus-visible {
+        outline: 3px solid #fff;
+        outline-offset: -3px;
+    }
+
+    // --- Variantes -----------------------------------------------------------
+
+    &.s_fikra_linkcards_sharp .s_fikra_linkcard {
+        border-radius: 0;
+    }
+
+    &.s_fikra_linkcards_square .s_fikra_linkcard {
+        aspect-ratio: 1 / 1;
+    }
+
+    &.s_fikra_linkcards_tall .s_fikra_linkcard {
+        aspect-ratio: 3 / 4;
+    }
+
+    &.s_fikra_linkcards_light .s_fikra_linkcard_veil {
+        background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, .65) 0%,
+            rgba(0, 0, 0, .2) 55%,
+            rgba(0, 0, 0, 0) 100%
+        );
+    }
+
+    &.s_fikra_linkcards_solid .s_fikra_linkcard_veil {
+        background: rgba(0, 0, 0, .55);
+    }
+
+    // --- Réduction des animations --------------------------------------------
+
+    @media (prefers-reduced-motion: reduce) {
+        .s_fikra_linkcard_img,
+        .s_fikra_linkcard_text,
+        .s_fikra_linkcard_more,
+        .s_fikra_linkcard_more i {
+            transition: none;
+        }
+        // Le texte reste visible : on ne cache jamais du contenu derrière une
+        // animation que le visiteur a demandé de désactiver.
+        .s_fikra_linkcard_text,
+        .s_fikra_linkcard_more {
+            opacity: .9;
+            transform: none;
+        }
+    }
+}

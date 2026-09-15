@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ====================================================================
+         Cartes-liens
+         Six cartes en deux lignes de trois. Au survol : le texte descriptif
+         monte depuis le bas. Au clic : la page liée s'ouvre.
+
+         Toute la carte est un <a> : la zone cliquable couvre l'image entière,
+         pas seulement le titre. C'est plus facile à viser, surtout au doigt.
+
+         Pour changer une destination : sélectionner la carte dans l'éditeur
+         et modifier le lien, comme pour n'importe quel lien Odoo.
+         ==================================================================== -->
+    <template id="s_fikra_linkcards" name="Cartes-liens">
+        <section class="s_fikra_linkcards o_colored_level pt56 pb56"
+                 data-name="Cartes-liens">
+            <div class="container">
+
+                <div class="row g-3">
+
+                    <div class="col-lg-4 col-md-6">
+                        <a href="#" class="s_fikra_linkcard">
+                            <img src="/web/image/website.library_image_08" alt=""
+                                 class="s_fikra_linkcard_img" loading="lazy"/>
+                            <span class="s_fikra_linkcard_veil"/>
+                            <span class="s_fikra_linkcard_body">
+                                <span class="s_fikra_linkcard_title">Architecture</span>
+                                <span class="s_fikra_linkcard_text">
+                                    Conception de bâtiments résidentiels et tertiaires,
+                                    du concept au permis de construire.
+                                </span>
+                                <span class="s_fikra_linkcard_more">
+                                    Découvrir <i class="fa fa-arrow-right"/>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <a href="#" class="s_fikra_linkcard">
+                            <img src="/web/image/website.library_image_10" alt=""
+                                 class="s_fikra_linkcard_img" loading="lazy"/>
+                            <span class="s_fikra_linkcard_veil"/>
+                            <span class="s_fikra_linkcard_body">
+                                <span class="s_fikra_linkcard_title">Urbanisme</span>
+                                <span class="s_fikra_linkcard_text">
+                                    Plans d'aménagement, études de faisabilité
+                                    et accompagnement des collectivités.
+                                </span>
+                                <span class="s_fikra_linkcard_more">
+                                    Découvrir <i class="fa fa-arrow-right"/>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <a href="#" class="s_fikra_linkcard">
+                            <img src="/web/image/website.library_image_13" alt=""
+                                 class="s_fikra_linkcard_img" loading="lazy"/>
+                            <span class="s_fikra_linkcard_veil"/>
+                            <span class="s_fikra_linkcard_body">
+                                <span class="s_fikra_linkcard_title">Intérieur</span>
+                                <span class="s_fikra_linkcard_text">
+                                    Aménagement d'espaces de vie et de travail,
+                                    mobilier sur mesure.
+                                </span>
+                                <span class="s_fikra_linkcard_more">
+                                    Découvrir <i class="fa fa-arrow-right"/>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <a href="#" class="s_fikra_linkcard">
+                            <img src="/web/image/website.library_image_14" alt=""
+                                 class="s_fikra_linkcard_img" loading="lazy"/>
+                            <span class="s_fikra_linkcard_veil"/>
+                            <span class="s_fikra_linkcard_body">
+                                <span class="s_fikra_linkcard_title">Suivi de chantier</span>
+                                <span class="s_fikra_linkcard_text">
+                                    Coordination des corps de métier et contrôle
+                                    de la conformité jusqu'à la livraison.
+                                </span>
+                                <span class="s_fikra_linkcard_more">
+                                    Découvrir <i class="fa fa-arrow-right"/>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <a href="#" class="s_fikra_linkcard">
+                            <img src="/web/image/website.library_image_16" alt=""
+                                 class="s_fikra_linkcard_img" loading="lazy"/>
+                            <span class="s_fikra_linkcard_veil"/>
+                            <span class="s_fikra_linkcard_body">
+                                <span class="s_fikra_linkcard_title">Réhabilitation</span>
+                                <span class="s_fikra_linkcard_text">
+                                    Rénovation et mise aux normes du bâti existant,
+                                    dans le respect de son caractère.
+                                </span>
+                                <span class="s_fikra_linkcard_more">
+                                    Découvrir <i class="fa fa-arrow-right"/>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <a href="#" class="s_fikra_linkcard">
+                            <img src="/web/image/website.library_image_11" alt=""
+                                 class="s_fikra_linkcard_img" loading="lazy"/>
+                            <span class="s_fikra_linkcard_veil"/>
+                            <span class="s_fikra_linkcard_body">
+                                <span class="s_fikra_linkcard_title">Conseil</span>
+                                <span class="s_fikra_linkcard_text">
+                                    Expertise technique, assistance à maîtrise
+                                    d'ouvrage et montage de dossiers.
+                                </span>
+                                <span class="s_fikra_linkcard_more">
+                                    Découvrir <i class="fa fa-arrow-right"/>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </template>
+
+</odoo>

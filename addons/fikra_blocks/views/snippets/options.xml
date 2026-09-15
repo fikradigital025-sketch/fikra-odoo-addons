@@ -38,7 +38,6 @@
 
     <!-- ====================================================================
          Cartes animées — options
-         Chaque réglage se traduit par une classe CSS : aucun JavaScript.
          ==================================================================== -->
     <template id="s_fikra_cards_options" inherit_id="website.snippet_options"
               name="Cartes animées — options">
@@ -166,6 +165,39 @@
 
                 <we-checkbox string="Masquer les icônes"
                              data-select-class="s_fikra_counter_noicon"/>
+
+            </div>
+        </xpath>
+
+    </template>
+
+    <!-- ====================================================================
+         Cartes-liens — options
+         ==================================================================== -->
+    <template id="s_fikra_linkcards_options" inherit_id="website.snippet_options"
+              name="Cartes-liens — options">
+
+        <xpath expr="." position="inside">
+            <div data-js="FikraLinkcards"
+                 data-selector=".s_fikra_linkcards"
+                 string="Cartes-liens">
+
+                <we-select string="Format">
+                    <we-button data-select-class="">Paysage</we-button>
+                    <we-button data-select-class="s_fikra_linkcards_square">Carré</we-button>
+                    <we-button data-select-class="s_fikra_linkcards_tall">Portrait</we-button>
+                </we-select>
+
+                <we-select string="Assombrissement">
+                    <we-button data-select-class="">Dégradé</we-button>
+                    <we-button data-select-class="s_fikra_linkcards_light">Dégradé léger</we-button>
+                    <we-button data-select-class="s_fikra_linkcards_solid">Uniforme</we-button>
+                </we-select>
+
+                <we-select string="Angles">
+                    <we-button data-select-class="">Arrondis</we-button>
+                    <we-button data-select-class="s_fikra_linkcards_sharp">Droits</we-button>
+                </we-select>
 
             </div>
         </xpath>
