@@ -1,0 +1,98 @@
+// =============================================================================
+// Étapes numérotées — Fikra Blocks
+//
+// Le trait de liaison entre les étapes n'apparaît qu'à partir de l'écran
+// large. En dessous, les étapes passent sur deux colonnes puis une seule :
+// un trait horizontal y relierait des étapes qui ne sont plus côte à côte,
+// et donnerait une lecture fausse.
+// =============================================================================
+
+.s_fikra_steps {
+
+    .s_fikra_step {
+        position: relative;
+        padding: .5rem;
+        height: 100%;
+    }
+
+    // --- Numéro --------------------------------------------------------------
+
+    .s_fikra_step_num {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.25rem;
+        height: 3.25rem;
+        margin-bottom: 1rem;
+        border-radius: 50%;
+        font-size: 1.1rem;
+        font-weight: 800;
+        font-variant-numeric: tabular-nums;
+        color: #fff;
+        background-color: var(--fikra-accent, #333);
+    }
+
+    // --- Trait de liaison ----------------------------------------------------
+
+    @include media-breakpoint-up(lg) {
+        .s_fikra_step::before {
+            content: "";
+            position: absolute;
+            top: 2.1rem;                 // centre du cercle
+            left: 3.75rem;
+            right: -1.5rem;
+            height: 2px;
+            background: rgba(127, 127, 127, .3);
+        }
+
+        // Pas de trait après la dernière étape
+        [class*="col-"]:last-child .s_fikra_step::before {
+            display: none;
+        }
+    }
+
+    .s_fikra_step_title {
+        margin-bottom: .5rem;
+        font-weight: 700;
+    }
+
+    .s_fikra_step_text {
+        margin-bottom: 0;
+        font-size: .95rem;
+        opacity: .8;
+    }
+
+    // --- Variantes -----------------------------------------------------------
+
+    &.s_fikra_steps_boxed .s_fikra_step {
+        padding: 1.75rem 1.5rem;
+        border-radius: .75rem;
+        background-color: rgba(127, 127, 127, .06);
+        border: 1px solid rgba(127, 127, 127, .15);
+    }
+
+    // Dans la variante encadrée, le trait traverserait les cartes : on le retire
+    &.s_fikra_steps_boxed .s_fikra_step::before {
+        display: none;
+    }
+
+    &.s_fikra_steps_outline .s_fikra_step_num {
+        color: var(--fikra-accent, #333);
+        background-color: transparent;
+        border: 2px solid var(--fikra-accent, #333);
+    }
+
+    &.s_fikra_steps_noline .s_fikra_step::before {
+        display: none;
+    }
+
+    &.s_fikra_steps_center {
+        text-align: center;
+
+        .s_fikra_step::before {
+            display: none;
+        }
+    }
+}

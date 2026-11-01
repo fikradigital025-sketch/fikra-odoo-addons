@@ -1,0 +1,174 @@
+// =============================================================================
+// Frise chronologique — Fikra Blocks
+//
+// L'axe vertical est un pseudo-élément, pas une bordure : il peut ainsi
+// s'arrêter avant le premier et après le dernier marqueur, au lieu de dépasser
+// bêtement en haut et en bas.
+//
+// L'alternance gauche/droite repose sur :nth-child(even) — aucune classe à
+// poser à la main, donc dupliquer une étape dans l'éditeur suffit.
+// =============================================================================
+
+.s_fikra_timeline {
+
+    .s_fikra_tl_track {
+        position: relative;
+        padding: .5rem 0;
+    }
+
+    // --- Axe vertical --------------------------------------------------------
+
+    .s_fikra_tl_track::before {
+        content: "";
+        position: absolute;
+        top: 1.5rem;
+        bottom: 1.5rem;
+        left: .6rem;                       // mobile : axe à gauche
+        width: 2px;
+        background: rgba(127, 127, 127, .3);
+
+        @include media-breakpoint-up(md) {
+            left: 50%;
+            transform: translateX(-1px);   // centré sur l'axe
+        }
+    }
+
+    // --- Étape ---------------------------------------------------------------
+
+    .s_fikra_tl_step {
+        position: relative;
+        padding-left: 2.75rem;
+        padding-bottom: 2.5rem;
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+
+        @include media-breakpoint-up(md) {
+            width: 50%;
+            padding-left: 0;
+            padding-right: 3rem;
+            text-align: right;
+
+            // Étapes paires : à droite de l'axe
+            &:nth-child(even) {
+                margin-left: 50%;
+                padding-right: 0;
+                padding-left: 3rem;
+                text-align: left;
+            }
+        }
+    }
+
+    // --- Marqueur ------------------------------------------------------------
+
+    .s_fikra_tl_marker {
+        position: absolute;
+        top: .35rem;
+        left: 0;
+        width: 1.2rem;
+        height: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: var(--fikra-accent, #444);
+        box-shadow: 0 0 0 4px rgba(127, 127, 127, .18);
+
+        span {
+            width: .4rem;
+            height: .4rem;
+            border-radius: 50%;
+            background: #fff;
+        }
+
+        @include media-breakpoint-up(md) {
+            left: auto;
+            right: -.6rem;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        .s_fikra_tl_step:nth-child(even) .s_fikra_tl_marker {
+            right: auto;
+            left: -.6rem;
+        }
+    }
+
+    // Marqueur « aujourd'hui » : pulsation douce pour marquer le présent
+    .s_fikra_tl_marker_now::after {
+        content: "";
+        position: absolute;
+        inset: -.35rem;
+        border-radius: 50%;
+        border: 2px solid var(--fikra-accent, #444);
+        animation: fikra-tl-pulse 2.4s ease-out infinite;
+    }
+
+    // --- Contenu -------------------------------------------------------------
+
+    .s_fikra_tl_date {
+        font-size: .82rem;
+        font-weight: 700;
+        letter-spacing: .06em;
+        text-transform: uppercase;
+        opacity: .65;
+        margin-bottom: .3rem;
+    }
+
+    .s_fikra_tl_title {
+        margin-bottom: .4rem;
+        font-weight: 700;
+    }
+
+    .s_fikra_tl_text {
+        margin-bottom: 0;
+        font-size: .95rem;
+        opacity: .8;
+    }
+
+    // --- Variantes -----------------------------------------------------------
+
+    // Tout d'un côté : plus sobre, et obligatoire si les textes sont longs
+    &.s_fikra_timeline_single {
+
+        @include media-breakpoint-up(md) {
+            .s_fikra_tl_track::before {
+                left: .6rem;
+                transform: none;
+            }
+            .s_fikra_tl_step,
+            .s_fikra_tl_step:nth-child(even) {
+                width: 100%;
+                margin-left: 0;
+                padding-left: 2.75rem;
+                padding-right: 0;
+                text-align: left;
+            }
+            .s_fikra_tl_marker,
+            .s_fikra_tl_step:nth-child(even) .s_fikra_tl_marker {
+                left: 0;
+                right: auto;
+            }
+        }
+    }
+
+    &.s_fikra_timeline_boxed .s_fikra_tl_card {
+        padding: 1.25rem 1.5rem;
+        border-radius: .75rem;
+        background-color: rgba(127, 127, 127, .06);
+        border: 1px solid rgba(127, 127, 127, .15);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .s_fikra_tl_marker_now::after {
+            animation: none;
+        }
+    }
+}
+
+@keyframes fikra-tl-pulse {
+    0%   { transform: scale(.9);  opacity: .7; }
+    70%  { transform: scale(1.6); opacity: 0; }
+    100% { transform: scale(1.6); opacity: 0; }
+}

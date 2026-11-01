@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Portfolio hero snippet: full-screen intro with animated title and CTA -->
+    <template id="s_fikra_portfolio_hero" name="Fikra Portfolio Hero">
+        <section class="s_fikra_portfolio_hero o_fikra_dark"
+                 data-name="Portfolio Hero"
+                 data-vcss="001"
+                 data-snippet="s_fikra_portfolio_hero">
+            <!-- Decorative spotlight layers (pure CSS, no asset needed) -->
+            <div class="s_fikra_hero_spotlight" aria-hidden="true"/>
+            <div class="s_fikra_hero_grid" aria-hidden="true"/>
+
+            <div class="container s_fikra_hero_inner">
+                <p class="s_fikra_hero_eyebrow">
+                    Développeur web • CEO Fikra Digital
+                </p>
+                <h1 class="s_fikra_hero_title">
+                    Full-Stack Development
+                    <span class="s_fikra_hero_title_accent">&amp; Digital Craft</span>
+                </h1>
+                <p class="s_fikra_hero_subtitle">
+                    Transformer des idées en expériences web fluides,
+                    de la conception au déploiement.
+                </p>
+                <p class="s_fikra_hero_intro">
+                    Bonjour, je suis Achoura — développeur web et CEO de Fikra Digital,
+                    basé entre le Niger et la Turquie.
+                </p>
+                <div class="s_fikra_hero_cta">
+                    <a href="#projects" class="btn s_fikra_hero_btn">
+                        Voir mes projets
+                        <i class="fa fa-arrow-right ms-2"/>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

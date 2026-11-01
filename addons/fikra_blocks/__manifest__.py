@@ -14,11 +14,12 @@ Blocs disponibles :
   - Défilement d'images
   - Compteurs animés
   - Cartes-liens
+  - Portfolio Hero
     """,
     'author': "Fikra Digital",
     'website': "https://fikra-digit.com",
     'category': 'Website/Website',
-    'version': '18.0.1.5.0',
+    'version': '18.0.1.6.0',
     'license': 'LGPL-3',
 
     'depends': ['website'],
@@ -30,6 +31,7 @@ Blocs disponibles :
         'views/snippets/s_fikra_logos.xml',
         'views/snippets/s_fikra_counter.xml',
         'views/snippets/s_fikra_linkcards.xml',
+        'views/snippets/s_fikra_portfolio_hero.xml',
         'views/snippets/snippets.xml',
         'views/snippets/options.xml',
     ],
@@ -42,6 +44,7 @@ Blocs disponibles :
             'fikra_blocks/static/src/scss/s_fikra_logos.scss',
             'fikra_blocks/static/src/scss/s_fikra_counter.scss',
             'fikra_blocks/static/src/scss/s_fikra_linkcards.scss',
+            'fikra_blocks/static/src/scss/s_fikra_portfolio_hero.scss',
             'fikra_blocks/static/src/js/s_fikra_counter.js',
         ],
     },

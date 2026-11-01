@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ====================================================================
+         Frise chronologique
+         Étapes alternées de part et d'autre d'un axe vertical, révélées au
+         défilement.
+
+         La section porte `s_fikra_reveal` et chaque étape `s_fikra_reveal_item`
+         : le mécanisme de révélation partagé s'en charge, ce bloc n'a pas de
+         JavaScript propre.
+
+         Pour ajouter une étape : dupliquer un bloc <div class="s_fikra_tl_step">
+         complet. L'alternance gauche/droite est calculée en CSS, il n'y a
+         rien à ajuster.
+         ==================================================================== -->
+    <template id="s_fikra_timeline" name="Frise chronologique">
+        <section class="s_fikra_timeline s_fikra_reveal o_colored_level pt56 pb56"
+                 data-name="Frise chronologique">
+            <div class="container">
+
+                <div class="s_fikra_tl_track">
+
+                    <div class="s_fikra_tl_step s_fikra_reveal_item">
+                        <div class="s_fikra_tl_marker"><span/></div>
+                        <div class="s_fikra_tl_card">
+                            <div class="s_fikra_tl_date">2019</div>
+                            <h5 class="s_fikra_tl_title">Création de la structure</h5>
+                            <p class="s_fikra_tl_text">
+                                Décrivez ici l'événement fondateur. Une à trois
+                                phrases suffisent pour garder la frise lisible.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="s_fikra_tl_step s_fikra_reveal_item">
+                        <div class="s_fikra_tl_marker"><span/></div>
+                        <div class="s_fikra_tl_card">
+                            <div class="s_fikra_tl_date">2021</div>
+                            <h5 class="s_fikra_tl_title">Premiers partenariats</h5>
+                            <p class="s_fikra_tl_text">
+                                Une étape marquante : une signature, une
+                                ouverture, un agrément obtenu.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="s_fikra_tl_step s_fikra_reveal_item">
+                        <div class="s_fikra_tl_marker"><span/></div>
+                        <div class="s_fikra_tl_card">
+                            <div class="s_fikra_tl_date">2023</div>
+                            <h5 class="s_fikra_tl_title">Extension régionale</h5>
+                            <p class="s_fikra_tl_text">
+                                Croissance, nouveaux territoires couverts,
+                                équipe renforcée.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="s_fikra_tl_step s_fikra_reveal_item">
+                        <div class="s_fikra_tl_marker s_fikra_tl_marker_now"><span/></div>
+                        <div class="s_fikra_tl_card">
+                            <div class="s_fikra_tl_date">Aujourd'hui</div>
+                            <h5 class="s_fikra_tl_title">Et la suite</h5>
+                            <p class="s_fikra_tl_text">
+                                Terminez par la projection : ce que vous
+                                construisez en ce moment.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </template>
+
+</odoo>

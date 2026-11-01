@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ====================================================================
+         Comparateur avant / après
+         Deux images superposées, un curseur révèle l'une ou l'autre.
+
+         Le curseur est un <input type="range"> : ce choix donne gratuitement
+         la navigation au clavier (flèches), le support tactile, et la
+         compatibilité lecteur d'écran. Un <div> avec des événements de souris
+         aurait demandé tout ce travail à la main, et moins bien.
+
+         Sans JavaScript, le curseur ne bouge pas mais les deux images restent
+         visibles à 50/50 : le bloc reste compréhensible.
+         ==================================================================== -->
+    <template id="s_fikra_beforeafter" name="Avant / Après">
+        <section class="s_fikra_ba o_colored_level pt56 pb56"
+                 data-name="Avant / Après">
+            <div class="container">
+
+                <div class="s_fikra_ba_frame">
+
+                    <img src="/web/image/website.library_image_13" alt="Avant"
+                         class="s_fikra_ba_img s_fikra_ba_before"/>
+
+                    <div class="s_fikra_ba_after">
+                        <img src="/web/image/website.library_image_16" alt="Après"
+                             class="s_fikra_ba_img"/>
+                    </div>
+
+                    <span class="s_fikra_ba_label s_fikra_ba_label_before">Avant</span>
+                    <span class="s_fikra_ba_label s_fikra_ba_label_after">Après</span>
+
+                    <div class="s_fikra_ba_handle">
+                        <span class="s_fikra_ba_grip">
+                            <i class="fa fa-chevron-left"/>
+                            <i class="fa fa-chevron-right"/>
+                        </span>
+                    </div>
+
+                    <input type="range" min="0" max="100" value="50" step="0.1"
+                           class="s_fikra_ba_range"
+                           aria-label="Curseur de comparaison entre l'image avant et l'image après"/>
+
+                </div>
+
+            </div>
+        </section>
+    </template>
+
+</odoo>

@@ -1,0 +1,135 @@
+// =============================================================================
+// Comparateur avant / après — Fikra Blocks
+//
+// Une seule variable, --fikra-ba-pos, pilote tout : la découpe de l'image
+// « après » et la position de la poignée. Le JavaScript ne fait que mettre à
+// jour cette variable ; il ne touche jamais au rendu directement.
+//
+// L'<input type="range"> est rendu invisible mais reste parfaitement
+// fonctionnel : il couvre toute la zone et capte souris, doigt et clavier.
+// =============================================================================
+
+.s_fikra_ba {
+
+    .s_fikra_ba_frame {
+        --fikra-ba-pos: 50%;
+
+        position: relative;
+        overflow: hidden;
+        border-radius: .75rem;
+        aspect-ratio: 16 / 9;
+        user-select: none;
+        touch-action: pan-y;   // laisse le défilement vertical de la page
+    }
+
+    .s_fikra_ba_img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        pointer-events: none;   // les clics vont au curseur, pas aux images
+    }
+
+    // L'image « après » est découpée à la position du curseur
+    .s_fikra_ba_after {
+        position: absolute;
+        inset: 0;
+        clip-path: inset(0 0 0 var(--fikra-ba-pos));
+    }
+
+    // --- Poignée -------------------------------------------------------------
+
+    .s_fikra_ba_handle {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: var(--fikra-ba-pos);
+        width: 2px;
+        margin-left: -1px;
+        background: #fff;
+        box-shadow: 0 0 .5rem rgba(0, 0, 0, .4);
+        pointer-events: none;
+    }
+
+    .s_fikra_ba_grip {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: .15rem;
+        width: 2.75rem;
+        height: 2.75rem;
+        border-radius: 50%;
+        background: #fff;
+        color: #222;
+        font-size: .8rem;
+        box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .3);
+    }
+
+    // --- Étiquettes ----------------------------------------------------------
+
+    .s_fikra_ba_label {
+        position: absolute;
+        top: 1rem;
+        padding: .25rem .75rem;
+        border-radius: 2rem;
+        font-size: .78rem;
+        font-weight: 600;
+        letter-spacing: .04em;
+        text-transform: uppercase;
+        color: #fff;
+        background: rgba(0, 0, 0, .55);
+        pointer-events: none;
+    }
+
+    .s_fikra_ba_label_before { left: 1rem; }
+    .s_fikra_ba_label_after  { right: 1rem; }
+
+    // --- Le curseur, invisible mais actif ------------------------------------
+
+    .s_fikra_ba_range {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        opacity: 0;
+        cursor: ew-resize;
+        appearance: none;
+        background: transparent;
+    }
+
+    // La zone saisissable du curseur doit couvrir toute la hauteur, sinon on
+    // ne pourrait l'attraper que sur une fine bande horizontale.
+    .s_fikra_ba_range::-webkit-slider-thumb {
+        appearance: none;
+        width: 3rem;
+        height: 100vh;
+        cursor: ew-resize;
+    }
+
+    .s_fikra_ba_range::-moz-range-thumb {
+        width: 3rem;
+        height: 100vh;
+        border: 0;
+        cursor: ew-resize;
+    }
+
+    // Repère visible à la navigation clavier
+    .s_fikra_ba_range:focus-visible ~ .s_fikra_ba_handle .s_fikra_ba_grip {
+        outline: 3px solid var(--fikra-accent, #4a90d9);
+        outline-offset: 2px;
+    }
+
+    // --- Variantes -----------------------------------------------------------
+
+    &.s_fikra_ba_square .s_fikra_ba_frame { aspect-ratio: 1 / 1; }
+    &.s_fikra_ba_wide   .s_fikra_ba_frame { aspect-ratio: 21 / 9; }
+    &.s_fikra_ba_sharp  .s_fikra_ba_frame { border-radius: 0; }
+
+    &.s_fikra_ba_nolabel .s_fikra_ba_label { display: none; }
+}

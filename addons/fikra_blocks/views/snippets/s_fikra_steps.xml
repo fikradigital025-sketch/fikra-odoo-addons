@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ====================================================================
+         Étapes numérotées
+         Présente une méthode de travail ou un parcours en quatre temps.
+
+         Les numéros sont écrits en toutes lettres dans le HTML plutôt que
+         générés par un compteur CSS : ils restent ainsi lisibles par les
+         lecteurs d'écran et corrects si une étape est supprimée dans
+         l'éditeur.
+
+         Utilise le mécanisme de révélation partagé (s_fikra_reveal).
+         ==================================================================== -->
+    <template id="s_fikra_steps" name="Étapes numérotées">
+        <section class="s_fikra_steps s_fikra_reveal o_colored_level pt56 pb56"
+                 data-name="Étapes numérotées">
+            <div class="container">
+
+                <div class="row g-4">
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="s_fikra_step s_fikra_reveal_item">
+                            <div class="s_fikra_step_num">01</div>
+                            <h5 class="s_fikra_step_title">Écoute</h5>
+                            <p class="s_fikra_step_text">
+                                Nous prenons le temps de comprendre votre besoin
+                                réel, au-delà de la demande initiale.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="s_fikra_step s_fikra_reveal_item">
+                            <div class="s_fikra_step_num">02</div>
+                            <h5 class="s_fikra_step_title">Proposition</h5>
+                            <p class="s_fikra_step_text">
+                                Une solution chiffrée et un calendrier clair,
+                                sans zone d'ombre.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="s_fikra_step s_fikra_reveal_item">
+                            <div class="s_fikra_step_num">03</div>
+                            <h5 class="s_fikra_step_title">Réalisation</h5>
+                            <p class="s_fikra_step_text">
+                                Vous suivez l'avancement à chaque jalon et
+                                validez avant chaque étape suivante.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="s_fikra_step s_fikra_reveal_item">
+                            <div class="s_fikra_step_num">04</div>
+                            <h5 class="s_fikra_step_title">Suivi</h5>
+                            <p class="s_fikra_step_text">
+                                La livraison n'est pas la fin : nous restons
+                                disponibles après la mise en service.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </template>
+
+</odoo>

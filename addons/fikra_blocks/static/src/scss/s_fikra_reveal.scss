@@ -1,0 +1,52 @@
+// =============================================================================
+// Révélation au scroll — Fikra Blocks
+//
+// Le masquage n'est actif QUE si le JavaScript a posé o_fikra_reveal_ready.
+// Sans JavaScript — ou dans l'éditeur, où les widgets sont désactivés — le
+// contenu reste visible. Voir l'explication en tête de s_fikra_reveal.js.
+// =============================================================================
+
+.s_fikra_reveal.o_fikra_reveal_ready {
+
+    .s_fikra_reveal_item {
+        opacity: 0;
+        transform: translateY(1.75rem);
+        // opacity et transform uniquement : animables sur GPU, sans recalcul
+        // de mise en page.
+        transition: opacity .7s cubic-bezier(.22, .61, .36, 1),
+                    transform .7s cubic-bezier(.22, .61, .36, 1);
+    }
+
+    .s_fikra_reveal_item.o_fikra_revealed {
+        opacity: 1;
+        transform: none;
+    }
+
+    // --- Variantes de direction ---------------------------------------------
+
+    &.s_fikra_reveal_left .s_fikra_reveal_item {
+        transform: translateX(-2rem);
+    }
+
+    &.s_fikra_reveal_right .s_fikra_reveal_item {
+        transform: translateX(2rem);
+    }
+
+    &.s_fikra_reveal_zoom .s_fikra_reveal_item {
+        transform: scale(.94);
+    }
+
+    &.s_fikra_reveal_left .s_fikra_reveal_item.o_fikra_revealed,
+    &.s_fikra_reveal_right .s_fikra_reveal_item.o_fikra_revealed,
+    &.s_fikra_reveal_zoom .s_fikra_reveal_item.o_fikra_revealed {
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .s_fikra_reveal .s_fikra_reveal_item {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}

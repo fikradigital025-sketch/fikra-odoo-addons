@@ -16,6 +16,12 @@
         <xpath expr="//snippets[@id='snippet_structure']/t[@t-snippet][last()]"
                position="after">
 
+            <t t-snippet="fikra_blocks.s_fikra_portfolio_hero"
+               string="Portfolio Hero"
+               group="intro">
+                <keywords>portfolio, hero, intro, couverture, cover, accueil, banniere, titre</keywords>
+            </t>
+
             <t t-snippet="fikra_blocks.s_fikra_counter"
                string="Compteurs animés"
                group="content">

@@ -1,0 +1,144 @@
+// Fikra Portfolio Hero — full-screen intro section
+// Palette: Blueberry #6A00F4 (primary), Cream soda #FFD6A5 (secondary), dark background
+
+.s_fikra_portfolio_hero {
+    // Local design tokens, scoped to the snippet
+    --fikra-blueberry: #6A00F4;
+    --fikra-cream: #FFD6A5;
+    --fikra-bg: #060608;
+    --fikra-text: #EDEDF2;
+    --fikra-muted: #9B9BA7;
+
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--fikra-bg);
+    color: var(--fikra-text);
+
+    // Radial spotlight glow behind the title
+    .s_fikra_hero_spotlight {
+        position: absolute;
+        top: -20%;
+        left: 50%;
+        width: 70rem;
+        height: 70rem;
+        max-width: 140vw;
+        max-height: 140vw;
+        transform: translateX(-50%);
+        background: radial-gradient(
+            circle at center,
+            rgba(106, 0, 244, 0.35) 0%,
+            rgba(106, 0, 244, 0.12) 35%,
+            transparent 70%
+        );
+        filter: blur(40px);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    // Faint grid pattern overlay
+    .s_fikra_hero_grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+        background-size: 54px 54px;
+        mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 20%, transparent 75%);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .s_fikra_hero_inner {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        padding: 6rem 1rem;
+    }
+
+    .s_fikra_hero_eyebrow {
+        display: inline-block;
+        margin-bottom: 1.5rem;
+        padding: 0.4rem 1rem;
+        border: 1px solid rgba(255, 214, 165, 0.35);
+        border-radius: 999px;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--fikra-cream);
+        background: rgba(255, 214, 165, 0.05);
+    }
+
+    .s_fikra_hero_title {
+        margin: 0 auto 1.5rem;
+        max-width: 18ch;
+        font-weight: 700;
+        line-height: 1.05;
+        font-size: clamp(2.5rem, 7vw, 5.5rem);
+        letter-spacing: -0.02em;
+    }
+
+    // Gradient accent on the second half of the title
+    .s_fikra_hero_title_accent {
+        display: block;
+        background: linear-gradient(90deg, var(--fikra-blueberry), var(--fikra-cream));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+    }
+
+    .s_fikra_hero_subtitle {
+        margin: 0 auto 1rem;
+        max-width: 40ch;
+        font-size: clamp(1rem, 2.2vw, 1.35rem);
+        color: var(--fikra-text);
+        opacity: 0.9;
+    }
+
+    .s_fikra_hero_intro {
+        margin: 0 auto 2.5rem;
+        max-width: 48ch;
+        font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+        color: var(--fikra-muted);
+    }
+
+    // CTA button with blueberry fill and glow on hover
+    .s_fikra_hero_btn {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.9rem 2rem;
+        font-weight: 600;
+        color: #fff;
+        background: var(--fikra-blueberry);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+
+        i {
+            transition: transform 0.25s ease;
+        }
+
+        &:hover,
+        &:focus {
+            color: #fff;
+            background: #7d1aff;
+            box-shadow: 0 10px 40px rgba(106, 0, 244, 0.5);
+            transform: translateY(-2px);
+
+            i {
+                transform: translateX(4px);
+            }
+        }
+    }
+}
+
+// Respect users who prefer reduced motion
+@media (prefers-reduced-motion: reduce) {
+    .s_fikra_portfolio_hero .s_fikra_hero_btn,
+    .s_fikra_portfolio_hero .s_fikra_hero_btn i {
+        transition: none;
+    }
+}
