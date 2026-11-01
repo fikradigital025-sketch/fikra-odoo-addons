@@ -1,0 +1,113 @@
+// Fikra Portfolio Projects — vertical list of tilting project cards
+// Palette: Blueberry #6A00F4, Cream soda #FFD6A5, dark background
+
+.s_fikra_portfolio_projects {
+    --fikra-blueberry: #6A00F4;
+    --fikra-cream: #FFD6A5;
+    --fikra-bg: #060608;
+    --fikra-card: #0E0E14;
+    --fikra-border: rgba(255, 255, 255, 0.08);
+    --fikra-text: #EDEDF2;
+    --fikra-muted: #9B9BA7;
+
+    padding: 5rem 0;
+    background-color: var(--fikra-bg);
+    color: var(--fikra-text);
+
+    .s_fikra_projects_head {
+        text-align: center;
+        margin-bottom: 3.5rem;
+    }
+    .s_fikra_projects_eyebrow {
+        margin: 0 0 0.75rem;
+        font-size: 0.8rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--fikra-cream);
+    }
+    .s_fikra_projects_title {
+        margin: 0;
+        font-weight: 700;
+        font-size: clamp(1.8rem, 4vw, 3rem);
+        letter-spacing: -0.01em;
+    }
+
+    .s_fikra_projects_list {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        max-width: 60rem;
+        margin: 0 auto;
+    }
+
+    // --- Card: media on top, info below ---
+    .s_fikra_project_card {
+        border: 1px solid var(--fikra-border);
+        border-radius: 1.5rem;
+        background: var(--fikra-card);
+        overflow: hidden;
+        // Perspective enables the 3D tilt of the inner image.
+        perspective: 1000px;
+        transition: border-color 0.3s ease;
+
+        &:hover { border-color: rgba(106, 0, 244, 0.5); }
+    }
+
+    .s_fikra_project_media {
+        position: relative;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        background: #000;
+    }
+
+    .s_fikra_project_img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        // The tilt transform is applied by JS via CSS custom properties.
+        transform: rotateX(var(--fikra-rx, 0deg)) rotateY(var(--fikra-ry, 0deg)) scale(1.02);
+        transition: transform 0.15s ease-out;
+        will-change: transform;
+    }
+
+    .s_fikra_project_info {
+        padding: 1.75rem;
+    }
+    .s_fikra_project_name {
+        margin: 0 0 0.5rem;
+        font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+        font-weight: 600;
+    }
+    .s_fikra_project_desc {
+        margin: 0 0 1.25rem;
+        color: var(--fikra-muted);
+        line-height: 1.6;
+    }
+
+    .s_fikra_project_link {
+        display: inline-flex;
+        align-items: center;
+        font-weight: 600;
+        color: var(--fikra-cream);
+        text-decoration: none;
+        transition: color 0.2s ease, transform 0.2s ease;
+
+        i { transition: transform 0.2s ease; }
+        &:hover {
+            color: #fff;
+            i { transform: translateX(4px); }
+        }
+    }
+
+    @media (max-width: 575px) {
+        .s_fikra_project_info { padding: 1.25rem; }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .s_fikra_portfolio_projects .s_fikra_project_img {
+        transform: none !important;
+        transition: none;
+    }
+}

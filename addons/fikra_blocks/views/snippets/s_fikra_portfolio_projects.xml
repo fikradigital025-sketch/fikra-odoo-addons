@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Portfolio projects: vertical list of project cards with a cover
+         image that tilts in 3D on hover, a title, a description and a link. -->
+    <template id="s_fikra_portfolio_projects" name="Fikra Portfolio Projects">
+        <section class="s_fikra_portfolio_projects o_fikra_dark"
+                 data-name="Portfolio Projects"
+                 data-vcss="001"
+                 data-snippet="s_fikra_portfolio_projects">
+            <div class="container">
+                <header class="s_fikra_projects_head">
+                    <p class="s_fikra_projects_eyebrow">Mes réalisations</p>
+                    <h2 class="s_fikra_projects_title">
+                        Une sélection de projets récents
+                    </h2>
+                </header>
+
+                <div class="s_fikra_projects_list">
+
+                    <!-- Project card 1 -->
+                    <article class="s_fikra_project_card js_fikra_tilt">
+                        <div class="s_fikra_project_media">
+                            <img src="/web/image/website.s_banner_default_image"
+                                 class="s_fikra_project_img"
+                                 alt="AMA GROUPE"/>
+                        </div>
+                        <div class="s_fikra_project_info">
+                            <h3 class="s_fikra_project_name">AMA GROUPE</h3>
+                            <p class="s_fikra_project_desc">
+                                Site vitrine d'un groupe international actif dans le
+                                commerce, la distribution et la production, entre la
+                                Turquie, l'Afrique et l'Europe.
+                            </p>
+                            <a href="https://ama-groupe.com" target="_blank"
+                               rel="noopener" class="s_fikra_project_link">
+                                Voir le site <i class="fa fa-arrow-right ms-1"/>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Project card 2 -->
+                    <article class="s_fikra_project_card js_fikra_tilt">
+                        <div class="s_fikra_project_media">
+                            <img src="/web/image/website.s_banner_default_image"
+                                 class="s_fikra_project_img"
+                                 alt="ONG MADASAL"/>
+                        </div>
+                        <div class="s_fikra_project_info">
+                            <h3 class="s_fikra_project_name">ONG MADASAL</h3>
+                            <p class="s_fikra_project_desc">
+                                Site institutionnel d'une ONG nigérienne œuvrant pour
+                                la paix, le développement et la formation, avec ses
+                                domaines d'intervention et ses projets.
+                            </p>
+                            <a href="#" target="_blank"
+                               rel="noopener" class="s_fikra_project_link">
+                                Voir le site <i class="fa fa-arrow-right ms-1"/>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Project card 3 -->
+                    <article class="s_fikra_project_card js_fikra_tilt">
+                        <div class="s_fikra_project_media">
+                            <img src="/web/image/website.s_banner_default_image"
+                                 class="s_fikra_project_img"
+                                 alt="GAOH CONSEIL"/>
+                        </div>
+                        <div class="s_fikra_project_info">
+                            <h3 class="s_fikra_project_name">GAOH CONSEIL</h3>
+                            <p class="s_fikra_project_desc">
+                                Site d'un cabinet de gestion de patrimoine à Paris,
+                                avec présentation des services et prise de
+                                rendez-vous en ligne.
+                            </p>
+                            <a href="#" target="_blank"
+                               rel="noopener" class="s_fikra_project_link">
+                                Voir le site <i class="fa fa-arrow-right ms-1"/>
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>
