@@ -15,11 +15,12 @@ Blocs disponibles :
   - Compteurs animés
   - Cartes-liens
   - Portfolio Hero
+  - Portfolio Bento
     """,
     'author': "Fikra Digital",
     'website': "https://fikra-digit.com",
     'category': 'Website/Website',
-    'version': '18.0.1.6.0',
+    'version': '18.0.1.7.0',
     'license': 'LGPL-3',
 
     'depends': ['website'],
@@ -32,6 +33,7 @@ Blocs disponibles :
         'views/snippets/s_fikra_counter.xml',
         'views/snippets/s_fikra_linkcards.xml',
         'views/snippets/s_fikra_portfolio_hero.xml',
+        'views/snippets/s_fikra_portfolio_bento.xml',
         'views/snippets/snippets.xml',
         'views/snippets/options.xml',
     ],
@@ -45,7 +47,12 @@ Blocs disponibles :
             'fikra_blocks/static/src/scss/s_fikra_counter.scss',
             'fikra_blocks/static/src/scss/s_fikra_linkcards.scss',
             'fikra_blocks/static/src/scss/s_fikra_portfolio_hero.scss',
+            'fikra_blocks/static/src/scss/s_fikra_portfolio_bento.scss',
             'fikra_blocks/static/src/js/s_fikra_counter.js',
+            # Embedded 3D globe libraries (ESM), loaded before the bento widget
+            'fikra_blocks/static/lib/phenomenon/phenomenon.js',
+            'fikra_blocks/static/lib/cobe/cobe.js',
+            'fikra_blocks/static/src/js/s_fikra_portfolio_bento.js',
         ],
     },
 

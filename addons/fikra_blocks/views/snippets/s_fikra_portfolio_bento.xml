@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Portfolio bento grid: 6 uneven cards with distinct effects
+         (3D globe, scrolling tech stack, copy-email action). -->
+    <template id="s_fikra_portfolio_bento" name="Fikra Portfolio Bento">
+        <section class="s_fikra_portfolio_bento o_fikra_dark"
+                 data-name="Portfolio Bento"
+                 data-vcss="001"
+                 data-snippet="s_fikra_portfolio_bento">
+            <div class="container">
+                <div class="s_fikra_bento_grid">
+
+                    <!-- Card 1: client collaboration (wide, top-left) -->
+                    <article class="s_fikra_bento_card s_fikra_bento_c1">
+                        <div class="s_fikra_bento_body">
+                            <h3 class="s_fikra_bento_title">
+                                Je privilégie la collaboration client, avec une
+                                communication ouverte et continue.
+                            </h3>
+                        </div>
+                        <div class="s_fikra_bento_illus s_fikra_bento_illus_collab" aria-hidden="true"/>
+                    </article>
+
+                    <!-- Card 2: timezone flexibility with 3D globe -->
+                    <article class="s_fikra_bento_card s_fikra_bento_c2">
+                        <div class="s_fikra_bento_body">
+                            <p class="s_fikra_bento_text">
+                                Basé entre le Niger et la Turquie, je travaille
+                                sans contrainte de fuseau horaire.
+                            </p>
+                        </div>
+                        <!-- Globe canvas is drawn by the public widget -->
+                        <div class="s_fikra_bento_globe">
+                            <canvas class="js_fikra_globe" width="400" height="400"/>
+                        </div>
+                    </article>
+
+                    <!-- Card 3: tech stack (scrolling badges) -->
+                    <article class="s_fikra_bento_card s_fikra_bento_c3">
+                        <div class="s_fikra_bento_body">
+                            <p class="s_fikra_bento_label">Ma stack technique</p>
+                        </div>
+                        <div class="s_fikra_bento_stack">
+                            <div class="s_fikra_bento_stack_col">
+                                <span class="s_fikra_bento_tag">Odoo 18</span>
+                                <span class="s_fikra_bento_tag">Python</span>
+                                <span class="s_fikra_bento_tag">PostgreSQL</span>
+                                <span class="s_fikra_bento_tag">OWL / JS</span>
+                            </div>
+                            <div class="s_fikra_bento_stack_col s_fikra_bento_stack_col--rev">
+                                <span class="s_fikra_bento_tag">ERPNext</span>
+                                <span class="s_fikra_bento_tag">Frappe</span>
+                                <span class="s_fikra_bento_tag">SCSS</span>
+                                <span class="s_fikra_bento_tag">Git</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 4: passion statement -->
+                    <article class="s_fikra_bento_card s_fikra_bento_c4">
+                        <div class="s_fikra_bento_body">
+                            <h3 class="s_fikra_bento_title">
+                                Développeur et entrepreneur, passionné par le web
+                                et la cybersécurité.
+                            </h3>
+                        </div>
+                        <div class="s_fikra_bento_illus s_fikra_bento_illus_spark" aria-hidden="true"/>
+                    </article>
+
+                    <!-- Card 5: current work (wide, bottom-left) -->
+                    <article class="s_fikra_bento_card s_fikra_bento_c5">
+                        <div class="s_fikra_bento_body">
+                            <p class="s_fikra_bento_label">En ce moment</p>
+                            <h3 class="s_fikra_bento_title">
+                                Je développe ECOLIS et une plateforme SaaS de
+                                gestion étudiante pour l'Afrique.
+                            </h3>
+                        </div>
+                        <div class="s_fikra_bento_illus s_fikra_bento_illus_code" aria-hidden="true"/>
+                    </article>
+
+                    <!-- Card 6: copy email CTA -->
+                    <article class="s_fikra_bento_card s_fikra_bento_c6">
+                        <div class="s_fikra_bento_body">
+                            <h3 class="s_fikra_bento_title">
+                                Envie de lancer un projet ensemble ?
+                            </h3>
+                            <button type="button"
+                                    class="js_fikra_copy_email s_fikra_bento_copy"
+                                    data-email="oumarouachouraaa@gmail.com">
+                                <i class="fa fa-clipboard me-2"/>
+                                <span class="js_fikra_copy_label">Copier mon email</span>
+                            </button>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

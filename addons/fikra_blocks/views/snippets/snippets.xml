@@ -22,6 +22,12 @@
                 <keywords>portfolio, hero, intro, couverture, cover, accueil, banniere, titre</keywords>
             </t>
 
+            <t t-snippet="fikra_blocks.s_fikra_portfolio_bento"
+               string="Portfolio Bento"
+               group="content">
+                <keywords>portfolio, bento, grille, cartes, about, propos, globe, stack, competences</keywords>
+            </t>
+
             <t t-snippet="fikra_blocks.s_fikra_counter"
                string="Compteurs animés"
                group="content">

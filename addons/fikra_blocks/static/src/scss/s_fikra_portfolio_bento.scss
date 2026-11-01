@@ -1,0 +1,192 @@
+// Fikra Portfolio Bento — uneven 6-card grid (About section)
+// Palette: Blueberry #6A00F4, Cream soda #FFD6A5, dark background
+
+.s_fikra_portfolio_bento {
+    --fikra-blueberry: #6A00F4;
+    --fikra-cream: #FFD6A5;
+    --fikra-bg: #060608;
+    --fikra-card: #0E0E14;
+    --fikra-border: rgba(255, 255, 255, 0.08);
+    --fikra-text: #EDEDF2;
+    --fikra-muted: #9B9BA7;
+
+    padding: 5rem 0;
+    background-color: var(--fikra-bg);
+    color: var(--fikra-text);
+
+    // --- Grid: 4 columns x 3 rows on desktop ---
+    .s_fikra_bento_grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 15rem;
+        gap: 1.25rem;
+    }
+
+    // Card placement (desktop)
+    .s_fikra_bento_c1 { grid-column: span 2; grid-row: span 1; }
+    .s_fikra_bento_c2 { grid-column: span 2; grid-row: span 2; }
+    .s_fikra_bento_c3 { grid-column: span 1; grid-row: span 1; }
+    .s_fikra_bento_c4 { grid-column: span 1; grid-row: span 1; }
+    .s_fikra_bento_c5 { grid-column: span 2; grid-row: span 1; }
+    .s_fikra_bento_c6 { grid-column: span 2; grid-row: span 1; }
+
+    // --- Card shell ---
+    .s_fikra_bento_card {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 1.5rem;
+        border: 1px solid var(--fikra-border);
+        border-radius: 1.25rem;
+        background: var(--fikra-card);
+        transition: border-color 0.3s ease, transform 0.3s ease;
+
+        &:hover {
+            border-color: rgba(106, 0, 244, 0.5);
+            transform: translateY(-3px);
+        }
+    }
+
+    .s_fikra_bento_body { position: relative; z-index: 2; }
+
+    .s_fikra_bento_title {
+        margin: 0;
+        font-size: clamp(1rem, 1.6vw, 1.35rem);
+        font-weight: 600;
+        line-height: 1.3;
+    }
+
+    .s_fikra_bento_text {
+        margin: 0;
+        color: var(--fikra-muted);
+        font-size: 1rem;
+    }
+
+    .s_fikra_bento_label {
+        margin: 0 0 0.5rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--fikra-cream);
+    }
+
+    // --- Globe (card 2) ---
+    .s_fikra_bento_globe {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        opacity: 0.9;
+
+        canvas {
+            width: 100%;
+            max-width: 22rem;
+            aspect-ratio: 1 / 1;
+            height: auto;
+        }
+    }
+
+    // --- Tech stack scrolling columns (card 3) ---
+    .s_fikra_bento_stack {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+        align-items: center;
+        mask-image: linear-gradient(transparent, #000 20%, #000 80%, transparent);
+        z-index: 1;
+    }
+
+    .s_fikra_bento_stack_col {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        animation: fikra_stack_scroll 12s linear infinite;
+
+        &--rev { animation-direction: reverse; }
+    }
+
+    .s_fikra_bento_tag {
+        padding: 0.4rem 0.9rem;
+        border: 1px solid var(--fikra-border);
+        border-radius: 999px;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--fikra-text);
+    }
+
+    @keyframes fikra_stack_scroll {
+        from { transform: translateY(0); }
+        to { transform: translateY(-50%); }
+    }
+
+    // --- Decorative illustrations (pure CSS glows) ---
+    .s_fikra_bento_illus {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+    }
+    .s_fikra_bento_illus_collab {
+        background: radial-gradient(circle at 80% 20%, rgba(106, 0, 244, 0.25), transparent 50%);
+    }
+    .s_fikra_bento_illus_spark {
+        background: radial-gradient(circle at 70% 80%, rgba(255, 214, 165, 0.18), transparent 55%);
+    }
+    .s_fikra_bento_illus_code {
+        background: radial-gradient(circle at 85% 50%, rgba(106, 0, 244, 0.2), transparent 55%);
+    }
+
+    // --- Copy email button (card 6) ---
+    .s_fikra_bento_copy {
+        margin-top: 1rem;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.7rem 1.4rem;
+        font-weight: 600;
+        color: #fff;
+        background: var(--fikra-blueberry);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        cursor: pointer;
+        transition: background 0.25s ease, box-shadow 0.25s ease;
+
+        &:hover {
+            background: #7d1aff;
+            box-shadow: 0 8px 30px rgba(106, 0, 244, 0.45);
+        }
+        &.is-copied {
+            background: #1f9d55;
+        }
+    }
+
+    // --- Responsive: stack to 2 columns, then 1 ---
+    @media (max-width: 991px) {
+        .s_fikra_bento_grid { grid-template-columns: repeat(2, 1fr); }
+        .s_fikra_bento_c1,
+        .s_fikra_bento_c2,
+        .s_fikra_bento_c5,
+        .s_fikra_bento_c6 { grid-column: span 2; }
+        .s_fikra_bento_c2 { grid-row: span 1; }
+        .s_fikra_bento_c3,
+        .s_fikra_bento_c4 { grid-column: span 1; }
+    }
+
+    @media (max-width: 575px) {
+        .s_fikra_bento_grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
+        .s_fikra_bento_card {
+            grid-column: span 1 !important;
+            min-height: 12rem;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .s_fikra_portfolio_bento .s_fikra_bento_stack_col { animation: none; }
+}
