@@ -34,6 +34,12 @@
                 <keywords>portfolio, projets, realisations, works, cartes, tilt, references</keywords>
             </t>
 
+            <t t-snippet="fikra_blocks.s_fikra_portfolio_grid"
+               string="Portfolio Grille"
+               group="content">
+                <keywords>portfolio, projets, grille, cartes, compactes, survol, lien, references</keywords>
+            </t>
+
             <t t-snippet="fikra_blocks.s_fikra_counter"
                string="Compteurs animés"
                group="content">

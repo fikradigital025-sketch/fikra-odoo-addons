@@ -1,0 +1,139 @@
+// Fikra Portfolio Grid - compact 2-column project cards
+// Palette: Blueberry #6A00F4, Cream soda #FFD6A5, dark background
+// Hover: the card leans back and a live-link pill slides down over the cover.
+
+.s_fikra_portfolio_grid {
+    --fikra-blueberry: #6A00F4;
+    --fikra-cream: #FFD6A5;
+    --fikra-bg: #060608;
+    --fikra-card: #0E0E14;
+    --fikra-border: rgba(255, 255, 255, 0.08);
+    --fikra-text: #EDEDF2;
+    --fikra-muted: #9B9BA7;
+
+    padding: 5rem 0;
+    background-color: var(--fikra-bg);
+    color: var(--fikra-text);
+
+    .s_fikra_grid_head {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    .s_fikra_grid_eyebrow {
+        margin: 0 0 0.6rem;
+        font-size: 0.8rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--fikra-cream);
+    }
+    .s_fikra_grid_title {
+        margin: 0;
+        font-weight: 700;
+        font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+        letter-spacing: -0.01em;
+    }
+
+    // 2-column grid, centered, with breathing room between cards
+    .s_fikra_grid_cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.75rem;
+        max-width: 62rem;
+        margin: 0 auto;
+    }
+
+    // Card shell. Perspective lets the lean-back read as 3D.
+    .s_fikra_grid_card {
+        perspective: 1200px;
+        border: 1px solid var(--fikra-border);
+        border-radius: 1.25rem;
+        background: var(--fikra-card);
+        overflow: hidden;
+        transition: border-color 0.3s ease, transform 0.35s ease,
+                    box-shadow 0.35s ease;
+        will-change: transform;
+
+        &:hover {
+            border-color: rgba(106, 0, 244, 0.5);
+            // Lean the whole card back slightly and lift it.
+            transform: rotateX(6deg) translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+    }
+
+    // Cover image area
+    .s_fikra_grid_media {
+        position: relative;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+        background: #000;
+    }
+    .s_fikra_grid_img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease;
+    }
+    .s_fikra_grid_card:hover .s_fikra_grid_img {
+        transform: scale(1.06);
+    }
+
+    // Live-link pill, hidden above the cover, slides down on hover
+    .s_fikra_grid_pill {
+        position: absolute;
+        top: 0.9rem;
+        left: 50%;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 1.1rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #fff;
+        text-decoration: none;
+        background: var(--fikra-blueberry);
+        border-radius: 999px;
+        white-space: nowrap;
+        transform: translate(-50%, -200%);
+        opacity: 0;
+        transition: transform 0.35s ease, opacity 0.35s ease, background 0.2s ease;
+
+        &:hover { background: #7d1aff; color: #fff; }
+    }
+    .s_fikra_grid_card:hover .s_fikra_grid_pill {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+
+    .s_fikra_grid_info {
+        padding: 1.25rem 1.4rem 1.5rem;
+    }
+    .s_fikra_grid_name {
+        margin: 0 0 0.4rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+    .s_fikra_grid_desc {
+        margin: 0;
+        color: var(--fikra-muted);
+        font-size: 0.95rem;
+        line-height: 1.55;
+    }
+
+    // Responsive: single column on small screens, no lean on touch
+    @media (max-width: 767px) {
+        .s_fikra_grid_cards { grid-template-columns: 1fr; }
+        .s_fikra_grid_card:hover { transform: translateY(-4px); }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .s_fikra_portfolio_grid .s_fikra_grid_card,
+    .s_fikra_portfolio_grid .s_fikra_grid_img,
+    .s_fikra_portfolio_grid .s_fikra_grid_pill {
+        transition: none;
+    }
+    .s_fikra_portfolio_grid .s_fikra_grid_card:hover {
+        transform: translateY(-4px);
+    }
+}

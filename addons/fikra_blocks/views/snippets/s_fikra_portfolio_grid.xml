@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Portfolio grid: compact 2-column project cards. On hover the card
+         leans back slightly and a live-link pill slides down over the cover.
+         Pure CSS effect, no external library. -->
+    <template id="s_fikra_portfolio_grid" name="Fikra Portfolio Grid">
+        <section class="s_fikra_portfolio_grid o_fikra_dark"
+                 data-name="Portfolio Grid"
+                 data-vcss="001"
+                 data-snippet="s_fikra_portfolio_grid">
+            <div class="container">
+                <header class="s_fikra_grid_head">
+                    <p class="s_fikra_grid_eyebrow">Mes réalisations</p>
+                    <h2 class="s_fikra_grid_title">Une sélection de projets récents</h2>
+                </header>
+
+                <div class="s_fikra_grid_cards">
+
+                    <!-- Card 1 -->
+                    <article class="s_fikra_grid_card">
+                        <div class="s_fikra_grid_media">
+                            <img src="/web/image/website.s_banner_default_image"
+                                 class="s_fikra_grid_img" alt="AMA GROUPE"/>
+                            <a href="https://ama-groupe.com" target="_blank"
+                               rel="noopener" class="s_fikra_grid_pill">
+                                <i class="fa fa-external-link me-1"/> Voir le site
+                            </a>
+                        </div>
+                        <div class="s_fikra_grid_info">
+                            <h3 class="s_fikra_grid_name">AMA GROUPE</h3>
+                            <p class="s_fikra_grid_desc">
+                                Site vitrine d'un groupe international, commerce,
+                                distribution et production entre la Turquie, l'Afrique
+                                et l'Europe.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="s_fikra_grid_card">
+                        <div class="s_fikra_grid_media">
+                            <img src="/web/image/website.s_banner_default_image"
+                                 class="s_fikra_grid_img" alt="ONG MADASAL"/>
+                            <a href="#" target="_blank"
+                               rel="noopener" class="s_fikra_grid_pill">
+                                <i class="fa fa-external-link me-1"/> Voir le site
+                            </a>
+                        </div>
+                        <div class="s_fikra_grid_info">
+                            <h3 class="s_fikra_grid_name">ONG MADASAL</h3>
+                            <p class="s_fikra_grid_desc">
+                                Site institutionnel d'une ONG nigérienne, paix,
+                                développement et formation, avec ses domaines
+                                d'intervention.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="s_fikra_grid_card">
+                        <div class="s_fikra_grid_media">
+                            <img src="/web/image/website.s_banner_default_image"
+                                 class="s_fikra_grid_img" alt="GAOH CONSEIL"/>
+                            <a href="#" target="_blank"
+                               rel="noopener" class="s_fikra_grid_pill">
+                                <i class="fa fa-external-link me-1"/> Voir le site
+                            </a>
+                        </div>
+                        <div class="s_fikra_grid_info">
+                            <h3 class="s_fikra_grid_name">GAOH CONSEIL</h3>
+                            <p class="s_fikra_grid_desc">
+                                Site d'un cabinet de gestion de patrimoine à Paris,
+                                services et prise de rendez-vous en ligne.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="s_fikra_grid_card">
+                        <div class="s_fikra_grid_media">
+                            <img src="/web/image/website.s_banner_default_image"
+                                 class="s_fikra_grid_img" alt="UENIT Niger"/>
+                            <a href="#" target="_blank"
+                               rel="noopener" class="s_fikra_grid_pill">
+                                <i class="fa fa-external-link me-1"/> Voir le site
+                            </a>
+                        </div>
+                        <div class="s_fikra_grid_info">
+                            <h3 class="s_fikra_grid_name">UENIT Niger</h3>
+                            <p class="s_fikra_grid_desc">
+                                Site institutionnel développé sous Odoo 18, présentation
+                                et contenus de l'organisation.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>
