@@ -1,0 +1,31 @@
+// =====================================================================
+// Fikra header - layout tweaks for the "Logo cliquable" header template.
+// The toggle look and feel (logo <-> 3 bars, vertical list) is shared with
+// s_fikra_navbars.scss via the .s_fikra_nav_toggle classes. Here we only
+// fit it inside Odoo's header row and keep the native logo at a sane size.
+// =====================================================================
+
+#wrapwrap > header {
+    #o_main_nav .s_fikra_nav_toggle {
+        display: flex;
+        align-items: center;
+    }
+
+    // Keep the native logo (image) within the header height.
+    #o_main_nav .s_fikra_nav_label img {
+        max-height: 40px;
+        width: auto;
+    }
+
+    // Horizontal menu on the right: hide on small screens, the native mobile
+    // header takes over there.
+    #o_main_nav .s_fikra_nav_links {
+        display: flex;
+    }
+
+    // The vertical list unfolds in the page flow, under the logo.
+    #o_main_nav .s_fikra_nav_toggle .s_fikra_nav_list {
+        padding-left: 0;
+        margin-top: 8px;
+    }
+}

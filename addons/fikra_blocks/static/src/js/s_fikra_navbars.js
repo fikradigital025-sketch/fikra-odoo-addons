@@ -30,10 +30,13 @@ publicWidget.registry.FikraNavToggle = publicWidget.Widget.extend({
     },
 
     _onClick(ev) {
-        // Let the actual page links behave normally.
+        // Let the actual page links in the open list behave normally.
         if (ev.target.closest(".s_fikra_nav_list")) {
             return;
         }
+        // In the header the logo is a home link; a click must toggle, not
+        // navigate. Harmless for the body-block navbar (plain-text logo).
+        ev.preventDefault();
         this.el.classList.toggle("o_fikra_nav_open");
     },
 

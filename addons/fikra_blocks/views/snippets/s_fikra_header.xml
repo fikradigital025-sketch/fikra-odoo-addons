@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ====================================================================
+         Fikra header template - "Logo cliquable"
+         A real Odoo header (inherits website.layout) so it replaces the
+         native header, appears on every page and stays sticky. It reuses the
+         site's real logo (website.placeholder_header_brand, image or text,
+         editable per project) and the real menu (website.menu_id.child_id,
+         managed in Odoo's menu manager).
+
+         Behaviour: on the left, the logo turns into a 3-bar icon on CLICK and
+         unfolds the pages vertically below it, in the page flow (no panel).
+         A horizontal copy of the menu sits on the right on desktop. The JS
+         widget FikraNavToggle (selector .s_fikra_nav_toggle) drives the
+         toggle; it is disabled in the editor so the links stay editable.
+         ==================================================================== -->
+    <template id="template_header_fikra" inherit_id="website.layout"
+              name="Template Header Fikra" active="False">
+        <xpath expr="//header//nav" position="replace">
+            <t t-call="website.navbar">
+                <t t-set="_navbar_classes" t-valuef="d-none d-lg-block shadow-sm"/>
+
+                <div id="o_main_nav" class="o_main_nav container d-flex align-items-center">
+
+                    <!-- Left: logo that toggles into 3 bars + vertical page list -->
+                    <div class="s_fikra_nav_toggle">
+                        <div class="s_fikra_nav_brand" role="button" tabindex="0">
+                            <span class="s_fikra_nav_label">
+                                <t t-call="website.placeholder_header_brand">
+                                    <t t-set="_link_class" t-valuef="p-0"/>
+                                </t>
+                            </span>
+                            <span class="s_fikra_nav_bars" aria-hidden="true"><i/><i/><i/></span>
+                            <ul class="s_fikra_nav_list navbar-nav">
+                                <t t-foreach="website.menu_id.child_id" t-as="submenu">
+                                    <t t-call="website.submenu">
+                                        <t t-set="item_class" t-valuef="nav-item"/>
+                                        <t t-set="link_class" t-valuef="nav-link"/>
+                                    </t>
+                                </t>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Right: horizontal menu on desktop -->
+                    <t t-call="website.navbar_nav">
+                        <t t-set="_nav_class" t-valuef="ms-auto s_fikra_nav_links"/>
+                        <t t-foreach="website.menu_id.child_id" t-as="submenu">
+                            <t t-call="website.submenu">
+                                <t t-set="item_class" t-valuef="nav-item"/>
+                                <t t-set="link_class" t-valuef="nav-link"/>
+                            </t>
+                        </t>
+                    </t>
+
+                    <!-- Sign in / user -->
+                    <ul class="navbar-nav align-items-center ms-2 flex-shrink-0">
+                        <t t-call="portal.placeholder_user_sign_in">
+                            <t t-set="_link_class" t-valuef="nav-link"/>
+                        </t>
+                        <t t-call="portal.user_dropdown">
+                            <t t-set="_user_name" t-value="True"/>
+                            <t t-set="_item_class" t-valuef="dropdown"/>
+                            <t t-set="_link_class" t-valuef="nav-link border-0"/>
+                            <t t-set="_dropdown_menu_class" t-valuef="dropdown-menu-end"/>
+                        </t>
+                    </ul>
+
+                </div>
+            </t>
+            <t t-call="website.template_header_mobile"/>
+        </xpath>
+    </template>
+
+    <!-- Register the header as a selectable template in the editor, next to
+         the native ones (Default, Hamburger, ...). -->
+    <template id="fikra_header_option" inherit_id="website.snippet_options"
+              name="Fikra Header - option">
+        <xpath expr="//we-button[@data-name='header_sidebar_opt']" position="after">
+            <we-button title="Fikra - Logo cliquable"
+                       data-name="header_fikra_opt"
+                       data-trigger="regular_header_visibility_opt"
+                       data-customize-website-views="fikra_blocks.template_header_fikra, website.no_autohide_menu"
+                       data-customize-website-variable="'fikra'"
+                       data-img="/website/static/src/img/snippets_options/header_template_hamburger.svg"/>
+        </xpath>
+    </template>
+
+</odoo>
