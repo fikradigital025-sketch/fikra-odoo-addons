@@ -37,7 +37,7 @@
     .s_fikra_grid_cards {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.75rem;
+        gap: 2.75rem;
         max-width: 62rem;
         margin: 0 auto;
     }
@@ -64,7 +64,7 @@
     // Cover image area
     .s_fikra_grid_media {
         position: relative;
-        aspect-ratio: 16 / 10;
+        aspect-ratio: 16 / 9;
         overflow: hidden;
         background: #000;
     }
