@@ -29,7 +29,7 @@
     }
 
     .s_fikra_project_small {
-        flex: 0 0 230px;
+        flex: 0 0 190px;
 
         .s_fikra_project_cap {
             font-size: 13px;
@@ -45,7 +45,7 @@
     }
 
     .s_fikra_project_big {
-        flex: 0 0 #{"min(66vw, 700px)"};
+        flex: 0 0 #{"min(50vw, 520px)"};
         position: relative;
 
         img {

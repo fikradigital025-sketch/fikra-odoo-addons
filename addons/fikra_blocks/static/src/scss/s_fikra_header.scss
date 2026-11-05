@@ -29,3 +29,25 @@
         margin-top: 8px;
     }
 }
+
+// --- Compact bar + centered logo; the vertical list drops below the logo
+//     without stretching the header height ---
+#wrapwrap > header #o_main_nav {
+    padding-top: .4rem;
+    padding-bottom: .4rem;
+}
+#wrapwrap > header #o_main_nav .s_fikra_nav_toggle {
+    position: relative;
+    align-self: center;
+}
+#wrapwrap > header #o_main_nav .s_fikra_nav_toggle .s_fikra_nav_brand {
+    gap: 0;
+}
+#wrapwrap > header #o_main_nav .s_fikra_nav_toggle .s_fikra_nav_list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 6px;
+    min-width: 180px;
+    z-index: 1031;
+}
