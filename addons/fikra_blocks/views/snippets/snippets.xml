@@ -40,6 +40,12 @@
                 <keywords>portfolio, projets, grille, cartes, compactes, survol, lien, references</keywords>
             </t>
 
+            <t t-snippet="fikra_blocks.s_fikra_portfolio_exp"
+               string="Portfolio Expérience"
+               group="content">
+                <keywords>portfolio, experience, parcours, carriere, cartes, bordure, animee, cv</keywords>
+            </t>
+
             <t t-snippet="fikra_blocks.s_fikra_counter"
                string="Compteurs animés"
                group="content">

@@ -1,0 +1,143 @@
+// Fikra Portfolio Experience - stacked cards with an animated gradient border
+// Palette: Blueberry #6A00F4, Cream soda #FFD6A5, dark background
+// The border light rotates continuously around each card (Aceternity style).
+
+.s_fikra_portfolio_exp {
+    --fikra-blueberry: #6A00F4;
+    --fikra-cream: #FFD6A5;
+    --fikra-bg: #060608;
+    --fikra-card: #0E0E14;
+    --fikra-text: #EDEDF2;
+    --fikra-muted: #9B9BA7;
+
+    padding: 5rem 0;
+    background-color: var(--fikra-bg);
+    color: var(--fikra-text);
+
+    .s_fikra_exp_head {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    .s_fikra_exp_eyebrow {
+        margin: 0 0 0.6rem;
+        font-size: 0.8rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--fikra-cream);
+    }
+    .s_fikra_exp_title {
+        margin: 0;
+        font-weight: 700;
+        font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+        letter-spacing: -0.01em;
+    }
+
+    .s_fikra_exp_list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        max-width: 52rem;
+        margin: 0 auto;
+    }
+
+    // Card shell: holds the rotating gradient behind a dark inner panel.
+    .s_fikra_exp_card {
+        position: relative;
+        z-index: 0;
+        overflow: hidden;
+        border-radius: 1.25rem;
+        padding: 1.5px; // thickness of the animated border
+    }
+
+    // Rotating conic gradient, larger than the card so corners stay covered.
+    .s_fikra_exp_card::before {
+        content: "";
+        position: absolute;
+        z-index: -2;
+        left: -50%;
+        top: -50%;
+        width: 200%;
+        height: 200%;
+        background-color: var(--fikra-bg);
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-image: conic-gradient(
+            transparent 0deg,
+            var(--fikra-blueberry) 60deg,
+            var(--fikra-cream) 110deg,
+            transparent 160deg
+        );
+        animation: fikra_exp_spin 5s linear infinite;
+    }
+
+    // Dark inner panel that masks the gradient to a thin border.
+    .s_fikra_exp_card::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        inset: 1.5px;
+        background: var(--fikra-card);
+        border-radius: 1.1rem;
+    }
+
+    @keyframes fikra_exp_spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    // Inner content: icon left, text right.
+    .s_fikra_exp_inner {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: flex-start;
+        gap: 1.25rem;
+        padding: 1.5rem 1.75rem;
+    }
+
+    .s_fikra_exp_icon {
+        flex: 0 0 auto;
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.9rem;
+        background: rgba(106, 0, 244, 0.15);
+        border: 1px solid rgba(106, 0, 244, 0.35);
+        color: var(--fikra-cream);
+        font-size: 1.25rem;
+    }
+
+    .s_fikra_exp_body { flex: 1 1 auto; }
+
+    .s_fikra_exp_role {
+        margin: 0 0 0.2rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+    .s_fikra_exp_meta {
+        margin: 0 0 0.5rem;
+        font-size: 0.85rem;
+        color: var(--fikra-cream);
+    }
+    .s_fikra_exp_desc {
+        margin: 0;
+        color: var(--fikra-muted);
+        font-size: 0.95rem;
+        line-height: 1.55;
+    }
+
+    @media (max-width: 575px) {
+        .s_fikra_exp_inner { padding: 1.25rem; }
+    }
+}
+
+// Stop the rotation for users who prefer reduced motion.
+@media (prefers-reduced-motion: reduce) {
+    .s_fikra_portfolio_exp .s_fikra_exp_card::before {
+        animation: none;
+        background-image: none;
+        background-color: rgba(106, 0, 244, 0.5);
+    }
+}

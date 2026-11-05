@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Portfolio experience: stacked cards with an animated gradient border
+         rotating continuously around each card. Icon on the left, role and
+         details on the right. Pure CSS effect, no external library. -->
+    <template id="s_fikra_portfolio_exp" name="Fikra Portfolio Experience">
+        <section class="s_fikra_portfolio_exp o_fikra_dark"
+                 data-name="Portfolio Experience"
+                 data-vcss="001"
+                 data-snippet="s_fikra_portfolio_exp">
+            <div class="container">
+                <header class="s_fikra_exp_head">
+                    <p class="s_fikra_exp_eyebrow">Parcours</p>
+                    <h2 class="s_fikra_exp_title">Mon expérience</h2>
+                </header>
+
+                <div class="s_fikra_exp_list">
+
+                    <!-- Card 1 -->
+                    <article class="s_fikra_exp_card">
+                        <div class="s_fikra_exp_inner">
+                            <div class="s_fikra_exp_icon"><i class="fa fa-briefcase"/></div>
+                            <div class="s_fikra_exp_body">
+                                <h3 class="s_fikra_exp_role">CEO &amp; Co-fondateur</h3>
+                                <p class="s_fikra_exp_meta">Fikra Digital · 2025 - aujourd'hui</p>
+                                <p class="s_fikra_exp_desc">
+                                    Pilotage des opérations et livraison de projets web
+                                    et Odoo pour les clients.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="s_fikra_exp_card">
+                        <div class="s_fikra_exp_inner">
+                            <div class="s_fikra_exp_icon"><i class="fa fa-cogs"/></div>
+                            <div class="s_fikra_exp_body">
+                                <h3 class="s_fikra_exp_role">Operations Lead</h3>
+                                <p class="s_fikra_exp_meta">Fikra Digital</p>
+                                <p class="s_fikra_exp_desc">
+                                    Coordination des projets, des process et de l'équipe.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="s_fikra_exp_card">
+                        <div class="s_fikra_exp_inner">
+                            <div class="s_fikra_exp_icon"><i class="fa fa-bullhorn"/></div>
+                            <div class="s_fikra_exp_body">
+                                <h3 class="s_fikra_exp_role">Community Manager</h3>
+                                <p class="s_fikra_exp_meta">Hakach Transfert · 2025</p>
+                                <p class="s_fikra_exp_desc">
+                                    Gestion de la présence sociale et du contenu.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="s_fikra_exp_card">
+                        <div class="s_fikra_exp_inner">
+                            <div class="s_fikra_exp_icon"><i class="fa fa-users"/></div>
+                            <div class="s_fikra_exp_body">
+                                <h3 class="s_fikra_exp_role">Président de l'Union</h3>
+                                <p class="s_fikra_exp_meta">Étudiants nigériens en Turquie · 2025 - 2026</p>
+                                <p class="s_fikra_exp_desc">
+                                    Direction d'une organisation de près de 500 étudiants.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>
