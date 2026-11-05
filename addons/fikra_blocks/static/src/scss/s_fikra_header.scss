@@ -1,64 +1,27 @@
 // =====================================================================
-// Fikra header - layout tweaks for the "Logo cliquable" header template.
-// The toggle look and feel (logo <-> 3 bars, vertical list) is shared with
-// s_fikra_navbars.scss via the .s_fikra_nav_toggle classes. Here we only
-// fit it inside Odoo's header row and keep the native logo at a sane size.
+// Fikra header - layout for the "Logo cliquable" header template.
+// Shares the toggle look (logo <-> 3 bars, vertical list) with
+// s_fikra_navbars.scss via the .s_fikra_nav_toggle classes.
 // =====================================================================
 
-#wrapwrap > header {
-    #o_main_nav .s_fikra_nav_toggle {
-        display: flex;
-        align-items: center;
-    }
-
-    // Logo size is left to Odoo's own logo controls (resizable in the editor).
-
-    // Horizontal menu on the right: hide on small screens, the native mobile
-    // header takes over there.
-    #o_main_nav .s_fikra_nav_links {
-        display: flex;
-    }
-
-    // The vertical list unfolds in the page flow, under the logo.
-    #o_main_nav .s_fikra_nav_toggle .s_fikra_nav_list {
-        padding-left: 0;
-        margin-top: 8px;
-    }
-}
-
-// --- Compact bar + centered logo; the vertical list drops below the logo
-//     without stretching the header height ---
 #wrapwrap > header #o_main_nav {
     padding-top: .4rem;
     padding-bottom: .4rem;
-}
-#wrapwrap > header #o_main_nav .s_fikra_nav_toggle {
-    position: relative;
-    align-self: center;
-}
-#wrapwrap > header #o_main_nav .s_fikra_nav_toggle .s_fikra_nav_brand {
-    gap: 0;
-}
-#wrapwrap > header #o_main_nav .s_fikra_nav_toggle .s_fikra_nav_list {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    margin-top: 6px;
-    min-width: 180px;
-    z-index: 1031;
+    align-items: center;            // closed: logo and menu on the same line
 }
 
-// Keep the logo on the SAME line as the menu. The vertical list is absolute,
-// so the brand does not need to stack in a column here.
+// Toggle on the left, logo nudged slightly toward the edge.
+#wrapwrap > header #o_main_nav .s_fikra_nav_toggle {
+    display: flex;
+    margin-left: -.25rem;
+}
+
+// Closed state: brand is a single row so the logo sits on the menu line.
 #wrapwrap > header #o_main_nav .s_fikra_nav_toggle .s_fikra_nav_brand {
     flex-direction: row;
     align-items: center;
     gap: 0;
 }
-
-// --- Vertical centering of the logo so it sits on the menu line ---
-#wrapwrap > header #o_main_nav .s_fikra_nav_toggle,
-#wrapwrap > header #o_main_nav .s_fikra_nav_toggle .s_fikra_nav_brand,
 #wrapwrap > header #o_main_nav .s_fikra_nav_label,
 #wrapwrap > header #o_main_nav .s_fikra_nav_label > a {
     display: flex;
@@ -66,10 +29,25 @@
 }
 #wrapwrap > header #o_main_nav .s_fikra_nav_label img { display: block; }
 
-// --- Nudge the logo a little closer to the left edge (not too much) ---
-#wrapwrap > header #o_main_nav .s_fikra_nav_toggle { margin-left: -.25rem; }
-
-// --- 3 bars and the vertical list share the same left edge (no indent) ---
+// Open state: the logo becomes 3 bars, and the vertical list unfolds
+// directly below them, in the SAME left-aligned column (bars above list).
+#wrapwrap > header #o_main_nav:has(.s_fikra_nav_toggle.o_fikra_nav_open) {
+    align-items: flex-start;        // top-align the row so bars and menu line up
+}
+#wrapwrap > header #o_main_nav .s_fikra_nav_toggle.o_fikra_nav_open .s_fikra_nav_brand {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+#wrapwrap > header #o_main_nav .s_fikra_nav_toggle .s_fikra_nav_list {
+    padding-left: 0;
+    margin-top: 0;
+}
 #wrapwrap > header #o_main_nav .s_fikra_nav_toggle .s_fikra_nav_list .nav-link {
     padding-left: 0;
+}
+
+// Horizontal menu visible on desktop.
+#wrapwrap > header #o_main_nav .s_fikra_nav_links {
+    display: flex;
 }
