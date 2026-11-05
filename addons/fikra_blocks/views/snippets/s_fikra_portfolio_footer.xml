@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Portfolio footer: big call to action, copy-email button and social
+         icons. The copy button is handled by a small public widget. -->
+    <template id="s_fikra_portfolio_footer" name="Fikra Portfolio Footer">
+        <section class="s_fikra_portfolio_footer o_fikra_dark"
+                 data-name="Portfolio Footer"
+                 data-vcss="001"
+                 data-snippet="s_fikra_portfolio_footer">
+            <div class="s_fikra_footer_glow" aria-hidden="true"/>
+            <div class="container s_fikra_footer_inner">
+
+                <h2 class="s_fikra_footer_title">
+                    Prêt à passer au niveau supérieur ?
+                </h2>
+                <p class="s_fikra_footer_sub">
+                    Contactez-moi, voyons ensemble comment je peux vous aider
+                    à concrétiser votre projet digital.
+                </p>
+
+                <button type="button"
+                        class="js_fikra_footer_copy s_fikra_footer_copy"
+                        data-email="oumarouachouraaa@gmail.com">
+                    <i class="fa fa-clipboard me-2"/>
+                    <span class="js_fikra_footer_label">Copier mon email</span>
+                </button>
+
+                <div class="s_fikra_footer_socials">
+                    <a href="#" target="_blank" rel="noopener" aria-label="GitHub"
+                       class="s_fikra_footer_social"><i class="fa fa-github"/></a>
+                    <a href="#" target="_blank" rel="noopener" aria-label="X"
+                       class="s_fikra_footer_social"><i class="fa fa-twitter"/></a>
+                    <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"
+                       class="s_fikra_footer_social"><i class="fa fa-linkedin"/></a>
+                    <a href="#" target="_blank" rel="noopener" aria-label="Instagram"
+                       class="s_fikra_footer_social"><i class="fa fa-instagram"/></a>
+                </div>
+
+                <p class="s_fikra_footer_copy_text">
+                    © 2026 Abdoul Wahab Oumarou Achoura
+                </p>
+            </div>
+        </section>
+    </template>
+</odoo>

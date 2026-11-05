@@ -1,0 +1,119 @@
+// Fikra Portfolio Footer - closing call to action with copy-email and socials
+// Palette: Blueberry #6A00F4, Cream soda #FFD6A5, dark background
+
+.s_fikra_portfolio_footer {
+    --fikra-blueberry: #6A00F4;
+    --fikra-cream: #FFD6A5;
+    --fikra-bg: #060608;
+    --fikra-text: #EDEDF2;
+    --fikra-muted: #9B9BA7;
+
+    position: relative;
+    overflow: hidden;
+    padding: 6rem 0 4rem;
+    background-color: var(--fikra-bg);
+    color: var(--fikra-text);
+    text-align: center;
+
+    // Soft blueberry glow behind the title
+    .s_fikra_footer_glow {
+        position: absolute;
+        top: -30%;
+        left: 50%;
+        width: 50rem;
+        height: 50rem;
+        max-width: 130vw;
+        transform: translateX(-50%);
+        background: radial-gradient(
+            circle at center,
+            rgba(106, 0, 244, 0.25) 0%,
+            transparent 65%
+        );
+        filter: blur(40px);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .s_fikra_footer_inner {
+        position: relative;
+        z-index: 1;
+    }
+
+    .s_fikra_footer_title {
+        margin: 0 auto 1rem;
+        max-width: 20ch;
+        font-weight: 700;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+    }
+    .s_fikra_footer_sub {
+        margin: 0 auto 2rem;
+        max-width: 42ch;
+        color: var(--fikra-muted);
+        font-size: clamp(1rem, 2vw, 1.15rem);
+    }
+
+    // Copy-email button
+    .s_fikra_footer_copy {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.9rem 2rem;
+        font-weight: 600;
+        color: #fff;
+        background: var(--fikra-blueberry);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        cursor: pointer;
+        transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+
+        &:hover {
+            background: #7d1aff;
+            box-shadow: 0 10px 40px rgba(106, 0, 244, 0.5);
+            transform: translateY(-2px);
+        }
+        &.is-copied { background: #1f9d55; }
+    }
+
+    // Social icons
+    .s_fikra_footer_socials {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 2.5rem 0 2rem;
+    }
+    .s_fikra_footer_social {
+        width: 3rem;
+        height: 3rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: var(--fikra-text);
+        font-size: 1.15rem;
+        text-decoration: none;
+        transition: border-color 0.25s ease, color 0.25s ease,
+                    transform 0.25s ease, background 0.25s ease;
+
+        &:hover {
+            color: #fff;
+            background: rgba(106, 0, 244, 0.2);
+            border-color: rgba(106, 0, 244, 0.6);
+            transform: translateY(-3px);
+        }
+    }
+
+    .s_fikra_footer_copy_text {
+        margin: 0;
+        color: var(--fikra-muted);
+        font-size: 0.85rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .s_fikra_portfolio_footer .s_fikra_footer_copy,
+    .s_fikra_portfolio_footer .s_fikra_footer_social {
+        transition: none;
+    }
+}

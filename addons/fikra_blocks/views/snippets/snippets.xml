@@ -46,6 +46,12 @@
                 <keywords>portfolio, experience, parcours, carriere, cartes, bordure, animee, cv</keywords>
             </t>
 
+            <t t-snippet="fikra_blocks.s_fikra_portfolio_footer"
+               string="Portfolio Footer"
+               group="content">
+                <keywords>portfolio, footer, contact, pied, email, copier, reseaux, sociaux, cta</keywords>
+            </t>
+
             <t t-snippet="fikra_blocks.s_fikra_counter"
                string="Compteurs animés"
                group="content">

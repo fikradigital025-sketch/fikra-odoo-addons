@@ -22,7 +22,7 @@ Blocs disponibles :
     'author': "Fikra Digital",
     'website': "https://fikra-digit.com",
     'category': 'Website/Website',
-    'version': '18.0.1.10.9',
+    'version': '18.0.1.10.10',
     'license': 'LGPL-3',
 
     'depends': ['website'],
@@ -39,6 +39,7 @@ Blocs disponibles :
         'views/snippets/s_fikra_portfolio_projects.xml',
         'views/snippets/s_fikra_portfolio_grid.xml',
         'views/snippets/s_fikra_portfolio_exp.xml',
+        'views/snippets/s_fikra_portfolio_footer.xml',
         'views/snippets/s_fikra_project.xml',
         'views/snippets/s_fikra_navbars.xml',
         'views/snippets/s_fikra_header.xml',
@@ -59,11 +60,13 @@ Blocs disponibles :
             'fikra_blocks/static/src/scss/s_fikra_portfolio_projects.scss',
             'fikra_blocks/static/src/scss/s_fikra_portfolio_grid.scss',
             'fikra_blocks/static/src/scss/s_fikra_portfolio_exp.scss',
+            'fikra_blocks/static/src/scss/s_fikra_portfolio_footer.scss',
             'fikra_blocks/static/src/scss/s_fikra_project.scss',
             'fikra_blocks/static/src/scss/s_fikra_navbars.scss',
             'fikra_blocks/static/src/scss/s_fikra_header.scss',
             'fikra_blocks/static/src/js/s_fikra_counter.js',
             'fikra_blocks/static/src/js/s_fikra_portfolio_projects.js',
+            'fikra_blocks/static/src/js/s_fikra_portfolio_footer.js',
             # Note: cobe + phenomenon are ES modules loaded at runtime by the
             # bento widget (dynamic import), NOT bundled here, to keep their
             # ESM syntax out of Odoo's concatenated asset bundle.
