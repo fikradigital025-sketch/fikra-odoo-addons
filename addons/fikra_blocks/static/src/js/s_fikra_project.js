@@ -3,18 +3,16 @@
 /**
  * Project block - Fikra Blocks
  * ---------------------------------------------------------------------------
- * Two responsibilities:
- *   1. Draw the oblique connector between the small image and the big image.
- *      This runs in BOTH the live site and the editor, so the architect sees
- *      the line while composing the page. The anchor flips with the
- *      `o_fikra_proj_flip` class (small image at the bottom vs at the top).
- *   2. On the live site only, unfold the detail cards to the right of the big
- *      image when it is clicked.
+ * 1. Draws the oblique connector between the small and big images. The anchor
+ *    flips with the `o_fikra_proj_flip` class (small image bottom vs top).
+ *    The line is redrawn after the layout settles (next frame, full load,
+ *    after the open/close transition), because centering and image loading
+ *    shift the images and the line must follow them.
+ * 2. On the live site only, clicking the big image unfolds the detail cards
+ *    to its right.
  *
- * Why the collapse is enabled by JS (class `o_fikra_proj_ready`) and never by
- * CSS alone: inside the editor the widget stays in "open" mode, so every card
- * remains visible and editable. Without JS the cards also stay visible. The
- * fold is an enhancement, never a condition for the content to exist.
+ * The collapse is enabled by JS (class `o_fikra_proj_ready`): in the editor
+ * the cards stay visible and editable; without JS they stay visible too.
  */
 
 import publicWidget from "@web/legacy/js/public/public_widget";
@@ -26,14 +24,8 @@ publicWidget.registry.FikraProject = publicWidget.Widget.extend({
         this.row = this.el.querySelector(".s_fikra_project_row");
         this._draw = this._draw.bind(this);
 
-        // 1. Connector, always drawn.
-        this._draw();
-        window.addEventListener("resize", this._draw);
-        if (this.row) {
-            this.row.addEventListener("scroll", this._draw, { passive: true });
-        }
-
-        // 2. Click-to-reveal, live site only (not in the editor).
+        // Apply the ready/closed layout FIRST, so positions are final before
+        // we measure them for the connector.
         if (!this.editableMode && !this.el.classList.contains("o_fikra_proj_static")) {
             this.el.classList.add("o_fikra_proj_ready");
             const big = this.el.querySelector(".s_fikra_project_big img");
@@ -43,7 +35,20 @@ publicWidget.registry.FikraProject = publicWidget.Widget.extend({
             }
         }
 
+        this._scheduleDraw();
+        window.addEventListener("resize", this._draw);
+        window.addEventListener("load", this._draw);
+        if (this.row) {
+            this.row.addEventListener("scroll", this._draw, { passive: true });
+        }
+
         return this._super(...arguments);
+    },
+
+    _scheduleDraw() {
+        window.requestAnimationFrame(this._draw);
+        window.setTimeout(this._draw, 150);
+        window.setTimeout(this._draw, 500);
     },
 
     _draw() {
@@ -86,6 +91,8 @@ publicWidget.registry.FikraProject = publicWidget.Widget.extend({
     _onBigClick() {
         const opened = this.el.classList.toggle("o_fikra_proj_open");
         this._draw();
+        // Redraw after the max-width / centering transition finishes.
+        window.setTimeout(this._draw, 500);
         if (!this.row) {
             return;
         }
@@ -100,6 +107,7 @@ publicWidget.registry.FikraProject = publicWidget.Widget.extend({
 
     destroy() {
         window.removeEventListener("resize", this._draw);
+        window.removeEventListener("load", this._draw);
         if (this.row) {
             this.row.removeEventListener("scroll", this._draw);
         }

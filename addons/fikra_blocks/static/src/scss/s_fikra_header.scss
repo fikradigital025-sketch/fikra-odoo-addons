@@ -47,3 +47,11 @@
     min-width: 180px;
     z-index: 1031;
 }
+
+// Keep the logo on the SAME line as the menu. The vertical list is absolute,
+// so the brand does not need to stack in a column here.
+#wrapwrap > header #o_main_nav .s_fikra_nav_toggle .s_fikra_nav_brand {
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+}
