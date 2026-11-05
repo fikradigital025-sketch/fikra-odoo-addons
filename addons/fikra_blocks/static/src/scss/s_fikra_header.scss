@@ -11,11 +11,7 @@
         align-items: center;
     }
 
-    // Keep the native logo (image) within the header height.
-    #o_main_nav .s_fikra_nav_label img {
-        max-height: 40px;
-        width: auto;
-    }
+    // Logo size is left to Odoo's own logo controls (resizable in the editor).
 
     // Horizontal menu on the right: hide on small screens, the native mobile
     // header takes over there.

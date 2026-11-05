@@ -71,9 +71,15 @@
             </t>
 
             <t t-snippet="fikra_blocks.s_fikra_project"
-               string="Projet"
+               string="Projet - image en bas"
                group="content">
-                <keywords>projet, realisation, portfolio, architecture, trait, cartes, details, image</keywords>
+                <keywords>projet, realisation, portfolio, architecture, trait, cartes, details, image, bas</keywords>
+            </t>
+
+            <t t-snippet="fikra_blocks.s_fikra_project_top"
+               string="Projet - image en haut"
+               group="content">
+                <keywords>projet, realisation, portfolio, architecture, trait, cartes, details, image, haut, inverse</keywords>
             </t>
 
             <t t-snippet="fikra_blocks.s_fikra_nav_a"

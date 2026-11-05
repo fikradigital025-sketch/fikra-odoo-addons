@@ -21,6 +21,16 @@
         overflow-x: auto;
         padding-bottom: 12px;
         scroll-behavior: smooth;
+        scrollbar-width: none;            // hide scrollbar (Firefox)
+        -ms-overflow-style: none;
+        justify-content: flex-start;
+    }
+    .s_fikra_project_row::-webkit-scrollbar { display: none; }   // hide scrollbar (WebKit)
+
+    // Center the section when closed on the live site; left-align once the
+    // cards are open so they can scroll into view.
+    &.o_fikra_proj_ready:not(.o_fikra_proj_open) .s_fikra_project_row {
+        justify-content: center;
     }
 
     // Even sections flip the small image to the top; the connector follows.
