@@ -22,7 +22,7 @@ Blocs disponibles :
     'author': "Fikra Digital",
     'website': "https://fikra-digit.com",
     'category': 'Website/Website',
-    'version': '18.0.1.10.6',
+    'version': '18.0.1.10.7',
     'license': 'LGPL-3',
 
     'depends': ['website'],

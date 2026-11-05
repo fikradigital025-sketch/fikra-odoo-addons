@@ -1,22 +1,24 @@
 // =====================================================================
 // Fikra header - layout for the "Logo cliquable" header template.
-// Shares the toggle look (logo <-> 3 bars, vertical list) with
-// s_fikra_navbars.scss via the .s_fikra_nav_toggle classes.
+// Closed: the logo sits on the menu line. Open: the logo is replaced by the
+// 3 bars (which stay on that same line, so the horizontal menu does NOT move)
+// and the vertical list drops just below the bars, left-aligned with them.
 // =====================================================================
 
 #wrapwrap > header #o_main_nav {
     padding-top: .4rem;
     padding-bottom: .4rem;
-    align-items: center;            // closed: logo and menu on the same line
+    align-items: center;
 }
 
-// Toggle on the left, logo nudged slightly toward the edge.
 #wrapwrap > header #o_main_nav .s_fikra_nav_toggle {
     display: flex;
-    margin-left: -.25rem;
+    align-items: center;
+    position: relative;            // positioning context for the vertical list
+    margin-left: -.25rem;          // nudge the logo toward the left edge
 }
 
-// Closed state: brand is a single row so the logo sits on the menu line.
+// Closed: brand is a single row, logo vertically centered on the menu line.
 #wrapwrap > header #o_main_nav .s_fikra_nav_toggle .s_fikra_nav_brand {
     flex-direction: row;
     align-items: center;
@@ -29,25 +31,27 @@
 }
 #wrapwrap > header #o_main_nav .s_fikra_nav_label img { display: block; }
 
-// Open state: the logo becomes 3 bars, and the vertical list unfolds
-// directly below them, in the SAME left-aligned column (bars above list).
-#wrapwrap > header #o_main_nav:has(.s_fikra_nav_toggle.o_fikra_nav_open) {
-    align-items: flex-start;        // top-align the row so bars and menu line up
+// Open: hide the logo so the 3 bars take its place. This rule is as specific
+// as the centering one above and comes later, so it wins when open.
+#wrapwrap > header #o_main_nav .s_fikra_nav_toggle.o_fikra_nav_open .s_fikra_nav_label {
+    display: none;
 }
-#wrapwrap > header #o_main_nav .s_fikra_nav_toggle.o_fikra_nav_open .s_fikra_nav_brand {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-}
+
+// Vertical list: dropped BELOW the bars, same left edge, as an overlay so it
+// does not stretch the header (the menu keeps its line).
 #wrapwrap > header #o_main_nav .s_fikra_nav_toggle .s_fikra_nav_list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 8px;
+    min-width: 180px;
+    z-index: 1031;
     padding-left: 0;
-    margin-top: 0;
 }
 #wrapwrap > header #o_main_nav .s_fikra_nav_toggle .s_fikra_nav_list .nav-link {
     padding-left: 0;
 }
 
-// Horizontal menu visible on desktop.
 #wrapwrap > header #o_main_nav .s_fikra_nav_links {
     display: flex;
 }

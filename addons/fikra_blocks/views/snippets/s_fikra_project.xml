@@ -60,6 +60,30 @@
                                 </div>
                             </div>
 
+                            <div class="s_fikra_project_card">
+                                <img class="img img-fluid" alt=""
+                                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='9'%3E%3Crect width='16' height='9' fill='%23f3e8f8'/%3E%3C/svg%3E"/>
+                                <div class="s_fikra_project_card_body">
+                                    <h4>Carte supplémentaire</h4>
+                                    <p>Dupliquez cette carte dans l'éditeur pour en ajouter d'autres, ou supprimez-la.</p>
+                                </div>
+                            </div>
+
+                            <div class="s_fikra_project_card">
+                                <div class="s_fikra_project_card_body">
+                                    <h4>Texte libre</h4>
+                                    <p>Une carte peut contenir une image, un paragraphe, une vidéo ou tout autre élément.</p>
+                                </div>
+                            </div>
+
+                            <div class="s_fikra_project_card">
+                                <div class="media vid s_fikra_project_card_media"/>
+                                <div class="s_fikra_project_card_body">
+                                    <h4>Vidéo</h4>
+                                    <p>Glissez une vidéo ici pour illustrer le projet.</p>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
@@ -116,6 +140,30 @@
                                 <div class="s_fikra_project_card_body">
                                     <h4>Détail de façade</h4>
                                     <p>Gros plan sur un élément technique.</p>
+                                </div>
+                            </div>
+
+                            <div class="s_fikra_project_card">
+                                <img class="img img-fluid" alt=""
+                                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='9'%3E%3Crect width='16' height='9' fill='%23f3e8f8'/%3E%3C/svg%3E"/>
+                                <div class="s_fikra_project_card_body">
+                                    <h4>Carte supplémentaire</h4>
+                                    <p>Dupliquez cette carte dans l'éditeur pour en ajouter d'autres, ou supprimez-la.</p>
+                                </div>
+                            </div>
+
+                            <div class="s_fikra_project_card">
+                                <div class="s_fikra_project_card_body">
+                                    <h4>Texte libre</h4>
+                                    <p>Une carte peut contenir une image, un paragraphe, une vidéo ou tout autre élément.</p>
+                                </div>
+                            </div>
+
+                            <div class="s_fikra_project_card">
+                                <div class="media vid s_fikra_project_card_media"/>
+                                <div class="s_fikra_project_card_body">
+                                    <h4>Vidéo</h4>
+                                    <p>Glissez une vidéo ici pour illustrer le projet.</p>
                                 </div>
                             </div>
 
