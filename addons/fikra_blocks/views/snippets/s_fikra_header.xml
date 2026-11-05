@@ -32,13 +32,15 @@
                                 </t>
                             </span>
                             <span class="s_fikra_nav_bars" aria-hidden="true"><i/><i/><i/></span>
+                            <!-- Independent vertical list: static, editable in the editor
+                                 (text + link), separate from the horizontal menu. -->
                             <ul class="s_fikra_nav_list navbar-nav">
-                                <t t-foreach="website.menu_id.child_id" t-as="submenu">
-                                    <t t-call="website.submenu">
-                                        <t t-set="item_class" t-valuef="nav-item"/>
-                                        <t t-set="link_class" t-valuef="nav-link"/>
-                                    </t>
-                                </t>
+                                <li class="nav-item"><a href="/" class="nav-link">Accueil</a></li>
+                                <li class="nav-item"><a href="/" class="nav-link">À propos</a></li>
+                                <li class="nav-item"><a href="/" class="nav-link">Architecture</a></li>
+                                <li class="nav-item"><a href="/" class="nav-link">Projects</a></li>
+                                <li class="nav-item"><a href="/" class="nav-link">Career</a></li>
+                                <li class="nav-item"><a href="/contactus" class="nav-link">Contactez-nous</a></li>
                             </ul>
                         </div>
                     </div>
