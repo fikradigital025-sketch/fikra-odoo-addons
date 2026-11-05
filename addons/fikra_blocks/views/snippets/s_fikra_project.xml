@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ====================================================================
+         Project block
+         Small image (left) joined by an oblique line to the big image
+         (right). Clicking the big image unfolds the detail cards to its
+         right. Each card is a free editable zone: drop an image, a text
+         paragraph, a video or any other element inside.
+
+         To alternate the oblique line, use the option "Position de la petite
+         image" (bas / haut) from one section to the next. Images never swap
+         sides: small stays left, big stays right.
+
+         The default images below are light-gray placeholders; replace them
+         with the project photos using the editor.
+         ==================================================================== -->
+    <template id="s_fikra_project" name="Projet">
+        <section class="s_fikra_project o_colored_level pt40 pb40" data-name="Projet">
+            <div class="container">
+                <div class="s_fikra_project_row">
+
+                    <div class="s_fikra_project_small">
+                        <p class="s_fikra_project_cap">Centre culturel - Niamey, 2025. Béton, terre crue, patios.</p>
+                        <img class="img img-fluid" alt="Petite image du projet"
+                             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='3'%3E%3Crect width='4' height='3' fill='%23d8d3c8'/%3E%3C/svg%3E"/>
+                    </div>
+
+                    <div class="s_fikra_project_big">
+                        <img class="img img-fluid" alt="Grande image du projet"
+                             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3Crect width='16' height='10' fill='%23c2cbc7'/%3E%3C/svg%3E"/>
+                        <span class="s_fikra_project_hint">Cliquer pour les détails</span>
+                    </div>
+
+                    <div class="s_fikra_project_cards_wrap">
+                        <div class="s_fikra_project_cards">
+
+                            <div class="s_fikra_project_card">
+                                <img class="img img-fluid" alt=""
+                                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='9'%3E%3Crect width='16' height='9' fill='%23f3e8f8'/%3E%3C/svg%3E"/>
+                                <div class="s_fikra_project_card_body">
+                                    <h4>Plan masse</h4>
+                                    <p>Implantation sur la parcelle et rapport à la rue.</p>
+                                </div>
+                            </div>
+
+                            <div class="s_fikra_project_card">
+                                <div class="s_fikra_project_card_body">
+                                    <h4>Note d'intention</h4>
+                                    <p>Paragraphe libre : matériaux, lumière, usages, contraintes du site. Remplacez ce texte, ou glissez ici une image, une vidéo ou un autre élément.</p>
+                                </div>
+                            </div>
+
+                            <div class="s_fikra_project_card">
+                                <img class="img img-fluid" alt=""
+                                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='9'%3E%3Crect width='16' height='9' fill='%23f3e8f8'/%3E%3C/svg%3E"/>
+                                <div class="s_fikra_project_card_body">
+                                    <h4>Détail de façade</h4>
+                                    <p>Gros plan sur un élément technique.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <svg class="s_fikra_project_connector" preserveAspectRatio="none">
+                        <line/>
+                    </svg>
+
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>

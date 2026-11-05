@@ -1,0 +1,161 @@
+// =====================================================================
+// Project block - Fikra Blocks
+// Small image (left) + oblique connector + big image (right).
+// Clicking the big image unfolds the detail cards to its RIGHT, on the
+// same line, with horizontal scrolling.
+//
+// Visibility principle (same as s_fikra_reveal): the cards are hidden
+// ONLY after the JS has added `o_fikra_proj_ready`. Without JS, or inside
+// the website editor, the class is absent, so the cards stay fully
+// visible and editable.
+// =====================================================================
+
+.s_fikra_project {
+    --fikra-accent: #951abe;
+
+    .s_fikra_project_row {
+        position: relative;
+        display: flex;
+        align-items: flex-end;        // small image sits at the bottom by default
+        gap: 30px;
+        overflow-x: auto;
+        padding-bottom: 12px;
+        scroll-behavior: smooth;
+    }
+
+    // Even sections flip the small image to the top; the connector follows.
+    &.o_fikra_proj_flip .s_fikra_project_row {
+        align-items: flex-start;
+    }
+
+    .s_fikra_project_small {
+        flex: 0 0 230px;
+
+        .s_fikra_project_cap {
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
+    }
+
+    .s_fikra_project_big {
+        flex: 0 0 min(66vw, 700px);
+        position: relative;
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+        img:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, .16);
+        }
+
+        .s_fikra_project_hint {
+            position: absolute;
+            right: 12px;
+            bottom: 12px;
+            background: rgba(0, 0, 0, .6);
+            color: #fff;
+            font-size: 11px;
+            padding: 5px 10px;
+            border-radius: 100px;
+            pointer-events: none;
+        }
+    }
+
+    // Oblique connector, drawn by JS between the two images.
+    .s_fikra_project_connector {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+
+        line {
+            stroke: var(--fikra-accent);
+            stroke-width: 1.6;
+            stroke-dasharray: 5 5;
+        }
+    }
+
+    // Detail cards unfold to the RIGHT of the big image.
+    .s_fikra_project_cards_wrap {
+        flex: 0 0 auto;
+        display: flex;
+        align-self: stretch;
+    }
+
+    .s_fikra_project_cards {
+        display: flex;
+        gap: 16px;
+        padding-left: 30px;
+    }
+
+    .s_fikra_project_card {
+        flex: 0 0 250px;
+        align-self: center;
+        border: 1px solid rgba(0, 0, 0, .12);
+        border-radius: 4px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .s_fikra_project_card_body {
+            padding: 14px;
+        }
+    }
+
+    // --- Collapsed state: only active once JS marks the block ready ---
+    &.o_fikra_proj_ready {
+        .s_fikra_project_cards_wrap {
+            overflow: hidden;
+            max-width: 0;
+            transition: max-width .45s ease;
+        }
+        &.o_fikra_proj_open .s_fikra_project_cards_wrap {
+            max-width: 1000px;
+        }
+    }
+
+    // "Always visible" option: never collapse, hide the hint badge.
+    &.o_fikra_proj_static {
+        .s_fikra_project_hint { display: none; }
+    }
+}
+
+@media (max-width: 767px) {
+    .s_fikra_project .s_fikra_project_row {
+        flex-direction: column;
+        align-items: stretch;
+        overflow-x: visible;
+    }
+    .s_fikra_project .s_fikra_project_small,
+    .s_fikra_project .s_fikra_project_big { flex: 1 1 auto; }
+    .s_fikra_project .s_fikra_project_connector { display: none; }
+    .s_fikra_project.o_fikra_proj_ready .s_fikra_project_cards_wrap,
+    .s_fikra_project.o_fikra_proj_ready.o_fikra_proj_open .s_fikra_project_cards_wrap {
+        max-width: none;
+    }
+    .s_fikra_project .s_fikra_project_cards {
+        overflow-x: auto;
+        padding-left: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .s_fikra_project * { transition: none !important; }
+}

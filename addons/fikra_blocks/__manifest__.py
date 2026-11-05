@@ -16,11 +16,13 @@ Blocs disponibles :
   - Cartes-liens
   - Portfolio Hero
   - Portfolio Bento
+  - Projet (architecture)
+  - Navbars (4 modeles)
     """,
     'author': "Fikra Digital",
     'website': "https://fikra-digit.com",
     'category': 'Website/Website',
-    'version': '18.0.1.8.0',
+    'version': '18.0.1.9.0',
     'license': 'LGPL-3',
 
     'depends': ['website'],
@@ -35,6 +37,8 @@ Blocs disponibles :
         'views/snippets/s_fikra_portfolio_hero.xml',
         'views/snippets/s_fikra_portfolio_bento.xml',
         'views/snippets/s_fikra_portfolio_projects.xml',
+        'views/snippets/s_fikra_project.xml',
+        'views/snippets/s_fikra_navbars.xml',
         'views/snippets/snippets.xml',
         'views/snippets/options.xml',
     ],
@@ -50,12 +54,16 @@ Blocs disponibles :
             'fikra_blocks/static/src/scss/s_fikra_portfolio_hero.scss',
             'fikra_blocks/static/src/scss/s_fikra_portfolio_bento.scss',
             'fikra_blocks/static/src/scss/s_fikra_portfolio_projects.scss',
+            'fikra_blocks/static/src/scss/s_fikra_project.scss',
+            'fikra_blocks/static/src/scss/s_fikra_navbars.scss',
             'fikra_blocks/static/src/js/s_fikra_counter.js',
             'fikra_blocks/static/src/js/s_fikra_portfolio_projects.js',
             # Note: cobe + phenomenon are ES modules loaded at runtime by the
             # bento widget (dynamic import), NOT bundled here, to keep their
             # ESM syntax out of Odoo's concatenated asset bundle.
             'fikra_blocks/static/src/js/s_fikra_portfolio_bento.js',
+            'fikra_blocks/static/src/js/s_fikra_project.js',
+            'fikra_blocks/static/src/js/s_fikra_navbars.js',
         ],
     },
 

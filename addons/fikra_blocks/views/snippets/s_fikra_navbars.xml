@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ====================================================================
+         Navbar blocks (4 models). Links are plain editable anchors; add or
+         remove pages freely. These are presentational bars, not Odoo's menu
+         manager. Drop one at the top of the page.
+         ==================================================================== -->
+
+    <!-- Model A: logo + hover dropdown on the left, links on the right -->
+    <template id="s_fikra_nav_a" name="Navbar - logo menu">
+        <section class="s_fikra_nav s_fikra_nav_a o_colored_level" data-name="Navbar - logo menu">
+            <div class="container">
+                <div class="s_fikra_nav_inner">
+                    <div class="s_fikra_nav_brand" tabindex="0">CABINET
+                        <div class="s_fikra_nav_menu">
+                            <a href="#">Projects</a>
+                            <a href="#">News</a>
+                            <a href="#">About</a>
+                            <a href="#">Contact</a>
+                        </div>
+                    </div>
+                    <ul class="s_fikra_nav_links">
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">Studio</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- Model B: centered logo, links split on both sides -->
+    <template id="s_fikra_nav_b" name="Navbar - logo centré">
+        <section class="s_fikra_nav s_fikra_nav_b o_colored_level" data-name="Navbar - logo centré">
+            <div class="container">
+                <div class="s_fikra_nav_inner">
+                    <ul class="s_fikra_nav_links">
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">Studio</a></li>
+                    </ul>
+                    <div class="s_fikra_nav_brand">CABINET</div>
+                    <ul class="s_fikra_nav_links">
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- Model C: thin top strip + uppercase navigation -->
+    <template id="s_fikra_nav_c" name="Navbar - bandeau">
+        <section class="s_fikra_nav s_fikra_nav_c o_colored_level" data-name="Navbar - bandeau">
+            <div class="container">
+                <div class="s_fikra_nav_strip">
+                    <span>Niamey, Niger</span>
+                    <span>+227 00 00 00 00</span>
+                </div>
+                <div class="s_fikra_nav_inner">
+                    <div class="s_fikra_nav_brand">CABINET</div>
+                    <ul class="s_fikra_nav_links">
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- Toggle model: click the logo, it becomes 3 bars, the page list
+         unfolds below it in the page flow. Click the bars to fold it back. -->
+    <template id="s_fikra_nav_toggle" name="Navbar - logo cliquable">
+        <section class="s_fikra_nav s_fikra_nav_toggle o_colored_level" data-name="Navbar - logo cliquable">
+            <div class="container">
+                <div class="s_fikra_nav_inner">
+                    <div class="s_fikra_nav_brand" tabindex="0" role="button">
+                        <span class="s_fikra_nav_label">CABINET</span>
+                        <span class="s_fikra_nav_bars" aria-hidden="true"><i/><i/><i/></span>
+                        <div class="s_fikra_nav_list">
+                            <a href="#">Projects</a>
+                            <a href="#">News</a>
+                            <a href="#">About</a>
+                            <a href="#">Contact</a>
+                        </div>
+                    </div>
+                    <ul class="s_fikra_nav_links">
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">Studio</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>

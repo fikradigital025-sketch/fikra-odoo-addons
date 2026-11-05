@@ -204,4 +204,23 @@
 
     </template>
 
+    <!-- Projet - options -->
+    <template id="s_fikra_project_options" inherit_id="website.snippet_options"
+              name="Projet - options">
+        <xpath expr="." position="inside">
+            <div data-js="FikraProjectOptions"
+                 data-selector=".s_fikra_project"
+                 string="Projet">
+                <we-select string="Position de la petite image">
+                    <we-button data-select-class="">En bas</we-button>
+                    <we-button data-select-class="o_fikra_proj_flip">En haut</we-button>
+                </we-select>
+                <we-select string="Cartes de detail">
+                    <we-button data-select-class="">Au clic</we-button>
+                    <we-button data-select-class="o_fikra_proj_static">Toujours visibles</we-button>
+                </we-select>
+            </div>
+        </xpath>
+    </template>
+
 </odoo>

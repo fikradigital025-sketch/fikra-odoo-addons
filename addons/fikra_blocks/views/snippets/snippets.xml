@@ -70,6 +70,36 @@
                 <keywords>tarifs, prix, pricing, offres, forfaits, abonnement, plans</keywords>
             </t>
 
+            <t t-snippet="fikra_blocks.s_fikra_project"
+               string="Projet"
+               group="content">
+                <keywords>projet, realisation, portfolio, architecture, trait, cartes, details, image</keywords>
+            </t>
+
+            <t t-snippet="fikra_blocks.s_fikra_nav_a"
+               string="Navbar - logo menu"
+               group="content">
+                <keywords>navbar, navigation, menu, header, logo, pages, liens, barre</keywords>
+            </t>
+
+            <t t-snippet="fikra_blocks.s_fikra_nav_b"
+               string="Navbar - logo centre"
+               group="content">
+                <keywords>navbar, navigation, menu, header, logo, centre, pages, barre</keywords>
+            </t>
+
+            <t t-snippet="fikra_blocks.s_fikra_nav_c"
+               string="Navbar - bandeau"
+               group="content">
+                <keywords>navbar, navigation, menu, header, bandeau, contact, pages, barre</keywords>
+            </t>
+
+            <t t-snippet="fikra_blocks.s_fikra_nav_toggle"
+               string="Navbar - logo cliquable"
+               group="content">
+                <keywords>navbar, navigation, menu, header, logo, burger, clic, liste, pages</keywords>
+            </t>
+
         </xpath>
 
     </template>
