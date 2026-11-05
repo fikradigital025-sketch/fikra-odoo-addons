@@ -45,7 +45,7 @@
     }
 
     .s_fikra_project_big {
-        flex: 0 0 min(66vw, 700px);
+        flex: 0 0 #{"min(66vw, 700px)"};
         position: relative;
 
         img {
