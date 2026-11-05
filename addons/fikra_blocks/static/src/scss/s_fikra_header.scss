@@ -55,3 +55,21 @@
     align-items: center;
     gap: 0;
 }
+
+// --- Vertical centering of the logo so it sits on the menu line ---
+#wrapwrap > header #o_main_nav .s_fikra_nav_toggle,
+#wrapwrap > header #o_main_nav .s_fikra_nav_toggle .s_fikra_nav_brand,
+#wrapwrap > header #o_main_nav .s_fikra_nav_label,
+#wrapwrap > header #o_main_nav .s_fikra_nav_label > a {
+    display: flex;
+    align-items: center;
+}
+#wrapwrap > header #o_main_nav .s_fikra_nav_label img { display: block; }
+
+// --- Nudge the logo a little closer to the left edge (not too much) ---
+#wrapwrap > header #o_main_nav .s_fikra_nav_toggle { margin-left: -.25rem; }
+
+// --- 3 bars and the vertical list share the same left edge (no indent) ---
+#wrapwrap > header #o_main_nav .s_fikra_nav_toggle .s_fikra_nav_list .nav-link {
+    padding-left: 0;
+}
