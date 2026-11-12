@@ -1,0 +1,61 @@
+// =====================================================================
+// Strengths bento grid. Text cards and big-number cards; a few cards span
+// 2 columns or 2 rows for the bento rhythm.
+// =====================================================================
+
+.s_fikra_strengths {
+    --fikra-accent: #951abe;
+    --fikra-soft: #f3e8f8;
+
+    .s_fikra_strengths_grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 150px;
+        gap: 16px;
+    }
+
+    .s_fikra_strength {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: 1px solid rgba(0, 0, 0, .12);
+        border-radius: 8px;
+        padding: 22px;
+        transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .s_fikra_strength:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 34px rgba(0, 0, 0, .12);
+    }
+
+    .s_fikra_strength h4 { margin: 0 0 6px; font-size: 17px; font-weight: 700; }
+    .s_fikra_strength p  { margin: 0; font-size: 14px; opacity: .8; }
+
+    .s_fikra_strength_wide { grid-column: span 2; }
+    .s_fikra_strength_tall { grid-row: span 2; }
+
+    .s_fikra_strength_num {
+        background: var(--fikra-soft);
+        align-items: flex-start;
+    }
+    .s_fikra_strength_big {
+        font-size: 40px;
+        font-weight: 800;
+        line-height: 1;
+        color: var(--fikra-accent);
+    }
+    .s_fikra_strength_label { margin-top: 6px; font-size: 13px; opacity: .75; }
+}
+
+@media (max-width: 767px) {
+    .s_fikra_strengths .s_fikra_strengths_grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 140px;
+    }
+    .s_fikra_strengths .s_fikra_strength_wide { grid-column: span 2; }
+    .s_fikra_strengths .s_fikra_strength_tall { grid-row: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .s_fikra_strengths * { transition: none !important; }
+}

@@ -1,0 +1,50 @@
+// =====================================================================
+// Newsletter block: colored panel with text on the left, email + button on
+// the right, wrapping on small screens.
+// =====================================================================
+
+.s_fikra_newsletter {
+    --fikra-accent: #951abe;
+
+    .s_fikra_newsletter_box {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 30px 34px;
+        border-radius: 12px;
+        background: var(--fikra-accent);
+        color: #fff;
+    }
+
+    .s_fikra_newsletter_text h3 { margin: 0 0 6px; font-size: 22px; font-weight: 700; }
+    .s_fikra_newsletter_text p  { margin: 0; font-size: 14px; opacity: .9; }
+
+    .s_fikra_newsletter_form {
+        display: flex;
+        gap: 8px;
+        flex: 1 1 320px;
+        max-width: 460px;
+    }
+    .s_fikra_newsletter_input {
+        flex: 1;
+        border: none;
+        border-radius: 100px;
+        padding: 12px 18px;
+        font-size: 14px;
+        color: #111;
+    }
+    .s_fikra_newsletter_btn {
+        border: none;
+        border-radius: 100px;
+        padding: 12px 22px;
+        font-weight: 600;
+        white-space: nowrap;
+        background: #111;
+        color: #fff;
+        cursor: pointer;
+        transition: opacity .2s ease;
+    }
+    .s_fikra_newsletter_btn:hover { opacity: .9; }
+}

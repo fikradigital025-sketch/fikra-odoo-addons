@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Floating WhatsApp button, fixed at the bottom-right of the viewport.
+         Edit the phone number in the href (wa.me/<international number>). -->
+    <template id="s_fikra_whatsapp" name="Fikra WhatsApp Button">
+        <div class="s_fikra_whatsapp"
+             data-name="Bouton WhatsApp"
+             data-snippet="s_fikra_whatsapp">
+            <a href="https://wa.me/905344512643"
+               target="_blank" rel="noopener"
+               class="s_fikra_whatsapp_btn"
+               aria-label="Contacter sur WhatsApp">
+                <i class="fa fa-whatsapp"/>
+            </a>
+        </div>
+    </template>
+</odoo>

@@ -1,0 +1,68 @@
+// =====================================================================
+// Numbered cards - all cards share the same width and height.
+// Equal width: auto-fit grid columns. Equal height: grid stretch + the
+// link pinned to the card bottom with margin-top:auto.
+// =====================================================================
+
+.s_fikra_numcards {
+    --fikra-accent: #951abe;
+
+    .s_fikra_numcards_grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 16px;
+        align-items: stretch;
+    }
+
+    .s_fikra_numcard {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        border: 1px solid rgba(0, 0, 0, .12);
+        border-radius: 6px;
+        padding: 22px;
+        transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .s_fikra_numcard:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 34px rgba(0, 0, 0, .12);
+    }
+
+    .s_fikra_numcard_num {
+        font-size: 28px;
+        font-weight: 800;
+        line-height: 1;
+        color: var(--fikra-accent);
+    }
+    .s_fikra_numcard_kicker {
+        display: block;
+        margin-top: 12px;
+        font-size: 11px;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        opacity: .6;
+    }
+    .s_fikra_numcard_title {
+        margin: 6px 0 8px;
+        font-size: 17px;
+        font-weight: 700;
+    }
+    .s_fikra_numcard_text {
+        margin: 0 0 14px;
+        font-size: 14px;
+        opacity: .8;
+    }
+    .s_fikra_numcard_link {
+        margin-top: auto;          // pin the link to the bottom on every card
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        color: var(--fikra-accent);
+    }
+    .s_fikra_numcard_link i { transition: transform .2s ease; }
+    .s_fikra_numcard:hover .s_fikra_numcard_link i { transform: translateX(4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .s_fikra_numcards * { transition: none !important; }
+}

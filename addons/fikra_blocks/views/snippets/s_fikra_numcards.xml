@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ====================================================================
+         Numbered cards (01..05), all equal width and height.
+         Each card: big number, kicker, title, text, link. Duplicate or
+         delete a card in the editor to change their count.
+         ==================================================================== -->
+    <template id="s_fikra_numcards" name="Cartes numérotées">
+        <section class="s_fikra_numcards o_colored_level pt56 pb56" data-name="Cartes numérotées">
+            <div class="container">
+                <div class="s_fikra_numcards_grid">
+
+                    <div class="s_fikra_numcard">
+                        <span class="s_fikra_numcard_num">01</span>
+                        <span class="s_fikra_numcard_kicker">Cible</span>
+                        <h4 class="s_fikra_numcard_title">Premier produit</h4>
+                        <p class="s_fikra_numcard_text">Courte description du produit ou du service proposé.</p>
+                        <a href="#" class="s_fikra_numcard_link">Découvrir <i class="fa fa-arrow-right"/></a>
+                    </div>
+
+                    <div class="s_fikra_numcard">
+                        <span class="s_fikra_numcard_num">02</span>
+                        <span class="s_fikra_numcard_kicker">Cible</span>
+                        <h4 class="s_fikra_numcard_title">Deuxième produit</h4>
+                        <p class="s_fikra_numcard_text">Courte description du produit ou du service proposé.</p>
+                        <a href="#" class="s_fikra_numcard_link">Découvrir <i class="fa fa-arrow-right"/></a>
+                    </div>
+
+                    <div class="s_fikra_numcard">
+                        <span class="s_fikra_numcard_num">03</span>
+                        <span class="s_fikra_numcard_kicker">Cible</span>
+                        <h4 class="s_fikra_numcard_title">Troisième produit</h4>
+                        <p class="s_fikra_numcard_text">Courte description du produit ou du service proposé.</p>
+                        <a href="#" class="s_fikra_numcard_link">Découvrir <i class="fa fa-arrow-right"/></a>
+                    </div>
+
+                    <div class="s_fikra_numcard">
+                        <span class="s_fikra_numcard_num">04</span>
+                        <span class="s_fikra_numcard_kicker">Cible</span>
+                        <h4 class="s_fikra_numcard_title">Quatrième produit</h4>
+                        <p class="s_fikra_numcard_text">Courte description du produit ou du service proposé.</p>
+                        <a href="#" class="s_fikra_numcard_link">Découvrir <i class="fa fa-arrow-right"/></a>
+                    </div>
+
+                    <div class="s_fikra_numcard">
+                        <span class="s_fikra_numcard_num">05</span>
+                        <span class="s_fikra_numcard_kicker">Cible</span>
+                        <h4 class="s_fikra_numcard_title">Cinquième produit</h4>
+                        <p class="s_fikra_numcard_text">Courte description du produit ou du service proposé.</p>
+                        <a href="#" class="s_fikra_numcard_link">Découvrir <i class="fa fa-arrow-right"/></a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>

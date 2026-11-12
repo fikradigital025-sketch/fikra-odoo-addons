@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ====================================================================
+         Strengths bento: a mix of text cards and big-number cards in an
+         asymmetric grid. Some cards span 2 columns or 2 rows.
+         ==================================================================== -->
+    <template id="s_fikra_strengths" name="Points forts (bento)">
+        <section class="s_fikra_strengths o_colored_level pt56 pb56" data-name="Points forts (bento)">
+            <div class="container">
+                <div class="s_fikra_strengths_grid">
+
+                    <div class="s_fikra_strength s_fikra_strength_wide">
+                        <h4>Sécurité</h4>
+                        <p>Conformité et protection des données de bout en bout.</p>
+                    </div>
+
+                    <div class="s_fikra_strength s_fikra_strength_num">
+                        <span class="s_fikra_strength_big">1er</span>
+                        <span class="s_fikra_strength_label">sur le marché</span>
+                    </div>
+
+                    <div class="s_fikra_strength s_fikra_strength_num">
+                        <span class="s_fikra_strength_big">99.9%</span>
+                        <span class="s_fikra_strength_label">de disponibilité</span>
+                    </div>
+
+                    <div class="s_fikra_strength s_fikra_strength_tall">
+                        <h4>Pourquoi nous choisir</h4>
+                        <p>Mettez ici votre argument principal, il dispose de plus d'espace.</p>
+                    </div>
+
+                    <div class="s_fikra_strength">
+                        <h4>Support local</h4>
+                        <p>Une équipe proche de vos clients.</p>
+                    </div>
+
+                    <div class="s_fikra_strength s_fikra_strength_num">
+                        <span class="s_fikra_strength_big">+10</span>
+                        <span class="s_fikra_strength_label">partenaires</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>

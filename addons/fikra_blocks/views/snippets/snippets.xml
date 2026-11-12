@@ -124,6 +124,24 @@
                 <keywords>navbar, navigation, menu, header, logo, burger, clic, liste, pages</keywords>
             </t>
 
+            <t t-snippet="fikra_blocks.s_fikra_numcards"
+               string="Cartes numérotées"
+               group="columns">
+                <keywords>cartes, numerotees, numbered, produits, solutions, grille, egales, colonnes</keywords>
+            </t>
+
+            <t t-snippet="fikra_blocks.s_fikra_strengths"
+               string="Points forts (bento)"
+               group="content">
+                <keywords>points forts, bento, chiffres, grands nombres, arguments, avantages, stats</keywords>
+            </t>
+
+            <t t-snippet="fikra_blocks.s_fikra_newsletter"
+               string="Newsletter"
+               group="content">
+                <keywords>newsletter, inscription, email, abonnement, infolettre</keywords>
+            </t>
+
         </xpath>
 
     </template>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ====================================================================
+         Newsletter block: title, text, email field and button on a colored
+         panel. Presentational by default. To actually collect subscribers,
+         wire it to Odoo's mailing list (Email Marketing) or point the button
+         to a contact page.
+         ==================================================================== -->
+    <template id="s_fikra_newsletter" name="Newsletter">
+        <section class="s_fikra_newsletter o_colored_level pt56 pb56" data-name="Newsletter">
+            <div class="container">
+                <div class="s_fikra_newsletter_box">
+                    <div class="s_fikra_newsletter_text">
+                        <h3>Restez informé</h3>
+                        <p>Recevez nos actualités et nouveautés directement dans votre boîte mail.</p>
+                    </div>
+                    <form class="s_fikra_newsletter_form">
+                        <input type="email" class="s_fikra_newsletter_input" placeholder="Votre adresse email" aria-label="Email"/>
+                        <button type="button" class="s_fikra_newsletter_btn">S'inscrire</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>
