@@ -2,18 +2,23 @@
 <odoo>
 
     <!-- ====================================================================
-         Project block
+         Project block (BIG / Bjarke Ingels style)
          Small image (left) joined by an oblique line to the big image
-         (right). Clicking the big image unfolds the detail cards to its
-         right. Each card is a free editable zone: drop an image, a text
-         paragraph, a video or any other element inside.
+         (right). Clicking the big image unfolds typed detail panels to its
+         right, with horizontal scrolling.
 
-         To alternate the oblique line, use the option "Position de la petite
-         image" (bas / haut) from one section to the next. Images never swap
-         sides: small stays left, big stays right.
+         Detail panels are flat (no box, no border), BIG-style:
+           - big image   : class "s_fikra_pd_img o_fikra_pd_lg" + caption
+           - small image : class "s_fikra_pd_img o_fikra_pd_sm" + caption
+           - text column : class "s_fikra_pd_text" (label + paragraphs)
+           - video       : class "s_fikra_pd_video o_fikra_pd_lg"
 
-         The default images below are light-gray placeholders; replace them
-         with the project photos using the editor.
+         ADD AS MANY PANELS AS YOU WANT: select a panel of the type you need,
+         click "Duplicate" in the editor, then edit it. Change an image panel
+         between big and small with the option "Largeur du média".
+
+         The default images below are light placeholders; replace them with
+         the project photos using the editor.
          ==================================================================== -->
     <template id="s_fikra_project" name="Projet">
         <section class="s_fikra_project o_colored_level pt40 pb40" data-name="Projet">
@@ -35,53 +40,33 @@
                     <div class="s_fikra_project_cards_wrap">
                         <div class="s_fikra_project_cards">
 
-                            <div class="s_fikra_project_card">
-                                <img class="img img-fluid" alt=""
-                                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='9'%3E%3Crect width='16' height='9' fill='%23f3e8f8'/%3E%3C/svg%3E"/>
-                                <div class="s_fikra_project_card_body">
-                                    <h4>Plan masse</h4>
-                                    <p>Implantation sur la parcelle et rapport à la rue.</p>
-                                </div>
+                            <!-- Panel: BIG image + caption -->
+                            <div class="s_fikra_project_card s_fikra_pd s_fikra_pd_img o_fikra_pd_lg">
+                                <img class="img img-fluid" alt="Vue du projet"
+                                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3Crect width='16' height='10' fill='%23c2cbc7'/%3E%3C/svg%3E"/>
+                                <p class="s_fikra_pd_cap">VUE GÉNÉRALE - Insertion du bâtiment dans le site et rapport à la rue.</p>
                             </div>
 
-                            <div class="s_fikra_project_card">
-                                <div class="s_fikra_project_card_body">
-                                    <h4>Note d'intention</h4>
-                                    <p>Paragraphe libre : matériaux, lumière, usages, contraintes du site. Remplacez ce texte, ou glissez ici une image, une vidéo ou un autre élément.</p>
-                                </div>
+                            <!-- Panel: small diagram + caption -->
+                            <div class="s_fikra_project_card s_fikra_pd s_fikra_pd_img o_fikra_pd_sm">
+                                <img class="img img-fluid" alt="Diagramme du projet"
+                                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='3'%3E%3Crect width='4' height='3' fill='%23ecece8'/%3E%3C/svg%3E"/>
+                                <p class="s_fikra_pd_cap">DIAGRAMME - Principe d'implantation et flux.</p>
                             </div>
 
-                            <div class="s_fikra_project_card">
-                                <img class="img img-fluid" alt=""
-                                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='9'%3E%3Crect width='16' height='9' fill='%23f3e8f8'/%3E%3C/svg%3E"/>
-                                <div class="s_fikra_project_card_body">
-                                    <h4>Détail de façade</h4>
-                                    <p>Gros plan sur un élément technique.</p>
-                                </div>
+                            <!-- Panel: single text column -->
+                            <div class="s_fikra_project_card s_fikra_pd s_fikra_pd_text">
+                                <p class="s_fikra_pd_label">Note d'intention</p>
+                                <p class="s_fikra_pd_txt">Matériaux locaux, lumière naturelle et ventilation passive structurent le projet. Les patios organisent les circulations et apportent fraîcheur et intimité.</p>
+                                <p class="s_fikra_pd_txt">La façade en terre crue dialogue avec le contexte tout en répondant aux contraintes climatiques du site.</p>
                             </div>
 
-                            <div class="s_fikra_project_card">
-                                <img class="img img-fluid" alt=""
-                                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='9'%3E%3Crect width='16' height='9' fill='%23f3e8f8'/%3E%3C/svg%3E"/>
-                                <div class="s_fikra_project_card_body">
-                                    <h4>Carte supplémentaire</h4>
-                                    <p>Dupliquez cette carte dans l'éditeur pour en ajouter d'autres, ou supprimez-la.</p>
+                            <!-- Panel: video -->
+                            <div class="s_fikra_project_card s_fikra_pd s_fikra_pd_video o_fikra_pd_lg">
+                                <div class="s_fikra_pd_videobox">
+                                    <p class="s_fikra_pd_videohint">Sélectionnez cette zone et insérez une vidéo (bloc Vidéo d'Odoo), ou remplacez-la par une image.</p>
                                 </div>
-                            </div>
-
-                            <div class="s_fikra_project_card">
-                                <div class="s_fikra_project_card_body">
-                                    <h4>Texte libre</h4>
-                                    <p>Une carte peut contenir une image, un paragraphe, une vidéo ou tout autre élément.</p>
-                                </div>
-                            </div>
-
-                            <div class="s_fikra_project_card">
-                                <div class="media vid s_fikra_project_card_media"/>
-                                <div class="s_fikra_project_card_body">
-                                    <h4>Vidéo</h4>
-                                    <p>Glissez une vidéo ici pour illustrer le projet.</p>
-                                </div>
+                                <p class="s_fikra_pd_cap">VIDÉO - Survol du projet.</p>
                             </div>
 
                         </div>
@@ -118,53 +103,33 @@
                     <div class="s_fikra_project_cards_wrap">
                         <div class="s_fikra_project_cards">
 
-                            <div class="s_fikra_project_card">
-                                <img class="img img-fluid" alt=""
-                                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='9'%3E%3Crect width='16' height='9' fill='%23f3e8f8'/%3E%3C/svg%3E"/>
-                                <div class="s_fikra_project_card_body">
-                                    <h4>Plan masse</h4>
-                                    <p>Implantation sur la parcelle et rapport à la rue.</p>
-                                </div>
+                            <!-- Panel: BIG image + caption -->
+                            <div class="s_fikra_project_card s_fikra_pd s_fikra_pd_img o_fikra_pd_lg">
+                                <img class="img img-fluid" alt="Vue du projet"
+                                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3Crect width='16' height='10' fill='%23c2cbc7'/%3E%3C/svg%3E"/>
+                                <p class="s_fikra_pd_cap">VUE GÉNÉRALE - Insertion du bâtiment dans le site et rapport à la rue.</p>
                             </div>
 
-                            <div class="s_fikra_project_card">
-                                <div class="s_fikra_project_card_body">
-                                    <h4>Note d'intention</h4>
-                                    <p>Paragraphe libre : matériaux, lumière, usages, contraintes du site. Remplacez ce texte, ou glissez ici une image, une vidéo ou un autre élément.</p>
-                                </div>
+                            <!-- Panel: small diagram + caption -->
+                            <div class="s_fikra_project_card s_fikra_pd s_fikra_pd_img o_fikra_pd_sm">
+                                <img class="img img-fluid" alt="Diagramme du projet"
+                                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='3'%3E%3Crect width='4' height='3' fill='%23ecece8'/%3E%3C/svg%3E"/>
+                                <p class="s_fikra_pd_cap">DIAGRAMME - Principe d'implantation et flux.</p>
                             </div>
 
-                            <div class="s_fikra_project_card">
-                                <img class="img img-fluid" alt=""
-                                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='9'%3E%3Crect width='16' height='9' fill='%23f3e8f8'/%3E%3C/svg%3E"/>
-                                <div class="s_fikra_project_card_body">
-                                    <h4>Détail de façade</h4>
-                                    <p>Gros plan sur un élément technique.</p>
-                                </div>
+                            <!-- Panel: single text column -->
+                            <div class="s_fikra_project_card s_fikra_pd s_fikra_pd_text">
+                                <p class="s_fikra_pd_label">Note d'intention</p>
+                                <p class="s_fikra_pd_txt">Matériaux locaux, lumière naturelle et ventilation passive structurent le projet. Les patios organisent les circulations et apportent fraîcheur et intimité.</p>
+                                <p class="s_fikra_pd_txt">La façade en terre crue dialogue avec le contexte tout en répondant aux contraintes climatiques du site.</p>
                             </div>
 
-                            <div class="s_fikra_project_card">
-                                <img class="img img-fluid" alt=""
-                                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='9'%3E%3Crect width='16' height='9' fill='%23f3e8f8'/%3E%3C/svg%3E"/>
-                                <div class="s_fikra_project_card_body">
-                                    <h4>Carte supplémentaire</h4>
-                                    <p>Dupliquez cette carte dans l'éditeur pour en ajouter d'autres, ou supprimez-la.</p>
+                            <!-- Panel: video -->
+                            <div class="s_fikra_project_card s_fikra_pd s_fikra_pd_video o_fikra_pd_lg">
+                                <div class="s_fikra_pd_videobox">
+                                    <p class="s_fikra_pd_videohint">Sélectionnez cette zone et insérez une vidéo (bloc Vidéo d'Odoo), ou remplacez-la par une image.</p>
                                 </div>
-                            </div>
-
-                            <div class="s_fikra_project_card">
-                                <div class="s_fikra_project_card_body">
-                                    <h4>Texte libre</h4>
-                                    <p>Une carte peut contenir une image, un paragraphe, une vidéo ou tout autre élément.</p>
-                                </div>
-                            </div>
-
-                            <div class="s_fikra_project_card">
-                                <div class="media vid s_fikra_project_card_media"/>
-                                <div class="s_fikra_project_card_body">
-                                    <h4>Vidéo</h4>
-                                    <p>Glissez une vidéo ici pour illustrer le projet.</p>
-                                </div>
+                                <p class="s_fikra_pd_cap">VIDÉO - Survol du projet.</p>
                             </div>
 
                         </div>

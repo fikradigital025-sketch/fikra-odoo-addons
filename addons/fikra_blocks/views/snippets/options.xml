@@ -223,4 +223,20 @@
         </xpath>
     </template>
 
+
+    <!-- Projet - options par panneau de détail -->
+    <template id="s_fikra_project_card_options" inherit_id="website.snippet_options"
+              name="Projet - média options">
+        <xpath expr="." position="inside">
+            <div data-selector=".s_fikra_project .s_fikra_project_card"
+                 string="Média du projet">
+                <we-select string="Largeur du média">
+                    <we-button data-select-class="">Standard</we-button>
+                    <we-button data-select-class="o_fikra_pd_lg">Grande</we-button>
+                    <we-button data-select-class="o_fikra_pd_sm">Petite</we-button>
+                </we-select>
+            </div>
+        </xpath>
+    </template>
+
 </odoo>

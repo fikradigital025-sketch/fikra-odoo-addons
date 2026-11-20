@@ -8,11 +8,12 @@
  *    The line is redrawn after the layout settles (next frame, full load,
  *    after the open/close transition), because centering and image loading
  *    shift the images and the line must follow them.
- * 2. On the live site only, clicking the big image unfolds the detail cards
- *    to its right.
+ * 2. On the live site only, clicking the big image unfolds the detail panels
+ *    to its right. The open width is measured from the panels themselves, so
+ *    ANY number of panels can unfold and scroll into view.
  *
- * The collapse is enabled by JS (class `o_fikra_proj_ready`): in the editor
- * the cards stay visible and editable; without JS they stay visible too.
+ * The collapse is enabled by JS (class `o_fikra_proj_ready`): in the editor,
+ * on mobile, or without JS, panels stay visible and editable.
  */
 
 import publicWidget from "@web/legacy/js/public/public_widget";
@@ -22,11 +23,21 @@ publicWidget.registry.FikraProject = publicWidget.Widget.extend({
 
     start() {
         this.row = this.el.querySelector(".s_fikra_project_row");
+        this.wrap = this.el.querySelector(".s_fikra_project_cards_wrap");
+        this.cards = this.el.querySelector(".s_fikra_project_cards");
         this._draw = this._draw.bind(this);
 
-        // Apply the ready/closed layout FIRST, so positions are final before
-        // we measure them for the connector.
-        if (!this.editableMode && !this.el.classList.contains("o_fikra_proj_static")) {
+        // Collapse only on the live desktop site: not in the editor, not when
+        // the author chose "always visible", and not on mobile (panels stack).
+        const isMobile = window.matchMedia("(max-width: 767px)").matches;
+        this._collapsible =
+            !this.editableMode &&
+            !this.el.classList.contains("o_fikra_proj_static") &&
+            !isMobile;
+
+        if (this._collapsible) {
+            // Apply the closed layout FIRST, so positions are final before we
+            // measure them for the connector.
             this.el.classList.add("o_fikra_proj_ready");
             const big = this.el.querySelector(".s_fikra_project_big img");
             if (big) {
@@ -51,7 +62,18 @@ publicWidget.registry.FikraProject = publicWidget.Widget.extend({
         window.setTimeout(this._draw, 500);
     },
 
+    // Keep the open panel area as wide as its content (supports any count).
+    _syncOpenWidth() {
+        if (!this.wrap || !this.cards) {
+            return;
+        }
+        if (this.el.classList.contains("o_fikra_proj_open")) {
+            this.wrap.style.maxWidth = this.cards.scrollWidth + "px";
+        }
+    },
+
     _draw() {
+        this._syncOpenWidth();
         const svg = this.el.querySelector(".s_fikra_project_connector");
         if (!svg || !this.row) {
             return;
@@ -90,16 +112,22 @@ publicWidget.registry.FikraProject = publicWidget.Widget.extend({
 
     _onBigClick() {
         const opened = this.el.classList.toggle("o_fikra_proj_open");
+        if (this.wrap && this.cards) {
+            // Measured width = all panels, so the count is unlimited.
+            this.wrap.style.maxWidth = opened
+                ? this.cards.scrollWidth + "px"
+                : "0px";
+        }
         this._draw();
         // Redraw after the max-width / centering transition finishes.
-        window.setTimeout(this._draw, 500);
+        window.setTimeout(this._draw, 550);
         if (!this.row) {
             return;
         }
         if (opened) {
             window.setTimeout(() => {
                 this.row.scrollTo({ left: this.row.scrollWidth, behavior: "smooth" });
-            }, 320);
+            }, 360);
         } else {
             this.row.scrollTo({ left: 0, behavior: "smooth" });
         }
@@ -110,6 +138,9 @@ publicWidget.registry.FikraProject = publicWidget.Widget.extend({
         window.removeEventListener("load", this._draw);
         if (this.row) {
             this.row.removeEventListener("scroll", this._draw);
+        }
+        if (this.wrap) {
+            this.wrap.style.maxWidth = "";
         }
         this.el.classList.remove("o_fikra_proj_ready", "o_fikra_proj_open");
         this._super(...arguments);

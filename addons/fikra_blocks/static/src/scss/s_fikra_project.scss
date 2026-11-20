@@ -1,23 +1,33 @@
 // =====================================================================
 // Project block - Fikra Blocks
 // Small image (left) + oblique connector + big image (right).
-// Clicking the big image unfolds the detail cards to its RIGHT, on the
-// same line, with horizontal scrolling.
+// Clicking the big image unfolds typed detail panels to its RIGHT
+// (horizontal scroll), styled after BIG (Bjarke Ingels Group) project
+// pages: flat, no borders, large images, narrow text columns, generous
+// whitespace.
 //
-// Visibility principle (same as s_fikra_reveal): the cards are hidden
-// ONLY after the JS has added `o_fikra_proj_ready`. Without JS, or inside
-// the website editor, the class is absent, so the cards stay fully
-// visible and editable.
+// Detail panel types (modifier on .s_fikra_project_card):
+//   .s_fikra_pd_img  + .o_fikra_pd_lg / .o_fikra_pd_sm  -> image (big/small)
+//   .s_fikra_pd_text                                    -> single text column
+//   .s_fikra_pd_video + .o_fikra_pd_lg                  -> video
+//
+// Visibility principle (same as s_fikra_reveal): panels are hidden ONLY
+// after JS adds `o_fikra_proj_ready`. Without JS, or in the editor, the
+// class is absent, so panels stay visible and editable.
 // =====================================================================
 
 .s_fikra_project {
     --fikra-accent: #951abe;
+    --fikra-ink: #141414;
+    --fikra-muted: #8a8a8a;
+
+    color: var(--fikra-ink);
 
     .s_fikra_project_row {
         position: relative;
         display: flex;
-        align-items: flex-end;        // small image sits at the bottom by default
-        gap: 30px;
+        align-items: flex-end;            // small image sits at the bottom by default
+        gap: 48px;
         overflow-x: auto;
         padding-bottom: 12px;
         scroll-behavior: smooth;
@@ -28,48 +38,47 @@
     .s_fikra_project_row::-webkit-scrollbar { display: none; }   // hide scrollbar (WebKit)
 
     // Center the section when closed on the live site; left-align once the
-    // cards are open so they can scroll into view.
+    // panels are open so they can scroll into view.
     &.o_fikra_proj_ready:not(.o_fikra_proj_open) .s_fikra_project_row {
         justify-content: center;
     }
 
-    // Even sections flip the small image to the top; the connector follows.
+    // Flipped sections put the small image on top; the connector follows.
     &.o_fikra_proj_flip .s_fikra_project_row {
         align-items: flex-start;
     }
 
+    // --- Small image, connected by the oblique line ---
     .s_fikra_project_small {
-        flex: 0 0 190px;
+        flex: 0 0 210px;
 
         .s_fikra_project_cap {
             font-size: 13px;
-            margin-bottom: 8px;
+            line-height: 1.5;
+            color: var(--fikra-muted);
+            margin-bottom: 10px;
         }
 
         img {
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 4px;
         }
     }
 
+    // --- Big image, click to open the details ---
     .s_fikra_project_big {
-        flex: 0 0 #{"min(50vw, 520px)"};
+        flex: 0 0 #{"min(58vw, 660px)"};
         position: relative;
 
         img {
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 4px;
             cursor: pointer;
-            transition: transform .3s ease, box-shadow .3s ease;
+            transition: opacity .25s ease;
         }
-        img:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, .16);
-        }
+        img:hover { opacity: .92; }
 
         .s_fikra_project_hint {
             position: absolute;
@@ -78,13 +87,14 @@
             background: rgba(0, 0, 0, .6);
             color: #fff;
             font-size: 11px;
+            letter-spacing: .02em;
             padding: 5px 10px;
             border-radius: 100px;
             pointer-events: none;
         }
     }
 
-    // Oblique connector, drawn by JS between the two images.
+    // --- Oblique connector, drawn by JS between the two images ---
     .s_fikra_project_connector {
         position: absolute;
         inset: 0;
@@ -98,7 +108,7 @@
         }
     }
 
-    // Detail cards unfold to the RIGHT of the big image.
+    // --- Detail panels unfold to the RIGHT of the big image ---
     .s_fikra_project_cards_wrap {
         flex: 0 0 auto;
         display: flex;
@@ -107,37 +117,93 @@
 
     .s_fikra_project_cards {
         display: flex;
-        gap: 16px;
-        padding-left: 30px;
+        align-items: flex-start;
+        gap: 48px;
+        padding-left: 48px;
     }
 
+    // A panel: no box, no border, just content + whitespace (BIG style).
     .s_fikra_project_card {
-        flex: 0 0 250px;
-        align-self: center;
-        border: 1px solid rgba(0, 0, 0, .12);
-        border-radius: 4px;
-        overflow: hidden;
+        flex: 0 0 300px;              // default width (small image / diagram)
+        align-self: flex-start;
 
         img {
             width: 100%;
             height: auto;
             display: block;
         }
+    }
 
-        .s_fikra_project_card_body {
-            padding: 14px;
+    // Media width variants (set per panel from the editor options).
+    .o_fikra_pd_lg { flex: 0 0 #{"min(58vw, 660px)"}; }   // large (hero-scale)
+    .o_fikra_pd_sm { flex: 0 0 300px; }                   // small (diagram)
+
+    // Image caption (BIG: small, muted, below the image).
+    .s_fikra_pd_cap {
+        font-size: 12.5px;
+        line-height: 1.55;
+        color: var(--fikra-muted);
+        margin: 12px 0 0;
+    }
+
+    // Text panel (narrow editorial column).
+    .s_fikra_pd_text {
+        flex: 0 0 320px;
+        align-self: center;
+
+        .s_fikra_pd_label {
+            font-size: 11px;
+            letter-spacing: .09em;
+            text-transform: uppercase;
+            color: var(--fikra-muted);
+            margin: 0 0 10px;
         }
+        .s_fikra_pd_txt {
+            font-size: 14px;
+            line-height: 1.65;
+            color: #333;
+            margin: 0 0 14px;
+        }
+        .s_fikra_pd_txt:last-child { margin-bottom: 0; }
+    }
+
+    // Video panel.
+    .s_fikra_pd_video {
+        .s_fikra_pd_videobox {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            background: #eceae6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            text-align: center;
+        }
+        .s_fikra_pd_videohint {
+            font-size: 12px;
+            line-height: 1.5;
+            color: var(--fikra-muted);
+            margin: 0;
+            max-width: 320px;
+        }
+        // When a real Odoo video is dropped in, drop the placeholder frame.
+        .s_fikra_pd_videobox:has(.media_iframe_video),
+        .s_fikra_pd_videobox:has(iframe) {
+            background: transparent;
+            padding: 0;
+            aspect-ratio: auto;
+        }
+        .media_iframe_video { width: 100%; }
     }
 
     // --- Collapsed state: only active once JS marks the block ready ---
+    // The open width is set inline by JS (= content width), so any number
+    // of panels can unfold and scroll.
     &.o_fikra_proj_ready {
         .s_fikra_project_cards_wrap {
             overflow: hidden;
             max-width: 0;
-            transition: max-width .45s ease;
-        }
-        &.o_fikra_proj_open .s_fikra_project_cards_wrap {
-            max-width: 1000px;
+            transition: max-width .5s ease;
         }
     }
 
@@ -152,17 +218,22 @@
         flex-direction: column;
         align-items: stretch;
         overflow-x: visible;
+        gap: 28px;
     }
     .s_fikra_project .s_fikra_project_small,
-    .s_fikra_project .s_fikra_project_big { flex: 1 1 auto; }
+    .s_fikra_project .s_fikra_project_big,
+    .s_fikra_project .o_fikra_pd_lg,
+    .s_fikra_project .o_fikra_pd_sm,
+    .s_fikra_project .s_fikra_pd_text { flex: 1 1 auto; }
     .s_fikra_project .s_fikra_project_connector { display: none; }
     .s_fikra_project.o_fikra_proj_ready .s_fikra_project_cards_wrap,
     .s_fikra_project.o_fikra_proj_ready.o_fikra_proj_open .s_fikra_project_cards_wrap {
         max-width: none;
     }
     .s_fikra_project .s_fikra_project_cards {
-        overflow-x: auto;
+        flex-direction: column;
         padding-left: 0;
+        gap: 28px;
     }
 }
 
