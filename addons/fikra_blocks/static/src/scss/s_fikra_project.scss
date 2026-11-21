@@ -50,7 +50,7 @@
 
     // --- Small image, connected by the oblique line ---
     .s_fikra_project_small {
-        flex: 0 0 210px;
+        flex: 0 0 150px;
 
         .s_fikra_project_cap {
             font-size: 13px;
@@ -68,7 +68,7 @@
 
     // --- Big image, click to open the details ---
     .s_fikra_project_big {
-        flex: 0 0 #{"min(58vw, 660px)"};
+        flex: 0 0 #{"min(54vw, 600px)"};
         position: relative;
 
         img {
@@ -137,6 +137,17 @@
     // Media width variants (set per panel from the editor options).
     .o_fikra_pd_lg { flex: 0 0 #{"min(58vw, 660px)"}; }   // large (hero-scale)
     .o_fikra_pd_sm { flex: 0 0 300px; }                   // small (diagram)
+
+    // Opened detail media are shorter than the hero: keep the width, cap the
+    // height (crop vertically) so panels never match the big image's height.
+    .s_fikra_pd_img.o_fikra_pd_lg img {
+        height: 340px;
+        object-fit: cover;
+    }
+    .s_fikra_pd_video.o_fikra_pd_lg .s_fikra_pd_videobox {
+        aspect-ratio: auto;
+        height: 340px;
+    }
 
     // Image caption (BIG: small, muted, below the image).
     .s_fikra_pd_cap {
@@ -234,6 +245,12 @@
         flex-direction: column;
         padding-left: 0;
         gap: 28px;
+    }
+    // Stacked on mobile: restore natural heights (no vertical crop).
+    .s_fikra_project .s_fikra_pd_img.o_fikra_pd_lg img { height: auto; }
+    .s_fikra_project .s_fikra_pd_video.o_fikra_pd_lg .s_fikra_pd_videobox {
+        height: auto;
+        aspect-ratio: 16 / 9;
     }
 }
 
