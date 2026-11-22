@@ -1,0 +1,131 @@
+// =====================================================================
+// Full-bleed product hero - Fikra Blocks (Apple style)
+//
+// Measurements taken from apple.com marketing heroes:
+//   tile height   692px desktop / 580px <=1068px / 500px <=734px
+//   headline      56px / line-height 1.0714286 / -0.005em / weight 600
+//   subhead       28px / line-height 1.1071429 /  .007em / weight 400
+//   eyebrow       19px / weight 600 / accent #bf4800
+//   CTA links     21px / line-height 1.381 / .011em / #0066cc / 34px apart
+//   copy block    max-width 880px, padding-top 54px
+//   container     max-width 1680px
+// Apple breakpoints: 1068px and 734px.
+// =====================================================================
+
+.s_fikra_hero_product {
+    --fikra-hp-bg: #ffffff;
+    --fikra-hp-ink: #1d1d1f;
+    --fikra-hp-sub: #6e6e73;
+    --fikra-hp-link: #0066cc;
+    --fikra-hp-accent: #bf4800;
+
+    background: var(--fikra-hp-bg);
+    color: var(--fikra-hp-ink);
+
+    .s_fikra_hp_inner {
+        max-width: 1680px;
+        margin: 0 auto;
+        min-height: 692px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .s_fikra_hp_copy {
+        flex: 0 0 auto;
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 54px 24px 0;
+        text-align: center;
+    }
+
+    .s_fikra_hp_eyebrow {
+        font-size: 19px;
+        line-height: 1.2105263;
+        font-weight: 600;
+        color: var(--fikra-hp-accent);
+        margin: 0 0 4px;
+    }
+
+    .s_fikra_hp_title {
+        font-size: clamp(32px, 4.2vw, 56px);
+        line-height: 1.0714286;
+        letter-spacing: -0.005em;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .s_fikra_hp_sub {
+        font-size: clamp(19px, 2.1vw, 28px);
+        line-height: 1.1071429;
+        letter-spacing: 0.007em;
+        font-weight: 400;
+        color: var(--fikra-hp-sub);
+        margin: 6px 0 0;
+    }
+
+    .s_fikra_hp_links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 34px;
+        margin-top: 18px;
+    }
+
+    .s_fikra_hp_link {
+        font-size: clamp(17px, 1.5vw, 21px);
+        line-height: 1.381;
+        letter-spacing: 0.011em;
+        color: var(--fikra-hp-link);
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            color: var(--fikra-hp-link);
+            text-decoration: underline;
+        }
+    }
+
+    // The visual fills the space left under the copy block.
+    .s_fikra_hp_media {
+        flex: 1 1 auto;
+        min-height: 0;
+        margin-top: 24px;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    // Option: show the whole image instead of filling the frame.
+    &.o_fikra_hp_contain .s_fikra_hp_media img {
+        object-fit: contain;
+    }
+
+    // --- Themes ---
+    &.o_fikra_hp_gray {
+        --fikra-hp-bg: #f5f5f7;
+    }
+
+    &.o_fikra_hp_dark {
+        --fikra-hp-bg: #000000;
+        --fikra-hp-ink: #f5f5f7;
+        --fikra-hp-sub: #a1a1a6;
+        --fikra-hp-link: #2997ff;
+        --fikra-hp-accent: #f56300;
+    }
+}
+
+@media (max-width: 1068px) {
+    .s_fikra_hero_product .s_fikra_hp_inner { min-height: 580px; }
+}
+
+@media (max-width: 734px) {
+    .s_fikra_hero_product .s_fikra_hp_inner { min-height: 500px; }
+    .s_fikra_hero_product .s_fikra_hp_copy { padding-top: 38px; }
+    .s_fikra_hero_product .s_fikra_hp_links { gap: 24px; margin-top: 14px; }
+    .s_fikra_hero_product .s_fikra_hp_media { margin-top: 18px; }
+}

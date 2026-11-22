@@ -16,6 +16,24 @@
         <xpath expr="//snippets[@id='snippet_structure']/t[@t-snippet][last()]"
                position="after">
 
+            <t t-snippet="fikra_blocks.s_fikra_hero_product"
+               string="Hero produit"
+               group="intro">
+                <keywords>hero, produit, intro, couverture, plein ecran, apple, lancement, banniere, titre</keywords>
+            </t>
+
+            <t t-snippet="fikra_blocks.s_fikra_gallery"
+               string="Galerie photos"
+               group="images">
+                <keywords>galerie, photos, images, mosaique, lightbox, grande, petites, airbnb, visite</keywords>
+            </t>
+
+            <t t-snippet="fikra_blocks.s_fikra_shopcards"
+               string="Cartes produit"
+               group="columns">
+                <keywords>produits, cartes, boutique, ecommerce, slider, favoris, note, prix, catalogue, airbnb</keywords>
+            </t>
+
             <t t-snippet="fikra_blocks.s_fikra_portfolio_hero"
                string="Portfolio Hero"
                group="intro">

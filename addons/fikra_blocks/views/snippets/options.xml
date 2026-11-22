@@ -239,4 +239,24 @@
         </xpath>
     </template>
 
+
+    <!-- Hero produit - options -->
+    <template id="s_fikra_hero_product_options" inherit_id="website.snippet_options"
+              name="Hero produit - options">
+        <xpath expr="." position="inside">
+            <div data-selector=".s_fikra_hero_product"
+                 string="Hero produit">
+                <we-select string="Th&#232;me">
+                    <we-button data-select-class="">Clair</we-button>
+                    <we-button data-select-class="o_fikra_hp_gray">Gris</we-button>
+                    <we-button data-select-class="o_fikra_hp_dark">Sombre</we-button>
+                </we-select>
+                <we-select string="Image">
+                    <we-button data-select-class="">Remplir le cadre</we-button>
+                    <we-button data-select-class="o_fikra_hp_contain">Image enti&#232;re</we-button>
+                </we-select>
+            </div>
+        </xpath>
+    </template>
+
 </odoo>

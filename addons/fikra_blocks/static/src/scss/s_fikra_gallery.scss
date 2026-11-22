@@ -1,0 +1,180 @@
+// =====================================================================
+// Photo gallery - Fikra Blocks (Airbnb style)
+//
+// Measurements taken from airbnb.com listing galleries:
+//   grid        4 columns x 2 rows, 8px gap, overall ratio 2:1
+//   container   max-width 1120px  (=> 560px tall)
+//   large image spans 2 columns x 2 rows
+//   corners     12px on the outer corners only
+//   button      padding 7px 15px, 1px solid #222, radius 8px, 14px/600
+//   breakpoint  743px (mobile stack)
+// =====================================================================
+
+.s_fikra_gallery {
+    --fikra-g-ink: #222222;
+
+    padding: 24px 0;
+
+    .s_fikra_gallery_grid {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 8px;
+        aspect-ratio: 2 / 1;
+        max-width: 1120px;
+        margin: 0 auto;
+    }
+
+    .s_fikra_gallery_item {
+        position: relative;
+        overflow: hidden;
+        background: #ebebeb;
+        cursor: pointer;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: filter .2s ease;
+        }
+
+        &:hover img { filter: brightness(.9); }
+    }
+
+    // Large image: 2 columns x 2 rows, rounded on the left side.
+    .s_fikra_gallery_item:nth-child(1) {
+        grid-column: span 2;
+        grid-row: span 2;
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+    }
+    // Outer right corners.
+    .s_fikra_gallery_item:nth-child(3) { border-top-right-radius: 12px; }
+    .s_fikra_gallery_item:nth-child(5) { border-bottom-right-radius: 12px; }
+
+    .s_fikra_gallery_all {
+        position: absolute;
+        right: 24px;
+        bottom: 24px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 15px;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 18px;
+        color: var(--fikra-g-ink);
+        background: #ffffff;
+        border: 1px solid var(--fikra-g-ink);
+        border-radius: 8px;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .18);
+        transition: background .2s ease;
+
+        &:hover { background: #f7f7f7; }
+    }
+}
+
+// --- Lightbox (built by JS on the live site, appended to <body>) ---
+.s_fikra_glb {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, .95);
+    opacity: 0;
+    transition: opacity .25s ease;
+
+    &.is-open { opacity: 1; }
+
+    img {
+        display: block;
+        max-width: 90vw;
+        max-height: 85vh;
+        object-fit: contain;
+    }
+}
+
+.s_fikra_glb_count {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffffff;
+    font-size: 14px;
+    letter-spacing: .02em;
+}
+
+.s_fikra_glb_close,
+.s_fikra_glb_nav {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .12);
+    color: #ffffff;
+    cursor: pointer;
+    transition: background .2s ease;
+
+    &:hover { background: rgba(255, 255, 255, .22); }
+}
+
+.s_fikra_glb_close {
+    top: 24px;
+    left: 24px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+}
+
+.s_fikra_glb_nav {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+}
+
+.s_fikra_glb_prev { left: 24px; }
+.s_fikra_glb_next { right: 24px; }
+
+body.s_fikra_glb_lock { overflow: hidden; }
+
+// --- Mobile: 2 columns, large image on top ---
+@media (max-width: 743px) {
+    .s_fikra_gallery .s_fikra_gallery_grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        aspect-ratio: auto;
+        gap: 6px;
+    }
+    .s_fikra_gallery .s_fikra_gallery_item {
+        aspect-ratio: 1 / 1;
+        border-radius: 12px;
+    }
+    .s_fikra_gallery .s_fikra_gallery_item:nth-child(1) {
+        grid-column: span 2;
+        grid-row: auto;
+        aspect-ratio: 4 / 3;
+        border-radius: 12px;
+    }
+    .s_fikra_gallery .s_fikra_gallery_all {
+        right: 12px;
+        bottom: 12px;
+    }
+    .s_fikra_glb_nav { width: 38px; height: 38px; font-size: 17px; }
+    .s_fikra_glb_prev { left: 10px; }
+    .s_fikra_glb_next { right: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .s_fikra_gallery .s_fikra_gallery_item img,
+    .s_fikra_glb { transition: none; }
+}

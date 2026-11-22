@@ -18,11 +18,14 @@ Blocs disponibles :
   - Portfolio Bento
   - Projet (architecture)
   - Navbars (4 modeles)
+  - Hero produit (plein ecran)
+  - Galerie photos (1 grande + 4 petites, lightbox)
+  - Cartes produit (slider, favoris, note, prix)
     """,
     'author': "Fikra Digital",
     'website': "https://fikra-digit.com",
     'category': 'Website/Website',
-    'version': '18.0.1.12.1',
+    'version': '18.0.1.13.0',
     'license': 'LGPL-3',
 
     'depends': ['website'],
@@ -46,6 +49,9 @@ Blocs disponibles :
         'views/snippets/s_fikra_numcards.xml',
         'views/snippets/s_fikra_strengths.xml',
         'views/snippets/s_fikra_newsletter.xml',
+        'views/snippets/s_fikra_hero_product.xml',
+        'views/snippets/s_fikra_gallery.xml',
+        'views/snippets/s_fikra_shopcards.xml',
         'views/snippets/snippets.xml',
         'views/snippets/options.xml',
     ],
@@ -70,6 +76,9 @@ Blocs disponibles :
             'fikra_blocks/static/src/scss/s_fikra_numcards.scss',
             'fikra_blocks/static/src/scss/s_fikra_strengths.scss',
             'fikra_blocks/static/src/scss/s_fikra_newsletter.scss',
+            'fikra_blocks/static/src/scss/s_fikra_hero_product.scss',
+            'fikra_blocks/static/src/scss/s_fikra_gallery.scss',
+            'fikra_blocks/static/src/scss/s_fikra_shopcards.scss',
             'fikra_blocks/static/src/js/s_fikra_counter.js',
             'fikra_blocks/static/src/js/s_fikra_portfolio_projects.js',
             'fikra_blocks/static/src/js/s_fikra_portfolio_footer.js',
@@ -79,6 +88,8 @@ Blocs disponibles :
             'fikra_blocks/static/src/js/s_fikra_portfolio_bento.js',
             'fikra_blocks/static/src/js/s_fikra_project.js',
             'fikra_blocks/static/src/js/s_fikra_navbars.js',
+            'fikra_blocks/static/src/js/s_fikra_gallery.js',
+            'fikra_blocks/static/src/js/s_fikra_shopcards.js',
         ],
     },
 

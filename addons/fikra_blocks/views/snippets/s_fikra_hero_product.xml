@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ====================================================================
+         Full-bleed product hero (Apple style).
+
+         Measurements follow apple.com marketing heroes:
+           - tile height 692px desktop / 580px <=1068px / 500px <=734px
+           - headline 56px, line-height 1.0714, letter-spacing -0.005em, 600
+           - subhead  28px, line-height 1.1071, letter-spacing .007em, 400
+           - CTA links 21px, colour #0066cc, 34px apart
+           - copy block max-width 880px, padding-top 54px
+           - outer container max-width 1680px
+
+         Options (editor): theme (clair / gris / sombre) and image fit
+         (remplir le cadre / image entière).
+         ==================================================================== -->
+    <template id="s_fikra_hero_product" name="Hero produit">
+        <section class="s_fikra_hero_product o_colored_level" data-name="Hero produit">
+            <div class="s_fikra_hp_inner">
+
+                <div class="s_fikra_hp_copy">
+                    <p class="s_fikra_hp_eyebrow">Nouveau</p>
+                    <h1 class="s_fikra_hp_title">Le titre de votre produit</h1>
+                    <p class="s_fikra_hp_sub">Une phrase courte qui dit l'essentiel.</p>
+                    <div class="s_fikra_hp_links">
+                        <a href="#" class="s_fikra_hp_link">Découvrir <i class="fa fa-angle-right ms-1"/></a>
+                        <a href="#" class="s_fikra_hp_link">Acheter <i class="fa fa-angle-right ms-1"/></a>
+                    </div>
+                </div>
+
+                <div class="s_fikra_hp_media">
+                    <img class="img" alt="Visuel du produit"
+                         src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='9'%3E%3Crect width='16' height='9' fill='%23e8e8ed'/%3E%3C/svg%3E"/>
+                </div>
+
+            </div>
+        </section>
+    </template>
+
+</odoo>

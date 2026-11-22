@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ====================================================================
+         Product cards (Airbnb style): each card carries its own image
+         slider, a wishlist heart, a rating and a price.
+
+         Measurements follow airbnb.com listing cards:
+           - grid auto-fill minmax(280px, 1fr), column gap 24px, row gap 32px
+           - image ratio 1:1, radius 12px
+           - arrows 32px circles revealed on hover, 8px from the edges
+           - dots 6px, 4px apart, 8px from the bottom
+           - heart 24px at top 12px / right 12px
+           - title 15px/600, meta 15px #717171, price 15px, rating 14px
+
+         ADD A CARD: select a card and click "Duplicate" in the editor.
+         ADD A PHOTO to a card: duplicate a ".s_fikra_sc_slide" inside its
+         track, then add a matching dot in ".s_fikra_sc_dots".
+         ==================================================================== -->
+    <template id="s_fikra_shopcards" name="Cartes produit">
+        <section class="s_fikra_shopcards o_colored_level" data-name="Cartes produit">
+            <div class="container">
+                <div class="s_fikra_sc_grid">
+
+                    <!-- Card 1 -->
+                    <div class="s_fikra_sc_card">
+                        <div class="s_fikra_sc_media">
+                            <div class="s_fikra_sc_track">
+                                <div class="s_fikra_sc_slide">
+                                    <img class="img" alt="Produit 1 - photo 1"
+                                         src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='1' height='1' fill='%23d9d9d9'/%3E%3C/svg%3E"/>
+                                </div>
+                                <div class="s_fikra_sc_slide">
+                                    <img class="img" alt="Produit 1 - photo 2"
+                                         src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='1' height='1' fill='%23c9d4d0'/%3E%3C/svg%3E"/>
+                                </div>
+                                <div class="s_fikra_sc_slide">
+                                    <img class="img" alt="Produit 1 - photo 3"
+                                         src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='1' height='1' fill='%23e3d9cc'/%3E%3C/svg%3E"/>
+                                </div>
+                            </div>
+                            <button type="button" class="s_fikra_sc_nav s_fikra_sc_prev" contenteditable="false" aria-label="Photo précédente"><i class="fa fa-angle-left"/></button>
+                            <button type="button" class="s_fikra_sc_nav s_fikra_sc_next" contenteditable="false" aria-label="Photo suivante"><i class="fa fa-angle-right"/></button>
+                            <button type="button" class="s_fikra_sc_like" contenteditable="false" aria-label="Ajouter aux favoris"><i class="fa fa-heart-o"/></button>
+                            <div class="s_fikra_sc_dots" contenteditable="false">
+                                <button type="button" class="s_fikra_sc_dot is-active" aria-label="Photo 1"/>
+                                <button type="button" class="s_fikra_sc_dot" aria-label="Photo 2"/>
+                                <button type="button" class="s_fikra_sc_dot" aria-label="Photo 3"/>
+                            </div>
+                        </div>
+                        <div class="s_fikra_sc_info">
+                            <div class="s_fikra_sc_head">
+                                <h3 class="s_fikra_sc_title">Nom du produit</h3>
+                                <span class="s_fikra_sc_rating"><i class="fa fa-star"/> 4,92</span>
+                            </div>
+                            <p class="s_fikra_sc_meta">Catégorie ou courte description</p>
+                            <p class="s_fikra_sc_price"><strong>45 000 FCFA</strong> <span>l'unité</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="s_fikra_sc_card">
+                        <div class="s_fikra_sc_media">
+                            <div class="s_fikra_sc_track">
+                                <div class="s_fikra_sc_slide">
+                                    <img class="img" alt="Produit 2 - photo 1"
+                                         src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='1' height='1' fill='%23dcdce0'/%3E%3C/svg%3E"/>
+                                </div>
+                                <div class="s_fikra_sc_slide">
+                                    <img class="img" alt="Produit 2 - photo 2"
+                                         src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='1' height='1' fill='%23cfd6d8'/%3E%3C/svg%3E"/>
+                                </div>
+                                <div class="s_fikra_sc_slide">
+                                    <img class="img" alt="Produit 2 - photo 3"
+                                         src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='1' height='1' fill='%23d6d3cd'/%3E%3C/svg%3E"/>
+                                </div>
+                            </div>
+                            <button type="button" class="s_fikra_sc_nav s_fikra_sc_prev" contenteditable="false" aria-label="Photo précédente"><i class="fa fa-angle-left"/></button>
+                            <button type="button" class="s_fikra_sc_nav s_fikra_sc_next" contenteditable="false" aria-label="Photo suivante"><i class="fa fa-angle-right"/></button>
+                            <button type="button" class="s_fikra_sc_like" contenteditable="false" aria-label="Ajouter aux favoris"><i class="fa fa-heart-o"/></button>
+                            <div class="s_fikra_sc_dots" contenteditable="false">
+                                <button type="button" class="s_fikra_sc_dot is-active" aria-label="Photo 1"/>
+                                <button type="button" class="s_fikra_sc_dot" aria-label="Photo 2"/>
+                                <button type="button" class="s_fikra_sc_dot" aria-label="Photo 3"/>
+                            </div>
+                        </div>
+                        <div class="s_fikra_sc_info">
+                            <div class="s_fikra_sc_head">
+                                <h3 class="s_fikra_sc_title">Nom du produit</h3>
+                                <span class="s_fikra_sc_rating"><i class="fa fa-star"/> 4,85</span>
+                            </div>
+                            <p class="s_fikra_sc_meta">Catégorie ou courte description</p>
+                            <p class="s_fikra_sc_price"><strong>32 000 FCFA</strong> <span>l'unité</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="s_fikra_sc_card">
+                        <div class="s_fikra_sc_media">
+                            <div class="s_fikra_sc_track">
+                                <div class="s_fikra_sc_slide">
+                                    <img class="img" alt="Produit 3 - photo 1"
+                                         src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='1' height='1' fill='%23e0dbd3'/%3E%3C/svg%3E"/>
+                                </div>
+                                <div class="s_fikra_sc_slide">
+                                    <img class="img" alt="Produit 3 - photo 2"
+                                         src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='1' height='1' fill='%23cdd3cf'/%3E%3C/svg%3E"/>
+                                </div>
+                                <div class="s_fikra_sc_slide">
+                                    <img class="img" alt="Produit 3 - photo 3"
+                                         src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='1' height='1' fill='%23dad6e0'/%3E%3C/svg%3E"/>
+                                </div>
+                            </div>
+                            <button type="button" class="s_fikra_sc_nav s_fikra_sc_prev" contenteditable="false" aria-label="Photo précédente"><i class="fa fa-angle-left"/></button>
+                            <button type="button" class="s_fikra_sc_nav s_fikra_sc_next" contenteditable="false" aria-label="Photo suivante"><i class="fa fa-angle-right"/></button>
+                            <button type="button" class="s_fikra_sc_like" contenteditable="false" aria-label="Ajouter aux favoris"><i class="fa fa-heart-o"/></button>
+                            <div class="s_fikra_sc_dots" contenteditable="false">
+                                <button type="button" class="s_fikra_sc_dot is-active" aria-label="Photo 1"/>
+                                <button type="button" class="s_fikra_sc_dot" aria-label="Photo 2"/>
+                                <button type="button" class="s_fikra_sc_dot" aria-label="Photo 3"/>
+                            </div>
+                        </div>
+                        <div class="s_fikra_sc_info">
+                            <div class="s_fikra_sc_head">
+                                <h3 class="s_fikra_sc_title">Nom du produit</h3>
+                                <span class="s_fikra_sc_rating"><i class="fa fa-star"/> 4,78</span>
+                            </div>
+                            <p class="s_fikra_sc_meta">Catégorie ou courte description</p>
+                            <p class="s_fikra_sc_price"><strong>58 000 FCFA</strong> <span>l'unité</span></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>

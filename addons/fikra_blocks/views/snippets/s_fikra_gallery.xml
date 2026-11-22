@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ====================================================================
+         Photo gallery (Airbnb style): 1 large image + 4 small ones.
+
+         Measurements follow airbnb.com listing galleries:
+           - grid 4 columns x 2 rows, 8px gap, overall ratio 2:1
+           - container max-width 1120px (so 560px tall)
+           - large image spans 2 columns x 2 rows
+           - outer corners rounded 12px, inner edges square
+           - "all photos" button 7px/15px, 1px solid #222, radius 8px, 14px/600
+
+         On the live site, clicking a photo (or the button) opens a lightbox
+         with arrows, keyboard navigation and a counter. In the editor no
+         lightbox opens, so the images stay selectable and replaceable.
+
+         Keep 5 images: the layout is built for 1 large + 4 small.
+         ==================================================================== -->
+    <template id="s_fikra_gallery" name="Galerie photos">
+        <section class="s_fikra_gallery o_colored_level" data-name="Galerie photos">
+            <div class="container">
+                <div class="s_fikra_gallery_grid">
+
+                    <div class="s_fikra_gallery_item">
+                        <img class="img" alt="Photo principale"
+                             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='3'%3E%3Crect width='4' height='3' fill='%23d6d3cd'/%3E%3C/svg%3E"/>
+                    </div>
+
+                    <div class="s_fikra_gallery_item">
+                        <img class="img" alt="Photo 2"
+                             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='1' height='1' fill='%23c9d4d0'/%3E%3C/svg%3E"/>
+                    </div>
+
+                    <div class="s_fikra_gallery_item">
+                        <img class="img" alt="Photo 3"
+                             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='1' height='1' fill='%23e3d9cc'/%3E%3C/svg%3E"/>
+                    </div>
+
+                    <div class="s_fikra_gallery_item">
+                        <img class="img" alt="Photo 4"
+                             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='1' height='1' fill='%23dcdce0'/%3E%3C/svg%3E"/>
+                    </div>
+
+                    <div class="s_fikra_gallery_item">
+                        <img class="img" alt="Photo 5"
+                             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='1' height='1' fill='%23cfd6d8'/%3E%3C/svg%3E"/>
+                    </div>
+
+                    <button type="button" class="s_fikra_gallery_all" contenteditable="false">
+                        <i class="fa fa-th"/> Afficher toutes les photos
+                    </button>
+
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>
