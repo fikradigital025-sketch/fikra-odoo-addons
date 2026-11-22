@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ====================================================================
+         Pinned-media scroll section (Apple style).
+
+         The visual stays pinned on the left while the text steps scroll past
+         on the right; the image swaps as each step reaches the middle of the
+         viewport.
+
+         Measurements:
+           - content max-width 1200px, 2 columns, 64px gap
+           - pinned frame: ratio 1:1, max-height 72vh, radius 18px
+           - step height 90vh, inactive steps at 35% opacity
+           - eyebrow 14px uppercase .08em, title 40px/1.1/600, text 19px/1.47
+           - mobile (<=734px): frame pinned on top at 42vh, steps 60vh
+
+         KEEP ONE IMAGE PER STEP, in the same order. Add a step by duplicating
+         a ".s_fikra_sy_step" and adding one ".s_fikra_sy_img" in the frame.
+         In the editor everything is unstacked so each image stays editable.
+         ==================================================================== -->
+    <template id="s_fikra_scrolly" name="Scroll épinglé">
+        <section class="s_fikra_scrolly o_colored_level" data-name="Scroll épinglé">
+            <div class="s_fikra_sy_wrap">
+
+                <div class="s_fikra_sy_media">
+                    <div class="s_fikra_sy_sticky">
+                        <div class="s_fikra_sy_frame">
+                            <img class="img s_fikra_sy_img is-active" alt="Visuel étape 1"
+                                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='1' height='1' fill='%23d9d9de'/%3E%3C/svg%3E"/>
+                            <img class="img s_fikra_sy_img" alt="Visuel étape 2"
+                                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='1' height='1' fill='%23c9d4d0'/%3E%3C/svg%3E"/>
+                            <img class="img s_fikra_sy_img" alt="Visuel étape 3"
+                                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='1' height='1' fill='%23e3d9cc'/%3E%3C/svg%3E"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="s_fikra_sy_steps">
+
+                    <div class="s_fikra_sy_step">
+                        <p class="s_fikra_sy_eyebrow">Étape 01</p>
+                        <h3 class="s_fikra_sy_title">Le premier argument</h3>
+                        <p class="s_fikra_sy_text">Décrivez ici le premier point clé. Le visuel à gauche reste fixe pendant que ce texte défile.</p>
+                    </div>
+
+                    <div class="s_fikra_sy_step">
+                        <p class="s_fikra_sy_eyebrow">Étape 02</p>
+                        <h3 class="s_fikra_sy_title">Le deuxième argument</h3>
+                        <p class="s_fikra_sy_text">Quand cette étape arrive au centre de l'écran, l'image change automatiquement.</p>
+                    </div>
+
+                    <div class="s_fikra_sy_step">
+                        <p class="s_fikra_sy_eyebrow">Étape 03</p>
+                        <h3 class="s_fikra_sy_title">Le troisième argument</h3>
+                        <p class="s_fikra_sy_text">Dupliquez une étape et ajoutez l'image correspondante pour allonger la séquence.</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </template>
+
+</odoo>

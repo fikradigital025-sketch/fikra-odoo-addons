@@ -1,0 +1,53 @@
+// =====================================================================
+// Floating WhatsApp button - Fikra Blocks
+//
+// Standard floating action button sizing:
+//   56px circle, 24px from the right and bottom edges (52px / 16px on mobile)
+//   WhatsApp green #25d366, white glyph, soft drop shadow
+//   z-index 1030 so it sits above page content but under modals
+// =====================================================================
+
+.s_fikra_whatsapp {
+
+    .s_fikra_whatsapp_btn {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        z-index: 1030;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: #25d366;
+        color: #ffffff;
+        font-size: 28px;
+        line-height: 1;
+        text-decoration: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+        transition: transform .2s ease, box-shadow .2s ease;
+
+        &:hover,
+        &:focus {
+            color: #ffffff;
+            text-decoration: none;
+            transform: scale(1.06);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, .22);
+        }
+    }
+}
+
+@media (max-width: 734px) {
+    .s_fikra_whatsapp .s_fikra_whatsapp_btn {
+        right: 16px;
+        bottom: 16px;
+        width: 52px;
+        height: 52px;
+        font-size: 26px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .s_fikra_whatsapp .s_fikra_whatsapp_btn { transition: none; }
+}

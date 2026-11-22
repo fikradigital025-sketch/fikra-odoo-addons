@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ====================================================================
+         Sticky buy / reserve bar (Apple sub-nav + Airbnb booking bar).
+
+         Measurements follow apple.com product sub-navigation:
+           - bar height 52px desktop / 48px <=734px
+           - background rgba(250,250,252,.94) + backdrop blur(20px) saturate(180%)
+           - 1px bottom border rgba(0,0,0,.18)
+           - product name 21px / 600 / letter-spacing .011em
+           - links 12px, price 12px #6e6e73, 24px apart
+           - CTA pill: #0071e3, padding 4px 11px, radius 980px, 12px
+
+         Options (editor): theme (clair / sombre) and position (haut de page
+         collant / bas de l'ecran fixe, facon Airbnb mobile).
+
+         Place it right under the hero, or at the top of a product page.
+         ==================================================================== -->
+    <template id="s_fikra_buybar" name="Barre d'achat">
+        <div class="s_fikra_buybar" data-name="Barre d'achat">
+            <div class="s_fikra_bb_inner">
+
+                <div class="s_fikra_bb_left">
+                    <span class="s_fikra_bb_name">Nom du produit</span>
+                    <span class="s_fikra_bb_price">À partir de 45 000 FCFA</span>
+                </div>
+
+                <div class="s_fikra_bb_right">
+                    <a href="#" class="s_fikra_bb_link">Aperçu</a>
+                    <a href="#" class="s_fikra_bb_link">Caractéristiques</a>
+                    <a href="#" class="s_fikra_bb_cta">Acheter</a>
+                </div>
+
+            </div>
+        </div>
+    </template>
+
+</odoo>

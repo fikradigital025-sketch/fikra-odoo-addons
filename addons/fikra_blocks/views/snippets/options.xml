@@ -259,4 +259,35 @@
         </xpath>
     </template>
 
+
+    <!-- Scroll épinglé - options -->
+    <template id="s_fikra_scrolly_options" inherit_id="website.snippet_options"
+              name="Scroll épinglé - options">
+        <xpath expr="." position="inside">
+            <div data-selector=".s_fikra_scrolly" string="Scroll épinglé">
+                <we-select string="Thème">
+                    <we-button data-select-class="">Clair</we-button>
+                    <we-button data-select-class="o_fikra_sy_dark">Sombre</we-button>
+                </we-select>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Barre d'achat - options -->
+    <template id="s_fikra_buybar_options" inherit_id="website.snippet_options"
+              name="Barre d'achat - options">
+        <xpath expr="." position="inside">
+            <div data-selector=".s_fikra_buybar" string="Barre d'achat">
+                <we-select string="Thème">
+                    <we-button data-select-class="">Clair</we-button>
+                    <we-button data-select-class="o_fikra_bb_dark">Sombre</we-button>
+                </we-select>
+                <we-select string="Position">
+                    <we-button data-select-class="">Collante en haut</we-button>
+                    <we-button data-select-class="o_fikra_bb_bottom">Fixe en bas</we-button>
+                </we-select>
+            </div>
+        </xpath>
+    </template>
+
 </odoo>

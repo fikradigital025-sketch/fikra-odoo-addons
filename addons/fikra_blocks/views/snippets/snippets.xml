@@ -34,6 +34,24 @@
                 <keywords>produits, cartes, boutique, ecommerce, slider, favoris, note, prix, catalogue, airbnb</keywords>
             </t>
 
+            <t t-snippet="fikra_blocks.s_fikra_scrolly"
+               string="Scroll épinglé"
+               group="content">
+                <keywords>scroll, epingle, sticky, image fixe, etapes, storytelling, apple, defilement, presentation</keywords>
+            </t>
+
+            <t t-snippet="fikra_blocks.s_fikra_buybar"
+               string="Barre d'achat"
+               group="content">
+                <keywords>barre, achat, acheter, reserver, collante, sticky, prix, cta, produit, ecommerce</keywords>
+            </t>
+
+            <t t-snippet="fikra_blocks.s_fikra_whatsapp"
+               string="Bouton WhatsApp"
+               group="content">
+                <keywords>whatsapp, bouton, flottant, contact, message, chat, support, fixe</keywords>
+            </t>
+
             <t t-snippet="fikra_blocks.s_fikra_portfolio_hero"
                string="Portfolio Hero"
                group="intro">

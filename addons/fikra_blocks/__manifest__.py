@@ -21,11 +21,14 @@ Blocs disponibles :
   - Hero produit (plein ecran)
   - Galerie photos (1 grande + 4 petites, lightbox)
   - Cartes produit (slider, favoris, note, prix)
+  - Scroll epingle (image fixe, etapes qui defilent)
+  - Barre d'achat collante
+  - Bouton WhatsApp flottant
     """,
     'author': "Fikra Digital",
     'website': "https://fikra-digit.com",
     'category': 'Website/Website',
-    'version': '18.0.1.13.0',
+    'version': '18.0.1.14.0',
     'license': 'LGPL-3',
 
     'depends': ['website'],
@@ -52,6 +55,9 @@ Blocs disponibles :
         'views/snippets/s_fikra_hero_product.xml',
         'views/snippets/s_fikra_gallery.xml',
         'views/snippets/s_fikra_shopcards.xml',
+        'views/snippets/s_fikra_scrolly.xml',
+        'views/snippets/s_fikra_buybar.xml',
+        'views/snippets/s_fikra_whatsapp.xml',
         'views/snippets/snippets.xml',
         'views/snippets/options.xml',
     ],
@@ -79,6 +85,9 @@ Blocs disponibles :
             'fikra_blocks/static/src/scss/s_fikra_hero_product.scss',
             'fikra_blocks/static/src/scss/s_fikra_gallery.scss',
             'fikra_blocks/static/src/scss/s_fikra_shopcards.scss',
+            'fikra_blocks/static/src/scss/s_fikra_scrolly.scss',
+            'fikra_blocks/static/src/scss/s_fikra_buybar.scss',
+            'fikra_blocks/static/src/scss/s_fikra_whatsapp.scss',
             'fikra_blocks/static/src/js/s_fikra_counter.js',
             'fikra_blocks/static/src/js/s_fikra_portfolio_projects.js',
             'fikra_blocks/static/src/js/s_fikra_portfolio_footer.js',
@@ -90,6 +99,7 @@ Blocs disponibles :
             'fikra_blocks/static/src/js/s_fikra_navbars.js',
             'fikra_blocks/static/src/js/s_fikra_gallery.js',
             'fikra_blocks/static/src/js/s_fikra_shopcards.js',
+            'fikra_blocks/static/src/js/s_fikra_scrolly.js',
         ],
     },
 
