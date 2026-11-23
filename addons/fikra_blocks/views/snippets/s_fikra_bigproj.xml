@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ====================================================================
+         Project block (BIG / big.dk style).
+
+         LIST VIEW: info column on the left (small square image, title,
+         place, aligned right) and the big image centred on the page.
+         Measurements (big.dk at ~1520px): image 23.1vw wide (351px), small
+         square 38px, 33px between the info column and the image, title 14px,
+         place 11px uppercase grey, 28px between two projects.
+         Two variants: info at the top or at the bottom of the image
+         (option "Infos dans la liste").
+
+         OPEN VIEW (click on the big image): the project unfolds in place as
+         one horizontal strip that scrolls to the right (mouse wheel, swipe,
+         arrows or the mini-map): info column with Client / Typologie /
+         Surface / Statut and share icons, the big image at full height, then
+         the gallery panels. Measurements (big.dk): info column ends at 28.3vw,
+         45px to the image, 64px between panels, text column 290px.
+
+         Gallery panel types (duplicate one to add another):
+           - text        .s_fikra_bp_text
+           - image       .s_fikra_bp_img (+ optional caption on the right)
+           - diagram     .s_fikra_bp_img.o_fikra_bp_sm (caption below)
+           - quote       .s_fikra_bp_quote
+           - video       .s_fikra_bp_video
+         Image captions are numbered automatically (01 / 05 ...).
+         ==================================================================== -->
+
+    <template id="s_fikra_bigproj" name="Projet BIG">
+        <section class="s_fikra_bigproj o_colored_level" data-name="Projet BIG">
+            <!-- Mini-map of the open gallery + close (live site, built by JS) -->
+            <div class="s_fikra_bp_bar" contenteditable="false">
+                <div class="s_fikra_bp_map" aria-hidden="true"/>
+                <button type="button" class="s_fikra_bp_close" aria-label="Fermer le projet">Fermer <i class="fa fa-times"/></button>
+            </div>
+
+            <div class="s_fikra_bp_strip">
+
+                <!-- Info column: small square image, title, place.
+                     Facts and share appear when the project is open. -->
+                <div class="s_fikra_bp_meta">
+                    <div class="s_fikra_bp_head">
+                        <img class="img s_fikra_bp_logo" alt="Pictogramme du projet"
+                             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect width='40' height='40' fill='%23000'/%3E%3Cpath d='M9 27 L20 13 L31 27' stroke='%23fff' stroke-width='2.4' fill='none'/%3E%3C/svg%3E"/>
+                        <h3 class="s_fikra_bp_title">Centre culturel de Niamey</h3>
+                        <p class="s_fikra_bp_loc">Niamey, Niger</p>
+                    </div>
+                    <div class="s_fikra_bp_facts">
+                        <div class="s_fikra_bp_fact">
+                            <p class="s_fikra_bp_label">Client</p>
+                            <p class="s_fikra_bp_value">Ville de Niamey</p>
+                        </div>
+                        <div class="s_fikra_bp_fact">
+                            <p class="s_fikra_bp_label">Typologie</p>
+                            <p class="s_fikra_bp_value">Culture</p>
+                        </div>
+                        <div class="s_fikra_bp_fact">
+                            <p class="s_fikra_bp_label">Surface m²</p>
+                            <p class="s_fikra_bp_value">4 800</p>
+                        </div>
+                        <div class="s_fikra_bp_fact">
+                            <p class="s_fikra_bp_label">Statut</p>
+                            <p class="s_fikra_bp_value">En conception</p>
+                        </div>
+                    </div>
+                    <div class="s_fikra_bp_share">
+                        <p class="s_fikra_bp_label">Partager</p>
+                        <div class="s_fikra_bp_icons">
+                            <a href="#" class="s_fikra_bp_sh" data-share="mail" aria-label="Partager par e-mail"><i class="fa fa-envelope"/></a>
+                            <a href="#" class="s_fikra_bp_sh" data-share="facebook" aria-label="Partager sur Facebook"><i class="fa fa-facebook"/></a>
+                            <a href="#" class="s_fikra_bp_sh" data-share="linkedin" aria-label="Partager sur LinkedIn"><i class="fa fa-linkedin"/></a>
+                            <a href="#" class="s_fikra_bp_sh" data-share="x" aria-label="Partager sur X"><i class="fa fa-twitter"/></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Big image: click it to open the project -->
+                <div class="s_fikra_bp_hero">
+                    <img class="img s_fikra_bp_heroimg" alt="Vue principale du projet"
+                         src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='3' height='2'%3E%3Crect width='3' height='2' fill='%23cfd3d1'/%3E%3C/svg%3E"/>
+                </div>
+
+                <!-- Gallery shown when the project is open, scrolling right.
+                     Add panels by duplicating one of the right type. -->
+                <div class="s_fikra_bp_more">
+
+                    <!-- Panel: description -->
+                    <div class="s_fikra_bp_panel s_fikra_bp_text">
+                        <p>Implanté au coeur de Niamey, le centre culturel s'organise autour de patios ombragés qui relient les salles d'exposition, l'auditorium et la médiathèque.</p>
+                        <p>Les façades en terre crue et les brise-soleil en bois répondent au climat sahélien tout en offrant à la ville un nouveau lieu de rencontre, ouvert de jour comme de nuit.</p>
+                    </div>
+
+                    <!-- Panel: full-height image -->
+                    <div class="s_fikra_bp_panel s_fikra_bp_img">
+                        <img class="img" alt="Image du projet"
+                             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3Crect width='16' height='10' fill='%23d8d4cc'/%3E%3C/svg%3E"/>
+                    </div>
+
+                    <!-- Panel: quote -->
+                    <div class="s_fikra_bp_panel s_fikra_bp_quote">
+                        <p class="s_fikra_bp_q">« Le bâtiment s'ouvre sur la ville par une succession de cours ombragées : une architecture du climat, pensée pour la vie collective et les matériaux du lieu. »</p>
+                        <p class="s_fikra_bp_by"><strong>Nom de l'architecte</strong> - Architecte associé, SIAR Studio</p>
+                    </div>
+
+                    <!-- Panel: full-height image + caption on the right -->
+                    <div class="s_fikra_bp_panel s_fikra_bp_img">
+                        <img class="img" alt="Image du projet"
+                             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='3' height='4'%3E%3Crect width='3' height='4' fill='%23c9cfd3'/%3E%3C/svg%3E"/>
+                        <div class="s_fikra_bp_cap">
+                            <p>PATIOS - Les cours intérieures organisent les circulations et apportent fraîcheur et lumière.</p>
+                            <span class="s_fikra_bp_count" contenteditable="false"/>
+                        </div>
+                    </div>
+
+                    <!-- Panel: diagram, caption below -->
+                    <div class="s_fikra_bp_panel s_fikra_bp_img o_fikra_bp_sm">
+                        <img class="img" alt="Schéma du projet"
+                             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='3'%3E%3Crect width='4' height='3' fill='%23ececec'/%3E%3C/svg%3E"/>
+                        <div class="s_fikra_bp_cap">
+                            <p>VENTILATION - Les vents dominants traversent le bâtiment et rafraîchissent les espaces.</p>
+                            <span class="s_fikra_bp_count" contenteditable="false"/>
+                        </div>
+                    </div>
+
+                    <!-- Panel: text -->
+                    <div class="s_fikra_bp_panel s_fikra_bp_text">
+                        <p>Le projet privilégie les matériaux locaux et les savoir-faire de la région : terre, bois et métal se combinent pour limiter l'empreinte carbone et faciliter l'entretien.</p>
+                    </div>
+
+                    <!-- Panel: video -->
+                    <div class="s_fikra_bp_panel s_fikra_bp_video">
+                        <div class="s_fikra_bp_videobox">
+                            <p class="s_fikra_bp_videohint">Sélectionnez cette zone et insérez une vidéo (bloc Vidéo d'Odoo), ou remplacez-la par une image.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template id="s_fikra_bigproj_bottom" name="Projet BIG - infos en bas">
+        <section class="s_fikra_bigproj o_colored_level o_fikra_bp_bottom" data-name="Projet BIG - infos en bas">
+            <!-- Mini-map of the open gallery + close (live site, built by JS) -->
+            <div class="s_fikra_bp_bar" contenteditable="false">
+                <div class="s_fikra_bp_map" aria-hidden="true"/>
+                <button type="button" class="s_fikra_bp_close" aria-label="Fermer le projet">Fermer <i class="fa fa-times"/></button>
+            </div>
+
+            <div class="s_fikra_bp_strip">
+
+                <!-- Info column: small square image, title, place.
+                     Facts and share appear when the project is open. -->
+                <div class="s_fikra_bp_meta">
+                    <div class="s_fikra_bp_head">
+                        <img class="img s_fikra_bp_logo" alt="Pictogramme du projet"
+                             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect width='40' height='40' fill='%23000'/%3E%3Cpath d='M9 27 L20 13 L31 27' stroke='%23fff' stroke-width='2.4' fill='none'/%3E%3C/svg%3E"/>
+                        <h3 class="s_fikra_bp_title">Centre culturel de Niamey</h3>
+                        <p class="s_fikra_bp_loc">Niamey, Niger</p>
+                    </div>
+                    <div class="s_fikra_bp_facts">
+                        <div class="s_fikra_bp_fact">
+                            <p class="s_fikra_bp_label">Client</p>
+                            <p class="s_fikra_bp_value">Ville de Niamey</p>
+                        </div>
+                        <div class="s_fikra_bp_fact">
+                            <p class="s_fikra_bp_label">Typologie</p>
+                            <p class="s_fikra_bp_value">Culture</p>
+                        </div>
+                        <div class="s_fikra_bp_fact">
+                            <p class="s_fikra_bp_label">Surface m²</p>
+                            <p class="s_fikra_bp_value">4 800</p>
+                        </div>
+                        <div class="s_fikra_bp_fact">
+                            <p class="s_fikra_bp_label">Statut</p>
+                            <p class="s_fikra_bp_value">En conception</p>
+                        </div>
+                    </div>
+                    <div class="s_fikra_bp_share">
+                        <p class="s_fikra_bp_label">Partager</p>
+                        <div class="s_fikra_bp_icons">
+                            <a href="#" class="s_fikra_bp_sh" data-share="mail" aria-label="Partager par e-mail"><i class="fa fa-envelope"/></a>
+                            <a href="#" class="s_fikra_bp_sh" data-share="facebook" aria-label="Partager sur Facebook"><i class="fa fa-facebook"/></a>
+                            <a href="#" class="s_fikra_bp_sh" data-share="linkedin" aria-label="Partager sur LinkedIn"><i class="fa fa-linkedin"/></a>
+                            <a href="#" class="s_fikra_bp_sh" data-share="x" aria-label="Partager sur X"><i class="fa fa-twitter"/></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Big image: click it to open the project -->
+                <div class="s_fikra_bp_hero">
+                    <img class="img s_fikra_bp_heroimg" alt="Vue principale du projet"
+                         src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='3' height='2'%3E%3Crect width='3' height='2' fill='%23cfd3d1'/%3E%3C/svg%3E"/>
+                </div>
+
+                <!-- Gallery shown when the project is open, scrolling right.
+                     Add panels by duplicating one of the right type. -->
+                <div class="s_fikra_bp_more">
+
+                    <!-- Panel: description -->
+                    <div class="s_fikra_bp_panel s_fikra_bp_text">
+                        <p>Implanté au coeur de Niamey, le centre culturel s'organise autour de patios ombragés qui relient les salles d'exposition, l'auditorium et la médiathèque.</p>
+                        <p>Les façades en terre crue et les brise-soleil en bois répondent au climat sahélien tout en offrant à la ville un nouveau lieu de rencontre, ouvert de jour comme de nuit.</p>
+                    </div>
+
+                    <!-- Panel: full-height image -->
+                    <div class="s_fikra_bp_panel s_fikra_bp_img">
+                        <img class="img" alt="Image du projet"
+                             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3Crect width='16' height='10' fill='%23d8d4cc'/%3E%3C/svg%3E"/>
+                    </div>
+
+                    <!-- Panel: quote -->
+                    <div class="s_fikra_bp_panel s_fikra_bp_quote">
+                        <p class="s_fikra_bp_q">« Le bâtiment s'ouvre sur la ville par une succession de cours ombragées : une architecture du climat, pensée pour la vie collective et les matériaux du lieu. »</p>
+                        <p class="s_fikra_bp_by"><strong>Nom de l'architecte</strong> - Architecte associé, SIAR Studio</p>
+                    </div>
+
+                    <!-- Panel: full-height image + caption on the right -->
+                    <div class="s_fikra_bp_panel s_fikra_bp_img">
+                        <img class="img" alt="Image du projet"
+                             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='3' height='4'%3E%3Crect width='3' height='4' fill='%23c9cfd3'/%3E%3C/svg%3E"/>
+                        <div class="s_fikra_bp_cap">
+                            <p>PATIOS - Les cours intérieures organisent les circulations et apportent fraîcheur et lumière.</p>
+                            <span class="s_fikra_bp_count" contenteditable="false"/>
+                        </div>
+                    </div>
+
+                    <!-- Panel: diagram, caption below -->
+                    <div class="s_fikra_bp_panel s_fikra_bp_img o_fikra_bp_sm">
+                        <img class="img" alt="Schéma du projet"
+                             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='3'%3E%3Crect width='4' height='3' fill='%23ececec'/%3E%3C/svg%3E"/>
+                        <div class="s_fikra_bp_cap">
+                            <p>VENTILATION - Les vents dominants traversent le bâtiment et rafraîchissent les espaces.</p>
+                            <span class="s_fikra_bp_count" contenteditable="false"/>
+                        </div>
+                    </div>
+
+                    <!-- Panel: text -->
+                    <div class="s_fikra_bp_panel s_fikra_bp_text">
+                        <p>Le projet privilégie les matériaux locaux et les savoir-faire de la région : terre, bois et métal se combinent pour limiter l'empreinte carbone et faciliter l'entretien.</p>
+                    </div>
+
+                    <!-- Panel: video -->
+                    <div class="s_fikra_bp_panel s_fikra_bp_video">
+                        <div class="s_fikra_bp_videobox">
+                            <p class="s_fikra_bp_videohint">Sélectionnez cette zone et insérez une vidéo (bloc Vidéo d'Odoo), ou remplacez-la par une image.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>

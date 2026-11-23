@@ -136,6 +136,18 @@
                 <keywords>projet, realisation, portfolio, architecture, trait, cartes, details, image, haut, inverse</keywords>
             </t>
 
+            <t t-snippet="fikra_blocks.s_fikra_bigproj"
+               string="Projet BIG - infos en haut"
+               group="content">
+                <keywords>projet, big, architecture, liste, galerie, horizontal, defilement, fiche, details, realisation, haut</keywords>
+            </t>
+
+            <t t-snippet="fikra_blocks.s_fikra_bigproj_bottom"
+               string="Projet BIG - infos en bas"
+               group="content">
+                <keywords>projet, big, architecture, liste, galerie, horizontal, defilement, fiche, details, realisation, bas</keywords>
+            </t>
+
             <t t-snippet="fikra_blocks.s_fikra_nav_a"
                string="Navbar - logo menu"
                group="content">

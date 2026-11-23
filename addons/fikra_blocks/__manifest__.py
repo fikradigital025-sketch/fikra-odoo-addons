@@ -24,11 +24,13 @@ Blocs disponibles :
   - Scroll epingle (image fixe, etapes qui defilent)
   - Barre d'achat collante
   - Bouton WhatsApp flottant
+  - En-tete Navbar BIG (logo 3 barres, sous-menus horizontaux, recherche)
+  - Projet BIG (liste + galerie horizontale au clic)
     """,
     'author': "Fikra Digital",
     'website': "https://fikra-digit.com",
     'category': 'Website/Website',
-    'version': '18.0.1.14.0',
+    'version': '18.0.1.15.0',
     'license': 'LGPL-3',
 
     'depends': ['website'],
@@ -49,6 +51,7 @@ Blocs disponibles :
         'views/snippets/s_fikra_project.xml',
         'views/snippets/s_fikra_navbars.xml',
         'views/snippets/s_fikra_header.xml',
+        'views/snippets/s_fikra_header_big.xml',
         'views/snippets/s_fikra_numcards.xml',
         'views/snippets/s_fikra_strengths.xml',
         'views/snippets/s_fikra_newsletter.xml',
@@ -58,6 +61,7 @@ Blocs disponibles :
         'views/snippets/s_fikra_scrolly.xml',
         'views/snippets/s_fikra_buybar.xml',
         'views/snippets/s_fikra_whatsapp.xml',
+        'views/snippets/s_fikra_bigproj.xml',
         'views/snippets/snippets.xml',
         'views/snippets/options.xml',
     ],
@@ -79,6 +83,7 @@ Blocs disponibles :
             'fikra_blocks/static/src/scss/s_fikra_project.scss',
             'fikra_blocks/static/src/scss/s_fikra_navbars.scss',
             'fikra_blocks/static/src/scss/s_fikra_header.scss',
+            'fikra_blocks/static/src/scss/s_fikra_header_big.scss',
             'fikra_blocks/static/src/scss/s_fikra_numcards.scss',
             'fikra_blocks/static/src/scss/s_fikra_strengths.scss',
             'fikra_blocks/static/src/scss/s_fikra_newsletter.scss',
@@ -88,6 +93,7 @@ Blocs disponibles :
             'fikra_blocks/static/src/scss/s_fikra_scrolly.scss',
             'fikra_blocks/static/src/scss/s_fikra_buybar.scss',
             'fikra_blocks/static/src/scss/s_fikra_whatsapp.scss',
+            'fikra_blocks/static/src/scss/s_fikra_bigproj.scss',
             'fikra_blocks/static/src/js/s_fikra_counter.js',
             'fikra_blocks/static/src/js/s_fikra_portfolio_projects.js',
             'fikra_blocks/static/src/js/s_fikra_portfolio_footer.js',
@@ -100,6 +106,8 @@ Blocs disponibles :
             'fikra_blocks/static/src/js/s_fikra_gallery.js',
             'fikra_blocks/static/src/js/s_fikra_shopcards.js',
             'fikra_blocks/static/src/js/s_fikra_scrolly.js',
+            'fikra_blocks/static/src/js/s_fikra_header_big.js',
+            'fikra_blocks/static/src/js/s_fikra_bigproj.js',
         ],
     },
 

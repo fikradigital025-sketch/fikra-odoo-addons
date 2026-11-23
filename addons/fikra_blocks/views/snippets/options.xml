@@ -290,4 +290,24 @@
         </xpath>
     </template>
 
+
+    <!-- Projet BIG - options -->
+    <template id="s_fikra_bigproj_options" inherit_id="website.snippet_options"
+              name="Projet BIG - options">
+        <xpath expr="." position="inside">
+            <div data-selector=".s_fikra_bigproj" string="Projet BIG">
+                <we-select string="Infos dans la liste">
+                    <we-button data-select-class="">En haut</we-button>
+                    <we-button data-select-class="o_fikra_bp_bottom">En bas</we-button>
+                </we-select>
+            </div>
+            <div data-selector=".s_fikra_bigproj .s_fikra_bp_img" string="Image du détail">
+                <we-select string="Format">
+                    <we-button data-select-class="">Grande (légende à droite)</we-button>
+                    <we-button data-select-class="o_fikra_bp_sm">Schéma (légende dessous)</we-button>
+                </we-select>
+            </div>
+        </xpath>
+    </template>
+
 </odoo>

@@ -1,0 +1,535 @@
+// =====================================================================
+// Project block (BIG style) - Fikra Blocks
+//
+// LIST VIEW - measured on big.dk at ~1520px:
+//   big image       23.1vw wide (351px), natural height, centred on page
+//   info column     right-aligned, ends 33px before the image
+//   small square    38px, 16px above the title
+//   title           14px, black
+//   place           11px uppercase, grey #8a8a8a
+//   between rows    28px (14px top + 14px bottom per block)
+//
+// OPEN VIEW - measured on big.dk at ~1530px:
+//   strip           one horizontal row, height = viewport minus header
+//   info column     15.1vw wide, its right edge at 28.3vw, 45px to the image
+//   small square    50px; title 17px; place 14px uppercase grey
+//   facts           label 12px uppercase grey, value 14px uppercase,
+//                   ~48px per fact, ~60px under the place
+//   share           11px label + 16px black squares, 4px apart, at the
+//                   bottom of the column
+//   big image       full strip height, width from its own ratio
+//   panels          64px apart; text column 290px (13.5px / 1.2)
+//   quote           ~520px, 17px / 1.3, author 10.5px uppercase
+//   mini-map        360 x 36px, centred above the strip
+// =====================================================================
+
+.s_fikra_bigproj {
+    --fikra-bp-ink: #000000;
+    --fikra-bp-muted: #8a8a8a;
+    --fikra-bp-imgw: clamp(260px, 23.1vw, 520px);
+    --fikra-bp-gutter: clamp(20px, 2.2vw, 33px);
+    --fikra-bp-logo: clamp(30px, 2.5vw, 38px);
+    --fikra-bp-metaw: clamp(200px, 15.1vw, 260px);
+    --fikra-bp-h: clamp(380px, calc(100vh - 190px), 860px);
+
+    padding: 14px 0;
+    color: var(--fikra-bp-ink);
+
+    .s_fikra_bp_bar { display: none; }
+
+    // =================================================================
+    // LIST VIEW
+    // =================================================================
+    .s_fikra_bp_strip {
+        display: grid;
+        grid-template-columns: 1fr var(--fikra-bp-imgw) 1fr;
+        align-items: start;
+    }
+
+    .s_fikra_bp_meta {
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: end;
+        align-self: start;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        padding-right: var(--fikra-bp-gutter);
+        text-align: right;
+    }
+
+    .s_fikra_bp_head {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .s_fikra_bp_logo {
+        display: block;
+        width: var(--fikra-bp-logo);
+        height: var(--fikra-bp-logo);
+        max-width: none;
+        object-fit: cover;
+        margin: 0 0 16px;
+    }
+
+    .s_fikra_bp_title {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.3;
+        font-weight: 400;
+        color: var(--fikra-bp-ink);
+    }
+
+    .s_fikra_bp_loc {
+        margin: 5px 0 0;
+        font-size: 11px;
+        line-height: 1.3;
+        letter-spacing: .03em;
+        text-transform: uppercase;
+        color: var(--fikra-bp-muted);
+    }
+
+    .s_fikra_bp_hero {
+        grid-column: 2;
+        grid-row: 1;
+        min-width: 0;
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-width: none;
+            cursor: pointer;
+            transition: opacity .2s ease;
+        }
+        img:hover { opacity: .92; }
+    }
+
+    // Variant: info aligned with the bottom of the image.
+    &.o_fikra_bp_bottom .s_fikra_bp_meta { align-self: end; }
+
+    // =================================================================
+    // Shared styles: facts, share, panels (open view and editor)
+    // =================================================================
+    .s_fikra_bp_facts {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 14px;
+        margin-top: 60px;
+    }
+
+    .s_fikra_bp_label {
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.3;
+        letter-spacing: .03em;
+        text-transform: uppercase;
+        color: var(--fikra-bp-muted);
+    }
+
+    .s_fikra_bp_value {
+        margin: 2px 0 0;
+        font-size: 14px;
+        line-height: 1.25;
+        text-transform: uppercase;
+        color: var(--fikra-bp-ink);
+    }
+
+    .s_fikra_bp_share {
+        margin-top: auto;
+        padding-top: 24px;
+
+        .s_fikra_bp_label { font-size: 11px; }
+    }
+
+    .s_fikra_bp_icons {
+        display: flex;
+        justify-content: flex-end;
+        gap: 4px;
+        margin-top: 8px;
+    }
+
+    .s_fikra_bp_sh {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 16px;
+        height: 16px;
+        background: #000000;
+        color: #ffffff;
+        font-size: 10px;
+        line-height: 1;
+        text-decoration: none;
+        transition: background .2s ease;
+
+        &:hover,
+        &:focus {
+            background: #444444;
+            color: #ffffff;
+        }
+    }
+
+    // --- Panels ---
+    .s_fikra_bp_more {
+        display: flex;
+        align-items: flex-start;
+        gap: 64px;
+    }
+
+    .s_fikra_bp_text {
+        flex: 0 0 clamp(240px, 19vw, 300px);
+        width: clamp(240px, 19vw, 300px);
+        padding-top: 4px;
+
+        p {
+            margin: 0 0 1.15em;
+            font-size: 13.5px;
+            line-height: 1.2;
+            color: var(--fikra-bp-ink);
+        }
+        p:last-child { margin-bottom: 0; }
+    }
+
+    // Image at full strip height, optional caption on its right, at the bottom.
+    .s_fikra_bp_img {
+        flex: 0 0 auto;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        gap: 14px;
+
+        > img {
+            display: block;
+            height: 100%;
+            width: auto;
+            max-width: none;
+        }
+    }
+
+    .s_fikra_bp_cap {
+        flex: 0 0 120px;
+        width: 120px;
+
+        p {
+            margin: 0;
+            font-size: 11px;
+            line-height: 1.3;
+            color: var(--fikra-bp-ink);
+        }
+    }
+
+    .s_fikra_bp_count {
+        display: block;
+        margin-top: 10px;
+        font-size: 11px;
+        letter-spacing: .04em;
+        color: var(--fikra-bp-muted);
+
+        &:empty { display: none; }
+    }
+
+    // Diagram: shorter image, caption centred below and never wider than it.
+    .s_fikra_bp_img.o_fikra_bp_sm {
+        display: inline-grid;
+        grid-template-columns: auto;
+        justify-items: center;
+        align-self: center;
+        height: auto;
+        gap: 12px;
+
+        > img { height: calc(var(--fikra-bp-h) * .58); }
+
+        .s_fikra_bp_cap {
+            flex: none;
+            width: 0;
+            min-width: 100%;
+            text-align: center;
+        }
+    }
+
+    .s_fikra_bp_quote {
+        flex: 0 0 clamp(340px, 34vw, 560px);
+        width: clamp(340px, 34vw, 560px);
+        align-self: center;
+
+        .s_fikra_bp_q {
+            margin: 0;
+            font-size: 17px;
+            line-height: 1.3;
+            color: var(--fikra-bp-ink);
+        }
+
+        .s_fikra_bp_by {
+            margin: 22px 0 0;
+            font-size: 10.5px;
+            line-height: 1.3;
+            letter-spacing: .03em;
+            text-transform: uppercase;
+            color: var(--fikra-bp-muted);
+
+            strong {
+                font-weight: 400;
+                color: var(--fikra-bp-ink);
+            }
+        }
+    }
+
+    .s_fikra_bp_video {
+        flex: 0 0 auto;
+        height: 100%;
+        aspect-ratio: 16 / 9;
+
+        .s_fikra_bp_videobox {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 16px;
+            text-align: center;
+            background: #ecebe8;
+        }
+        .s_fikra_bp_videohint {
+            max-width: 320px;
+            margin: 0;
+            font-size: 12px;
+            line-height: 1.5;
+            color: var(--fikra-bp-muted);
+        }
+        // A real Odoo video dropped in replaces the placeholder frame.
+        .s_fikra_bp_videobox:has(.media_iframe_video),
+        .s_fikra_bp_videobox:has(iframe) {
+            padding: 0;
+            background: transparent;
+        }
+        .media_iframe_video,
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    // =================================================================
+    // EDITOR (widget not running): list view + every detail visible
+    // =================================================================
+    &:not(.o_fikra_bp_ready) {
+        .s_fikra_bp_facts { margin-top: 28px; }
+        .s_fikra_bp_share { margin-top: 20px; padding-top: 0; }
+
+        .s_fikra_bp_more {
+            --fikra-bp-h: 300px;
+            position: relative;
+            grid-column: 1 / -1;
+            grid-row: 2;
+            height: calc(var(--fikra-bp-h) + 30px);
+            margin-top: 28px;
+            padding-top: 30px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            outline: 1px dashed rgba(0, 0, 0, .25);
+            outline-offset: 6px;
+        }
+        .s_fikra_bp_more::before {
+            content: "Détail du projet : s'ouvre au clic sur la grande image et défile vers la droite";
+            position: absolute;
+            top: 4px;
+            left: 0;
+            font-size: 11px;
+            letter-spacing: .02em;
+            color: #999999;
+            white-space: nowrap;
+        }
+    }
+
+    // =================================================================
+    // LIVE, CLOSED: list view only
+    // =================================================================
+    &.o_fikra_bp_ready:not(.o_fikra_bp_open) {
+        .s_fikra_bp_facts,
+        .s_fikra_bp_share,
+        .s_fikra_bp_more { display: none; }
+    }
+
+    // =================================================================
+    // LIVE, OPEN: one horizontal strip
+    // =================================================================
+    &.o_fikra_bp_open {
+        padding: 6px 0 32px;
+
+        .s_fikra_bp_bar {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 36px;
+            margin: 0 0 24px;
+        }
+
+        .s_fikra_bp_strip {
+            display: flex;
+            align-items: flex-start;
+            height: var(--fikra-bp-h);
+            padding-left: #{"max(24px, calc(28.3vw - var(--fikra-bp-metaw)))"};
+            overflow-x: auto;
+            overflow-y: hidden;
+            overscroll-behavior-x: contain;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            animation: fikra_bp_in .4s ease both;
+        }
+        .s_fikra_bp_strip::-webkit-scrollbar { display: none; }
+
+        .s_fikra_bp_meta {
+            flex: 0 0 var(--fikra-bp-metaw);
+            width: var(--fikra-bp-metaw);
+            height: 100%;
+            align-self: stretch;
+            padding-right: 0;
+            margin-right: 45px;
+        }
+
+        .s_fikra_bp_logo {
+            width: clamp(40px, 3.3vw, 50px);
+            height: clamp(40px, 3.3vw, 50px);
+            margin-bottom: 26px;
+        }
+        .s_fikra_bp_title {
+            font-size: 17px;
+            line-height: 1.25;
+        }
+        .s_fikra_bp_loc {
+            margin-top: 6px;
+            font-size: 14px;
+        }
+
+        .s_fikra_bp_hero {
+            flex: 0 0 auto;
+            height: 100%;
+            margin-right: 64px;
+
+            img {
+                width: auto;
+                height: 100%;
+                cursor: default;
+            }
+            img:hover { opacity: 1; }
+        }
+
+        .s_fikra_bp_more {
+            flex: 0 0 auto;
+            height: 100%;
+        }
+        // Breathing room after the last panel.
+        .s_fikra_bp_more::after {
+            content: "";
+            flex: 0 0 8vw;
+            height: 1px;
+        }
+    }
+
+    // --- Mini-map (built by JS) ---
+    .s_fikra_bp_map {
+        position: relative;
+        width: 360px;
+        max-width: 60vw;
+        height: 36px;
+        overflow: hidden;
+        background: #f2f2f2;
+        cursor: pointer;
+    }
+
+    .s_fikra_bp_mapitem {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        background: #e3e3e3 center / cover no-repeat;
+
+        &.is-text { background: #ebebeb; }
+    }
+
+    .s_fikra_bp_mapwin {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        pointer-events: none;
+        // Dims everything outside the visible part of the strip.
+        box-shadow: 0 0 0 9999px rgba(255, 255, 255, .55);
+        outline: 1px solid rgba(0, 0, 0, .35);
+        outline-offset: -1px;
+    }
+
+    .s_fikra_bp_close {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        padding: 0;
+        border: 0;
+        background: none;
+        font-size: 11px;
+        letter-spacing: .04em;
+        text-transform: uppercase;
+        color: var(--fikra-bp-muted);
+        cursor: pointer;
+        transition: color .2s ease;
+
+        &:hover,
+        &:focus { color: var(--fikra-bp-ink); }
+
+        i { margin-left: 4px; }
+    }
+}
+
+@keyframes fikra_bp_in {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: none; }
+}
+
+// --- Mobile ---
+@media (max-width: 767px) {
+    .s_fikra_bigproj {
+        --fikra-bp-metaw: 70vw;
+
+        // List: info above the image (below it for the "bottom" variant).
+        .s_fikra_bp_strip { grid-template-columns: 1fr; }
+        .s_fikra_bp_meta {
+            grid-row: 1;
+            justify-self: start;
+            align-items: flex-start;
+            padding: 0 16px 12px;
+            text-align: left;
+        }
+        .s_fikra_bp_head { align-items: flex-start; }
+        .s_fikra_bp_hero { grid-column: 1; grid-row: 2; padding: 0 16px; }
+        &.o_fikra_bp_bottom .s_fikra_bp_meta { grid-row: 3; padding: 12px 16px 0; }
+
+        .s_fikra_bp_text { flex-basis: 78vw; width: 78vw; }
+        .s_fikra_bp_quote { flex-basis: 82vw; width: 82vw; }
+        .s_fikra_bp_cap { flex-basis: 96px; width: 96px; }
+
+        // Open: swipe the strip, info column first.
+        &.o_fikra_bp_open {
+            .s_fikra_bp_strip { padding-left: 16px; }
+            .s_fikra_bp_meta {
+                align-items: flex-end;
+                padding: 0;
+                text-align: right;
+                margin-right: 28px;
+            }
+            .s_fikra_bp_head { align-items: flex-end; }
+            .s_fikra_bp_hero { padding: 0; margin-right: 32px; }
+            .s_fikra_bp_more { gap: 32px; }
+        }
+        .s_fikra_bp_close { right: 16px; }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .s_fikra_bigproj * {
+        transition: none !important;
+        animation: none !important;
+    }
+}
